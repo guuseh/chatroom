@@ -1,4 +1,6 @@
 import {useState, useEffect, useRef} from 'react'
+import {motion} from 'motion/react' 
+import AboutWork from "../components/AboutWork.jsx"
 
 const Parkerito = ({setProjectCounter, visitPage}) => {
   // ROOM 07
@@ -11,6 +13,16 @@ const Parkerito = ({setProjectCounter, visitPage}) => {
     setProjectCounter(prev => prev+1)
     visitPage("/07")
   }, [])
+
+  const workdata = {
+    "title": "eyes",
+    "artist": [{
+      "name": "Parker Ito",
+      "ig": "creamydreamy",
+      "web": "https://parker.sex"
+    }],
+    "date": "2024"
+    }
 
   useEffect(() => {
     getMeasurements();
@@ -29,13 +41,19 @@ const Parkerito = ({setProjectCounter, visitPage}) => {
   window.addEventListener('resize', getMeasurements)
 
   return (
+    <>
+    <motion.div initial={{opacity: 1}} animate={{opacity: 0, transition: {delay: 2.5}}} className="title-overlay">"{workdata.title}"</motion.div>
+
     <div class="theatre-container">
-      <div id="eyes-container" className="theatre-item" ref={ref}>
+      <motion.div id="eyes-container" className="theatre-item" ref={ref}  initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
         {/* {html} */}
         <iframe id="parkerframe" src="https://parker.sex/eyes" 
           style={{backgroundColor:"#aaa", left: `-${shiftLeft}px`, top: `-${shiftTop}px`}}/>
-      </div>
+      </motion.div>
     </div>
+
+    <AboutWork data={workdata}/>
+    </>
   )
 }
 

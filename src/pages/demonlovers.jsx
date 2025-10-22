@@ -5,6 +5,7 @@ import { VisibleRangePlugin } from '@photo-sphere-viewer/visible-range-plugin'
 import { CompassPlugin } from '@photo-sphere-viewer/compass-plugin'
 import { ReactPhotoSphereViewer } from "react-photo-sphere-viewer"
 import { motion } from "motion/react"
+import AboutWork from "../components/AboutWork.jsx"
 
 // import PageMenu from "../components/PageMenu.jsx"
 
@@ -17,6 +18,15 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
     setProjectCounter(prev => prev+1)
     visitPage("/02")
   }, [])
+
+  const workdata = {
+    "title": "Location Scouting",
+    "artist": [{
+      "name": "Demon Lovers inc",
+      "ig": "daemonlovers",
+    }],
+    "date": "2025"
+    }
 
   
   const imgData = [
@@ -145,10 +155,13 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
   // maybe make share button share the link to the artwork on the website??
 
   return (
+    <>
+    <motion.div initial={{opacity: 1}} animate={{opacity: 0, transition: {delay: 2.5}}} className="title-overlay">"{workdata.title}"</motion.div>
+
     <div className="center-container">
 
       <div id="demon-underlay-close" onClick={() => setOpen(false)}></div>
-      <div id="demon-container" >
+      <motion.div id="demon-container" initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
         <motion.div id="demon-panorama-container" 
           initial={{scale: 0}} variants={viewerVariants} custom={index} animate={open? "visible" : "hidden"}
           style={{transformOrigin: `${imgData[index].x} ${imgData[index].y}`}}>
@@ -176,8 +189,11 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
             })
           }
         </div>
-      </div>
+      </motion.div>
     </div>
+
+    <AboutWork data={workdata}/>
+    </>
   )
 }
 

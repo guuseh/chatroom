@@ -49,16 +49,21 @@ const Projects = ({projects}) => {
 
         <AnimatePresence>
           {open && <motion.div id="projects-about" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
-              The Chatroom & The Dollhouse
-              <br/><br/>
-              presents artists investigating how identities are staged and constructed in digital spaces. Visitors navigate AI-enhanced thresholds, miniature relics, tokens, and artefacts to encounter works such as blinking ASCII eyes, self-writing chatbots, angelic memes, and an anthropomorphic war fantasy.
-              <br/><br/>
-              The pavilion traces wandering online, searching, discovering, and negotiating identity and attention, turning media consumption into a performative exploration of presence, perception, and unseen forces.
-              <br/><br/>
-              Who lives in the dollhouse, and who watches from the chatroom?
-              <br/><br/>
-              Curated by Sarah Khadra Hasni and Joshua Esser<br/>
-              Developed by Guus Hoeberechts
+              <p>The Chatroom & The Dollhouse</p>
+              
+              <p>
+                presents artists investigating how identities are staged and constructed in digital spaces. Visitors navigate AI-enhanced thresholds, miniature relics, tokens, and artefacts to encounter works such as blinking ASCII eyes, self-writing chatbots, angelic memes, and an anthropomorphic war fantasy.
+              </p>
+              <p>
+                The pavilion traces wandering online, searching, discovering, and negotiating identity and attention, turning media consumption into a performative exploration of presence, perception, and unseen forces.
+              </p>
+              <p style={{fontFamily: "olditalic"}}>
+                Who lives in the dollhouse, and who watches from the chatroom?
+              </p>
+              <p style={{fontFamily: "olditalic", fontSize: "1rem"}}>
+                Curated by Sarah Khadra Hasni and Joshua Esser<br/>
+                Developed by Guus Hoeberechts
+              </p>
           </motion.div>}
         </AnimatePresence>
     </div>

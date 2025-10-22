@@ -1,5 +1,6 @@
 import {useEffect, useState, useRef} from 'react'
 import {motion, useMotionValue} from 'motion/react'
+import AboutWork from "../components/AboutWork.jsx"
 // @refresh reset
 
 const James = ({setProjectCounter, visitPage}) => {
@@ -9,6 +10,8 @@ const James = ({setProjectCounter, visitPage}) => {
     setProjectCounter(prev => prev+1)
     visitPage("/05")
   }, [])
+
+
 
   const imgWidth = window.innerWidth * 0.4
   const [left, setLeft] = useState(true)
@@ -22,7 +25,14 @@ const James = ({setProjectCounter, visitPage}) => {
   const opleft = useMotionValue(1)
   const opright = useMotionValue(0.3)
 
-  console.log(xright, xleft)
+    const workdata = {
+    "title": activeSide == 'l' ? "Solace" : "Pawns",
+    "artist": [{
+      "name": "BloodPiano1",
+      "ig": "bloodpiano1",
+    }],
+    "date": "2025"
+    }
 
   const handleClick = (side) => {
     if(side !== activeSide){
@@ -60,12 +70,18 @@ const James = ({setProjectCounter, visitPage}) => {
 
 
   return (
+    <>
+    <motion.div initial={{opacity: 1}} animate={{opacity: 0, transition: {delay: 2.5}}} className="title-overlay">"Solace <span style={{fontSize: "3rem"}}>&nbsp;&nbsp;& &nbsp;</span> Pawns"</motion.div>
+
     <div className="center-container">
-      <div id="james-imgs-container">
+      <motion.div id="james-imgs-container" initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
         <motion.div custom={"l"} initial={{x: xleft.current, opacity: opleft.current}} whileHover={!left && {x: xleft.current-25, transition: {duration: 0.2}}} animate={{x: xleft.current, opacity: opleft.current, transition: {duration: 0.2}}} style={{zIndex: left ? 10 : 0, cursor: left ? 'default' : 'pointer'}} onClick={() => {handleClick('l')}} className="james-img-div"><img src="/img/05/james1.png" /></motion.div>
         <motion.div custom={"r"} initial={{x: xright.current, opacity: opleft.current}} whileHover={!right && {x: xright.current+25, transition: {duration: 0.2}}} animate={{x: xright.current, opacity: opright.current, transition: {duration: 0.2}}} style={{zIndex: right ? 10 : 0, cursor: right ? 'default' : 'pointer'}} onClick={() => {handleClick('r')}} className="james-img-div"><img src="/img/05/james2.png" /></motion.div>
-      </div>
+      </motion.div>
     </div>
+
+    <AboutWork data={workdata}/>
+    </>
   )
 }
 

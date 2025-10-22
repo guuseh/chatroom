@@ -10,15 +10,10 @@ const PageMenu = (props) => {
   return (
     <>
       <div id="page-menu">
-          <div>
-              <div>
-                  <div onClick={() => navigate("/works")}>Works</div>
-                  {/* <div onClick={() => navigate("/about")}>about</div> */}
-              </div>
-          </div>
           <div onClick={() => navigate(props.next())}>Different</div>
           {/* make the array random instead on refresh so you can't get the same work twice... */}
       </div>
+      <div id="back-to-works" onClick={() => navigate("/works")}>Works</div>
       <div id="img-navbar">
         {props.urls.map((p) => {
           return <>

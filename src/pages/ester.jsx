@@ -2,6 +2,7 @@ import {useRef,useEffect,useState} from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { motion, useSpring, useInView } from "motion/react"
 import useDetectScroll from "@smakss/react-scroll-direction"
+import AboutWork from "../components/AboutWork.jsx"
 
 
 const Ester = ({setProjectCounter, visitPage}) => {
@@ -22,6 +23,27 @@ const Ester = ({setProjectCounter, visitPage}) => {
   \nHitting the cirrus cloud like a bong. Or a shisha?\nOne sheep two sheep three sheep, hoes. Gillette commercial shaving sheep til they’re sleek like a fish. A swordfish.
   \n`
 
+  const workdata = {
+    "title": "videospeculum",
+    "artist": [{
+      "name": "Ester Freider",
+      "ig": "stargir1z",
+    },
+    {
+      "name": "Julia Halasy",
+      "ig": "meta4ngelic",
+    },
+    {
+      "name": "Sofya Rakitina",
+      "ig": "_lavender_fi",
+    },
+    {
+      "name": "– as everyoneisagirl",
+      "ig": "everyoneisagirl"
+    }],
+    "date": "2025"
+  }
+
     // const texts = `She’s fascinated with a fairytale that never ends. Petals going sideways, ollying off the rails.`
 
   const [done, setDone] = useState(false)
@@ -30,6 +52,8 @@ const Ester = ({setProjectCounter, visitPage}) => {
   const [startType, setStartType] = useState(false)
   const [fullscreen, setFullscreen] = useState(false)
   const [closed, setClosed] = useState(false)
+  const [vidFullscreen, setVidFullscreen] = useState(false)
+  const [vidClosed, setVidClosed] = useState(false)
 
   const frameCustomRef = useRef(null);
   const [frameRef, setFrameRef] = useState();
@@ -69,10 +93,10 @@ const Ester = ({setProjectCounter, visitPage}) => {
     const interval = setInterval(() => {
       // console.log(typeRef.current.outerText.length)
       let progresscount = typeRef.current.outerText.length
-      let maxcount = texts.length
+      let maxcount = texts.length-26
       let percentage = progresscount / maxcount;
       
-      // setProgress(percentage)
+      setProgress(Math.ceil(percentage*100))
       scaleX.set(percentage)
 
       if(typeRef.current.outerText.length >= texts.length){
@@ -88,6 +112,7 @@ const Ester = ({setProjectCounter, visitPage}) => {
     
   }, [done])
 
+
   const frameVariants = {
     start: {
       opacity: 1,
@@ -99,11 +124,38 @@ const Ester = ({setProjectCounter, visitPage}) => {
     },
     grow: {
       width: "90vw",
-      height: "80vh"
+      height: "80vh",
+      top: "5%",
+      right: "5%"
     },
     shrink: {
       width: "50vw",
-      height: "60vh"
+      height: "50vh",
+      top: "15%",
+      right: "15%"
+    }
+  }
+
+  const videoVariants = {
+    start: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        delay: 1.5,
+        ease: "easeIn"
+      }
+    },
+    grow: {
+      width: "90vw",
+      height: "85vh",
+      top: "5%",
+      left: "5%"
+    },
+    shrink: {
+      width: "30vw",
+      height: "50vh",
+      top: "35%",
+      left: "20%"
     }
   }
   // animate={{opacity: 1, transition: {duration: 1, delay: 1, ease: "easeIn"}}}
@@ -115,16 +167,25 @@ const Ester = ({setProjectCounter, visitPage}) => {
 
   return (
     <>
-    <motion.div initial={{opacity: 1}} animate={{opacity: 0, transition: {delay: 2.5}}} className="title-overlay">"videospeculum"</motion.div>
+    <motion.div initial={{opacity: 1}} animate={{opacity: 0, transition: {delay: 2.5}}} className="title-overlay">"{workdata.title}"</motion.div>
 
-    <motion.div className="center-container">
+    <motion.div id="ester-container" className="center-container">
+      
+      <motion.div id="ester-video-frame" variants={videoVariants} initial={{opacity: 0}} animate={vidClosed? {scale: 0} : vidFullscreen ? ["start", "grow"] : ["start", "shrink"]}>
+          <div className="ester-border-container">
+            <div style={{backgroundColor: "#ff4548"}} onClick={() => setVidClosed(true)}></div>
+            <div style={{backgroundColor: "var(--pink)"}} onClick={() => setVidFullscreen(!vidFullscreen)}></div>
+          </div>
+        </motion.div>
+
+
       <motion.div id="ester-frame" variants={frameVariants} animate={closed? {scale: 0} : fullscreen?["start", "grow"]:["start", "shrink"]}
         initial={{opacity: 0}} onAnimationComplete={(latest) => {latest == "start" && setStartType(true)}}
        >
-        <div id="ester-border-container">
-          <div style={{backgroundColor: "red"}} onClick={() => setClosed(true)}></div>
-          <div style={{backgroundColor: "#FADD4B"}}></div>
-          <div style={{backgroundColor: "#26D13F"}} onClick={() => setFullscreen(!fullscreen)}></div>
+        <div className="ester-border-container">
+          <div style={{backgroundColor: "#ff4548"}} onClick={() => setClosed(true)}></div>
+          <div style={{backgroundColor: "var(--pink)"}} onClick={() => setFullscreen(!fullscreen)}></div>
+          <div id="progress-ester">{progress}%</div>
         </div>
           
         <div id="ester-text-container" ref={frameCustomRef} onScroll={(e) => handleScroll(e)}>
@@ -138,11 +199,11 @@ const Ester = ({setProjectCounter, visitPage}) => {
           />}
           <motion.div ref={elementRef} style={{width: 10, height: 50, backgroundColor: ""}}></motion.div>
         </div>
-
-        
       </motion.div>
-      <motion.div id="ester-progress" style={{scaleX}}></motion.div>
+
+      {/* <motion.div id="ester-progress" style={{scaleX}}></motion.div> */}
     </motion.div>
+    <AboutWork data={workdata}/>
     </>
   )
 }

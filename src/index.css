@@ -6,11 +6,25 @@
   font-family: 'oldstandard';
   src: url("./assets/fonts/OldStandardTT-Regular.ttf");
 }
+@font-face {
+  font-family: 'olditalic';
+  src: url("./assets/fonts/OldStandardTT-Italic.ttf");
+}
+@font-face {
+  font-family: 'pinyon';
+  src: url("./assets/fonts/PinyonScript-Regular.ttf");
+}
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  --margin: 40px;
+  --lightpink: #fff0ff;
+  --lighttrans: rgba(193, 157, 193, 0.25);
+  --pink: #ffc4ff;
+  --glow: rgba(255, 0, 136, 0.30);
+  --pinkshadow: 0 0 15px var(--glow);
 }
 body{
   width: 100vw;
@@ -18,7 +32,11 @@ body{
   background: #FFF0FF;
   background: linear-gradient(180deg, rgba(255, 240, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   font-family: 'oldstandard';
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+}
+a{
+  color: inherit;
+  text-decoration: none;
 }
 
 /* BASIC STYLES */
@@ -55,8 +73,12 @@ body{
   align-items: center;
   position: absolute;
   z-index: 100;
-  color: white;
-  font-size: 4em;
+  color: var(--lightpink);
+  font-family: 'pinyon';
+  font-size: 8rem;
+  line-height: 8rem;
+  padding: 5%;
+  text-align: center;
 }
 .pink-button{
   padding: 10px;
@@ -65,22 +87,63 @@ body{
   font-size: 2rem;
   box-shadow: 0 0 20px 30px #ff008845;
 }
+.bigtitle{
+  font-family: 'pinyon';
+  font-size: 6rem;
+}
 
 /* MENU */
 #page-menu{
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
-  margin: 50px;
+  margin: var(--margin);
   z-index: 100;
+  cursor: pointer;
 }
 #img-navbar{
   position: absolute;
-  bottom: 40px;
+  bottom: var(--margin);
   right: 50vw;
   transform: translateX(50%);
   display: flex;
   gap: 10px;
+  width: fit-content;
+  z-index: 10;
+}
+#back-to-works{
+  position: absolute;
+  top: var(--margin);
+  left: var(--margin);
+  /* z-index: 40; */
+  cursor: pointer;
+}
+
+/* ABOUT OVERLAY */
+#about-button{
+  position: absolute;
+  top: var(--margin);
+  right: var(--margin);
+  z-index: 200;
+  cursor: pointer;
+}
+#about-overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  backdrop-filter: blur(10px);
+  color: var(--lightpink);
+  z-index: 100;
+  text-align: center;
+  padding: 5%;
+  background-color: var(--lighttrans);
 }
 
 /* LANDING PAGE */
@@ -140,15 +203,15 @@ body{
 #exit-door{
   height: 15vh;
   position: absolute;
-  bottom: 40px;
-  right: 40px;
+  bottom: var(--margin);
+  right: var(--margin);
 }
 
 #projects-about-window{
   z-index: 10;
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: var(--margin);
+  right: var(--margin);
 }
 
 #projects-about{
@@ -158,6 +221,8 @@ body{
   left: 0;
   right: 0;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(15px);
@@ -220,21 +285,26 @@ body{
 }
 #exit-restart{
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: var(--margin);
+  right: var(--margin);
 }
 
 
 /* EVERYONEISAGIRL / ESTER */
+
 #ester-frame{
   width: 50vw;
   aspect-ratio: 4 / 2.5;
-
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  z-index: 5;
+  filter: drop-shadow(var(--pinkshadow));
 }
-#ester-border-container{
+.ester-border-container{
   width: 100%;
   height: 40px;
-  background-color: #333;
+  background-color: #565556;
   border-radius: 20px 20px 0 0;
   position: relative;
   z-index: 0;
@@ -242,30 +312,52 @@ body{
   padding: 14px;
   gap: 8px;
 }
-#ester-border-container div{
+.ester-border-container div:not(#progress-ester){
   width: 14px;
   height: 14px;
   /* background-color: red; */
   border-radius: 10px;
+  cursor: pointer;
+}
+#progress-ester{
+  color: rgba(255, 255, 255, 0.266);
+  justify-self: end;
+  width: fit-content;
+  margin-left: auto;
+  align-self: start;
+  font-size: 1rem;
+  line-height: 1rem;
 }
 #ester-text-container{
-  background: #222;
+  background: #3f3f3f;
   width: 100%;
   height: 100%;
   overflow: scroll;
-  color: #eee;
+  color: var(--pink);
   padding: 40px;
   box-sizing: border-box;
   font-family: Helvetica;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   border-radius: 0 0 20px 20px;
   scroll-behavior: smooth;
   position: relative;
+  user-select: none;
 }
 #ester-progress{
   height: 10px;
   width: 50vw;
   background-color: white;
+}
+#ester-video-frame{
+  width: 30vw;
+  position: absolute;
+  left: 20%;
+  top: 35%;
+  z-index: 2;
+  background-color: purple;
+  height: 50vh;
+  border-radius: 20px;
+  filter: drop-shadow(var(--pinkshadow));
 }
 
 
@@ -408,5 +500,5 @@ body{
   height: 1210px;
   position: relative;
   border: none;
-  transform: scale(0.8)
+  transform: scale(0.6)
 }
