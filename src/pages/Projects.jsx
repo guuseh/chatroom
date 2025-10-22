@@ -37,9 +37,9 @@ const Projects = ({projects}) => {
         <div id="projects-about-window"  onClick={() => handleAbout()}>{window}</div>
         <div id="projects-img-container">
             {projects.map((p, i) => {
-                return <motion.div key={i*100}>
+                return <motion.div key={i*100} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", justifySelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end"}}>
                   { p != 0 &&
-                  <img key={i} onClick={() => {console.log("hello?"); navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
+                  <img key={i} style={{objectPosition: i % 5 == 0 ? "right top" : i % 3 == 0 ? "left bottom" : "center"}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
                   }
                 </motion.div>
             })}
