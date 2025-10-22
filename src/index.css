@@ -208,6 +208,7 @@ a{
   position: absolute;
   bottom: var(--margin);
   right: var(--margin);
+  cursor: pointer;
 }
 
 #projects-about-window{
@@ -215,6 +216,7 @@ a{
   position: absolute;
   top: var(--margin);
   right: var(--margin);
+  cursor: pointer;
 }
 
 #projects-about{
@@ -234,6 +236,9 @@ a{
   padding: 10%;
   color: #FFFFFA;
   opacity: 0;
+}
+#projects-about p{
+  z-index: 20;
 }
 
 /* EXIT PAGE */

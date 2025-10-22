@@ -7,6 +7,8 @@ const Projects = ({projects}) => {
   const [window, setWindow] = useState('[+]')
   const [open, setOpen] = useState(false)
   const [display, setDisplay] = useState(false)
+  const [hover, setHover] = useState(false)
+  const [mouse, setMouse] = useState([])
 
   const handleAbout = () => {
     setOpen(!open)
@@ -17,13 +19,16 @@ const Projects = ({projects}) => {
   return (
     <div id="projects-page">
         <div id="projects-about-window"  onClick={() => handleAbout()}>{window}</div>
+
         <div id="projects-img-container">
             {projects.map((p, i) => {
                 return <motion.div key={i*100} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", justifySelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end"}}>
                   { p != 0 && p != "/06" && p != "/11" && p != "/12" ?
-                    <img key={i} style={{objectPosition: i % 5 == 0 ? "right top" : i % 3 == 0 ? "left bottom" : "center"}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
-                  : p != 0 && 
-                    <div style={{position: "relative"}}>
+                  <div>
+                      <img key={i} onMouseEnter={(e) => {setHover(true); setMouse([e.clientX, e.clientY])}} onMouseLeave={(e) => setHover(false)} style={{objectPosition: i % 5 == 0 ? "right top" : i % 3 == 0 ? "left bottom" : "center", cursor: "pointer"}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
+                      {/* {hover&& <span style={{position: "absolute", zIndex: 20, left: mouse[0], top: mouse[1], fontFamily: "jacquard", background: "#d9d9d9", lineHeight: "1rem"}}>enter</span>} */}
+                  </div>   : p != 0 && 
+                    <div style={{position: "relative", pointerEvents: "none"}}>
                       <img key={i*50} style={{objectPosition: i % 5 == 0 ? "right top" : i % 3 == 0 ? "left bottom" : "center", opacity: 0.4}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
                       <span style={{position: "absolute", left: i % 5 == 0 ? "30%" : i % 3 == 0 ? "0" : "25%", top: i % 5 == 0 ? "40%" : i % 3 == 0 ? "50%" : "40%", fontFamily: "jacquard", background: "#d9d9d9", lineHeight: "1rem"}}>locked</span>
                     </div>    
@@ -35,7 +40,10 @@ const Projects = ({projects}) => {
         <div><img id="exit-door" src={"img/front/exit.png"} /></div>
 
         <AnimatePresence>
-          {open && <motion.div id="projects-about" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
+          {open && <>
+          
+          <motion.div id="projects-about" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
+            <div id="demon-underlay-close" onClick={() => handleAbout()}></div>
               <p>The Chatroom & The Dollhouse</p>
               
               <p>
@@ -51,7 +59,7 @@ const Projects = ({projects}) => {
                 Curated by Sarah Khadra Hasni and Joshua Esser<br/>
                 Developed by Guus Hoeberechts
               </p>
-          </motion.div>}
+          </motion.div></>}
         </AnimatePresence>
     </div>
   )
