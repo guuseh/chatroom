@@ -34,8 +34,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
       "url": "/img/02/panoramatest.jpeg",
       "pin": "",
       "map": "",
-      "x": "10%",
-      "y": "10%",
+      "x": "90",
+      "y": "0",
       "place": "Boyaca",
       "date": "Jun 2024"
     },
@@ -43,8 +43,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
       "url": "/img/02/panoramatest2.jpeg",
       "pin": "",
       "map": "",
-      "x": "30%",
-      "y": "40%",
+      "x": "55",
+      "y": "43",
       "place": "Chivata",
       "date": "Nov 2023"
     },
@@ -52,8 +52,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "url": "/img/02/panoramatest3.jpeg",
         "pin": "",
         "map": "",
-        "x": "80%",
-        "y": "30%",
+        "x": "37",
+        "y": "53",
         "place": "62",
         "date": "Mar 2024"
       },
@@ -61,8 +61,62 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "url": "/img/02/panoramatest4.jpeg",
         "pin": "",
         "map": "",
-        "x": "60%",
-        "y": "60%",
+        "x": "18",
+        "y": "62",
+        "place": "Cra 1a",
+        "date": "Oct 2023"
+      },
+    {"index": 4,
+        "url": "/img/02/panoramatest4.jpeg",
+        "pin": "",
+        "map": "",
+        "x": "42",
+        "y": "67",
+        "place": "Cra 1a",
+        "date": "Oct 2023"
+      },
+    {"index": 5,
+        "url": "/img/02/panoramatest4.jpeg",
+        "pin": "",
+        "map": "",
+        "x": "53",
+        "y": "59",
+        "place": "Cra 1a",
+        "date": "Oct 2023"
+      },
+    {"index": 6,
+        "url": "/img/02/panoramatest4.jpeg",
+        "pin": "",
+        "map": "",
+        "x": "66",
+        "y": "52",
+        "place": "Cra 1a",
+        "date": "Oct 2023"
+      },
+    {"index": 7,
+        "url": "/img/02/panoramatest4.jpeg",
+        "pin": "",
+        "map": "",
+        "x": "83",
+        "y": "50",
+        "place": "Cra 1a",
+        "date": "Oct 2023"
+      },
+    {"index": 8,
+        "url": "/img/02/panoramatest4.jpeg",
+        "pin": "",
+        "map": "",
+        "x": "80",
+        "y": "58",
+        "place": "Cra 1a",
+        "date": "Oct 2023"
+      },
+    {"index": 9,
+        "url": "/img/02/panoramatest4.jpeg",
+        "pin": "",
+        "map": "",
+        "x": "70",
+        "y": "69",
         "place": "Cra 1a",
         "date": "Oct 2023"
       }]
@@ -152,6 +206,13 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         } })
   }
 
+  const sideSpace = (window.innerWidth - window.innerHeight) / 2
+  const sidePercentage =  sideSpace / window.innerWidth * 100 - 5
+
+  const mapValue = (number, [inMin, inMax], [outMin, outMax]) => {
+    return (number - inMin) / (inMax - inMin) * (outMax - outMin) + outMin;
+  }
+
   // maybe make share button share the link to the artwork on the website??
 
   return (
@@ -162,9 +223,10 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
 
       <div id="demon-underlay-close" onClick={() => setOpen(false)}></div>
       <motion.div id="demon-container" initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
+
         <motion.div id="demon-panorama-container" 
           initial={{scale: 0}} variants={viewerVariants} custom={index} animate={open? "visible" : "hidden"}
-          style={{transformOrigin: `${imgData[index].x} ${imgData[index].y}`}}>
+          style={{transformOrigin: `${mapValue(imgData[index].x, [0, 100], [0+sidePercentage, 100-sidePercentage])}% ${imgData[index].y}%`}}>
           <ReactPhotoSphereViewer ref={viewerRef} {...props} />
           <div id="demon-address-overlay">
             <div style={{fontWeight: "bold"}}>{imgData[index].place}</div>
@@ -181,14 +243,17 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
             <div>Google</div>
           </div>
         </motion.div>
+
         <div id="demon-map-container" ref={mapRef}>
+          <img src="/img/02/map.png" id="demon-map-img" />
           {
             imgData.map((item, i) => {
-              return <div className="demon-map-item" style={{top: item.y, left: item.x}} key={i}
-                onClick={() => handleMapItem(item)}><img src={item.url} /></div>
+              return <div className="demon-map-item" style={{top: item.y+'%', left: item.x+'%'}} key={i}
+                onClick={() => handleMapItem(item)}><img className="demon-marker" src="/img/02/marker.png" /></div>
             })
           }
         </div>
+
       </motion.div>
     </div>
 

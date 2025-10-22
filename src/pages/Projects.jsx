@@ -7,29 +7,11 @@ const Projects = ({projects}) => {
   const [window, setWindow] = useState('[+]')
   const [open, setOpen] = useState(false)
   const [display, setDisplay] = useState(false)
-  const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-  const [shuffled, setShuffled] = useState()
 
   const handleAbout = () => {
     setOpen(!open)
     setWindow(open? "[+]" : "[ ]")
   }
-
-  useEffect(() => {
-    setArray(prev => [...prev, ...projects])
-
-  }, [])
-
-  useEffect(() => {
-    const shuffledDivs = array
-          .map(v => ({v, sort: Math.random()}))
-          .sort((a, b) => a.sort - b.sort)
-          .map(({v}) => v)
-
-      setShuffled(shuffledDivs)
-  }, [array])
-
-  console.log(array, shuffled)
 
 
   return (
@@ -38,9 +20,14 @@ const Projects = ({projects}) => {
         <div id="projects-img-container">
             {projects.map((p, i) => {
                 return <motion.div key={i*100} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", justifySelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end"}}>
-                  { p != 0 &&
-                  <img key={i} style={{objectPosition: i % 5 == 0 ? "right top" : i % 3 == 0 ? "left bottom" : "center"}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
-                  }
+                  { p != 0 && p != "/06" && p != "/11" && p != "/12" ?
+                    <img key={i} style={{objectPosition: i % 5 == 0 ? "right top" : i % 3 == 0 ? "left bottom" : "center"}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
+                  : p != 0 && 
+                    <div style={{position: "relative"}}>
+                      <img key={i*50} style={{objectPosition: i % 5 == 0 ? "right top" : i % 3 == 0 ? "left bottom" : "center", opacity: 0.4}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
+                      <span style={{position: "absolute", left: i % 5 == 0 ? "30%" : i % 3 == 0 ? "0" : "25%", top: i % 5 == 0 ? "40%" : i % 3 == 0 ? "50%" : "40%", fontFamily: "jacquard", background: "#d9d9d9", lineHeight: "1rem"}}>locked</span>
+                    </div>    
+                    }
                 </motion.div>
             })}
         </div>

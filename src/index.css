@@ -115,7 +115,7 @@ a{
   position: absolute;
   top: var(--margin);
   left: var(--margin);
-  /* z-index: 40; */
+  z-index: 10;
   cursor: pointer;
 }
 
@@ -144,6 +144,9 @@ a{
   text-align: center;
   padding: 5%;
   background-color: var(--lighttrans);
+}
+#about-overlay div:not(#demon-underlay-close){
+  z-index: 20;
 }
 
 /* LANDING PAGE */
@@ -372,6 +375,7 @@ a{
 }
 #demon-container{
   position: relative;
+
 }
 #demon-panorama-container{
   /* position: absolute;
@@ -383,21 +387,38 @@ a{
   position: relative;
   /* top: 100px; */
   z-index: 4;
+  /* border: 3px solid red; */
+  /* opacity: 0.5; */
+  /* transform: translate(-50%, -50%); */
 }
 #demon-map-container{
   position: absolute;
   top: 0;
   z-index: 1;
   /* background-color: white; */
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
+  object-fit: contain;
+  /* border: 1px solid red; */
+  left: 50%;
+  transform: translate(-50%);
+  /* background-image: url("../public/img/02/map.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+#demon-map-img{
+  object-fit: contain;
+  height: 100%;
+  position: relative;
 }
 .demon-map-item{
   position: absolute;
   cursor: pointer;
 }
 .demon-map-item img{
-  width: 10vw;
+  width: 20px;
+  filter: drop-shadow(0 0 5px var(--glow))
 }
 #demon-address-overlay{
   position: absolute;
@@ -405,10 +426,11 @@ a{
   left: 10px;
   z-index: 1;
   background-color: #222;
-  padding: 20px 40px;
+  padding: 20px 30px;
   color: #ddd;
   font-family: Helvetica;
   border-radius: 15px;
+  font-size: 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -440,7 +462,7 @@ a{
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: white
+  color: white;
 }
 #demon-next-btn, #demon-prev-btn{
   width: 40px;

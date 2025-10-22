@@ -12,6 +12,7 @@ const AboutWork = ({data}) => {
     </div>
     <AnimatePresence>
         {open && <motion.div id="about-overlay" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
+            <div id="demon-underlay-close" onClick={() => setOpen(false)}></div>
             <div style={{fontFamily: "pinyon", fontSize: "5rem", lineHeight: "5rem"}}>"{data.title}"</div>
             <div>
                 {data.artist.map((a) => {

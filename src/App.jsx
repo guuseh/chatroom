@@ -19,11 +19,11 @@ import Sotce from "./pages/sotce.jsx" // video ROOM 10
 
 function App() {
   const urls = ["/01", "/02", "/03", "/04", "/05",
-                "/06", "/07", "/08", "/09", "/10"]
+                "/06", "/07", "/08", "/09", "/10", "/11", "/12"]
   const [shuffledUrls, setShuffledUrls] = useState([])
   const [projectCounter, setProjectCounter] = useState(0)
   const [shuffledDivs, setShuffledDivs] = useState([])
-  const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+  const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
   const [visited, setVisited] = useState({})
   const visitPage = (nr) => {
@@ -86,7 +86,7 @@ function App() {
               <Route path="03" element={<Eliska setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
               <Route path="04" element={<Ester setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
               <Route path="05" element={<James setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
-              <Route path="06" element={<Noura setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
+              {/* <Route path="06" element={<Noura setProjectCounter={setProjectCounter} visitPage={visitPage}/>} /> */}
               <Route path="07" element={<Parkerito setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
               <Route path="08" element={<Plasticgirl setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
               <Route path="09" element={<Sarahchefka setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
