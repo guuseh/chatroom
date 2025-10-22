@@ -10,8 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@photo-sphere-viewer/compass-plugin": "^5.14.0",
+    "@photo-sphere-viewer/core": "^5.14.0",
+    "@photo-sphere-viewer/map-plugin": "^5.14.0",
+    "@photo-sphere-viewer/visible-range-plugin": "^5.14.0",
+    "@smakss/react-scroll-direction": "^4.2.0",
+    "motion": "^12.23.22",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-photo-sphere-viewer": "^6.2.3",
+    "react-router-dom": "^7.9.3",
+    "react-type-animation": "^3.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
