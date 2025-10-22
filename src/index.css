@@ -1,3 +1,12 @@
+@font-face {
+  font-family: jacquard;
+  src: url("./assets/fonts/JacquardaBastarda9-Regular.ttf");
+}
+@font-face {
+  font-family: 'oldstandard';
+  src: url("./assets/fonts/OldStandardTT-Regular.ttf");
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -8,6 +17,8 @@ body{
   height: 100vh;
   background: #FFF0FF;
   background: linear-gradient(180deg, rgba(255, 240, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+  font-family: 'oldstandard';
+  font-size: 1.5rem;
 }
 
 /* BASIC STYLES */
