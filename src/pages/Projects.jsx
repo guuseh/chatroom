@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
-import {motion, AnimatePresence} from 'motion/react'
+import {motion, AnimatePresence, stagger} from 'motion/react'
 
 const Projects = ({projects}) => {
   const navigate = useNavigate()
@@ -17,25 +17,25 @@ const Projects = ({projects}) => {
 
 
   return (
-    <div id="projects-page">
+    <motion.div id="projects-page" style={{zIndex: -1}} initial={{backgroundColor: "#000000"}} animate={{backgroundColor: "#00000000", transition: {delay: 0.2, duration: 0.5}}}>
         <div id="projects-about-window"  onClick={() => handleAbout()}>{window}</div>
 
-        <div id="projects-img-container">
+        <motion.div id="projects-img-container">
             {projects.map((p, i) => {
-                return <motion.div key={i*100} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", justifySelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end"}}>
+                return <motion.div key={i*100} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-end" : "flex-start", justifySelf: i % 3 == 0 ? "flex-end" : i % 5 == 0 ? "flex-start" : "center"}}>
                   { p != 0 && p != "/06" && p != "/11" && p != "/12" ?
-                  <div>
-                      <img key={i} onMouseEnter={(e) => {setHover(true); setMouse([e.clientX, e.clientY])}} onMouseLeave={(e) => setHover(false)} style={{objectPosition: i % 5 == 0 ? "right top" : i % 3 == 0 ? "left bottom" : "center", cursor: "pointer"}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
+                  <motion.div className="projects-img-div" initial={{scale: 0}} animate={{scale: 1, transition: {duration: 0.2, delay: i/20}}}>
+                      <img key={i} onMouseEnter={(e) => {setHover(true); setMouse([e.clientX, e.clientY])}} onMouseLeave={(e) => setHover(false)} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 3 == 0 ? "0 auto 0 0" : i % 5 == 0 ? "0 0 0 auto" : "0 auto 0 auto", cursor: "pointer"}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
                       {/* {hover&& <span style={{position: "absolute", zIndex: 20, left: mouse[0], top: mouse[1], fontFamily: "jacquard", background: "#d9d9d9", lineHeight: "1rem"}}>enter</span>} */}
-                  </div>   : p != 0 && 
-                    <div style={{position: "relative", pointerEvents: "none"}}>
-                      <img key={i*50} style={{objectPosition: i % 5 == 0 ? "right top" : i % 3 == 0 ? "left bottom" : "center", opacity: 0.4}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
-                      <span style={{position: "absolute", left: i % 5 == 0 ? "30%" : i % 3 == 0 ? "0" : "25%", top: i % 5 == 0 ? "40%" : i % 3 == 0 ? "50%" : "40%", fontFamily: "jacquard", background: "#d9d9d9", lineHeight: "1rem"}}>locked</span>
-                    </div>    
+                  </motion.div>   : p != 0 && 
+                    <motion.div initial={{scale: 0}} animate={{scale: 1, transition: {duration: 0.2, delay: i/20}}} className="projects-img-div" style={{position: "relative", pointerEvents: "none"}}>
+                      <img key={i*50} style={{alignSelf: i % 4 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 4 == 0 ? "0 auto 0 0" : i % 3 == 0 ? "0 0 0 auto" : "0 auto 0 auto", opacity: 0.4}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
+                      <span style={{position: "absolute", left: i % 4 == 0 ? "10%" : i % 3 == 0 ? "40%" : "25%", top: i % 5 == 0 ? "40%" : i % 4 == 0 ? "50%" : "60%", fontFamily: "jacquard", background: "#d9d9d9", lineHeight: "1rem"}}>locked</span>
+                    </motion.div>    
                     }
                 </motion.div>
             })}
-        </div>
+        </motion.div>
 
         <div><img id="exit-door" src={"img/front/exit.png"} /></div>
 
@@ -61,7 +61,7 @@ const Projects = ({projects}) => {
               </p>
           </motion.div></>}
         </AnimatePresence>
-    </div>
+    </motion.div>
   )
 }
 

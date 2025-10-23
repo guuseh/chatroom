@@ -23,13 +23,14 @@ const Home = () => {
       y: 0,
       transition: {
         duration: 0.2,
-        delay: i[2] / 10 + 0.2
+        delay: i[2] / 10 + 0.1
       }
     })
   }
   const whoVariants = {
     hidden: {
       y: "-20vh",
+      opacity: 0,
       transition: {
         duration: 0.2,
         // delay: i[2] / 10
@@ -37,6 +38,7 @@ const Home = () => {
     },
     show: {
       y: 0,
+      opacity: 1,
       transition: {
         duration: 0.2,
       }
@@ -46,16 +48,21 @@ const Home = () => {
   const houseVariants = {
     clicked: {
       scale: 10,
+      opacity: 0,
       transition: {
-        duration: 1,
-        ease: "easeIn"
+        scale: {duration: 1,
+          ease: "easeIn"},
+        opacity: {
+          duration: 0.3,
+          delay: 0.7
+        }
       }
     }
   }
 
   return (
-    <div id="landing-container">
-      <motion.div className="landing-below" >
+    <motion.div id="landing-container" initial={{background: "#00000000"}} animate={click&&{background: "#000000FF", transition: {delay: 0.2, duration: 0.7}}}>
+      <motion.div className="landing-below landing-names" >
         <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 20, 1]}>CrystalArmour</motion.div>
         <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 10, 2]}>guus hoeberechts</motion.div>
         <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 5, 3]}>plastic girl</motion.div>
@@ -66,11 +73,11 @@ const Home = () => {
       </motion.div>
 
       <div>
-        <motion.img onClick={()=>setClick(true)} animate={click&&"clicked"} variants={houseVariants} onAnimationComplete={() => navigate("/works")} onMouseEnter={() => {setHover(true)}} onMouseLeave={() => setHover(false)} src="/img/front/dollhouse-front.png"/>
-        <motion.div className="landing-below" variants={whoVariants} animate={hover? "show" : "hidden"} initial="hidden">who lives in the dollhouse?</motion.div>
+        <motion.img id="landing-dollhouse" onClick={()=>setClick(true)} animate={click&&"clicked"} variants={houseVariants} onAnimationComplete={() => navigate("/works")} onMouseEnter={() => {setHover(true)}} onMouseLeave={() => setHover(false)} src="/img/front/dollhouse-front.png"/>
+        <motion.div className="landing-below pink-button" variants={whoVariants} animate={hover? "show" : "hidden"} initial="hidden">who lives in the dollhouse?</motion.div>
       </div>
 
-      <div className="landing-below">
+      <div className="landing-below landing-names">
         <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 20, 8]}>noura tafeche</motion.div>
         <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 10, 9]}>tobia paolo bettoni</motion.div>
         <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 5, 10]}>sarah chefka</motion.div>
@@ -80,7 +87,7 @@ const Home = () => {
         <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, -20, 14]}>joshua esser</motion.div>
       </div>
       
-    </div>
+    </motion.div>
   )
 }
 

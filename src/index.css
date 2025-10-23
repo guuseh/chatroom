@@ -167,6 +167,14 @@ a{
 .landing-below{
   z-index: -1;
 }
+#landing-dollhouse{
+  height: 50vh;
+  margin: 20px 0;
+  cursor: pointer;
+}
+.landing-names{
+  font-family: jacquard;
+}
 
 /* PROJECTS PAGE */
 #projects-page{
@@ -175,33 +183,44 @@ a{
   justify-content: center;
   align-items: center;
   width: 100vw;
-  background-color: #ceb483;
+  background-image: url("/img/front/wallpaper.png");
+  background-size: 33%;
 }
 #projects-img-container{
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  gap: 20px;;
+  grid-template-rows: 20vh 20vh 20vh 20vh;
+  gap: 1vh;
   align-items: center;
   justify-items: center;
   width: 80vw;
   /* height: 80vh; */
-  aspect-ratio: 7 / 4;
+  /* aspect-ratio: 7 / 4; */
   /* height: max-content; */
   /* padding: 0 20%; */
 }
 #projects-img-container > div{
   /* border: 1px solid black; */
   /* justify-self:flex-end ; */
-  width: 70%;
+  width: 80%;
+  height: 80%;
+}
+.projects-img-div{
+  /* border: 1px solid red; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 .projects-img{
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1 / 1;
+  max-width: 100%;
+  /* height: 100%; */
+  max-height: 100%;
+  /* aspect-ratio: 1 / 1; */
   object-fit: contain;
   /* justify-self: end; */
-  /* border: 1px solid red; */
+  /* border: 1px solid green; */
 }
 #exit-door{
   height: 15vh;
