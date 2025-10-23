@@ -25,7 +25,7 @@ const Projects = ({projects}) => {
                 return <motion.div key={i*100} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-end" : "flex-start", justifySelf: i % 3 == 0 ? "flex-end" : i % 5 == 0 ? "flex-start" : "center"}}>
                   { p != 0 && p != "/06" && p != "/11" && p != "/12" ?
                   <motion.div className="projects-img-div" initial={{scale: 0}} animate={{scale: 1, transition: {duration: 0.2, delay: i/20}}}>
-                      <img key={i} onMouseEnter={(e) => {setHover(true); setMouse([e.clientX, e.clientY])}} onMouseLeave={(e) => setHover(false)} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 3 == 0 ? "0 auto 0 0" : i % 5 == 0 ? "0 0 0 auto" : "0 auto 0 auto", cursor: "pointer"}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
+                      <img key={i} onMouseEnter={(e) => {setHover(true); setMouse([e.clientX, e.clientY])}} onMouseLeave={(e) => setHover(false)} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 3 == 0 ? "0 auto 0 0" : i % 5 == 0 ? "0 0 0 auto" : "0 auto 0 auto", cursor: "pointer"}} onClick={() => {navigate("/room"+p)}} className="projects-img projects-img-active" src={`/img/front${p}.png`}/>
                       {/* {hover&& <span style={{position: "absolute", zIndex: 20, left: mouse[0], top: mouse[1], fontFamily: "jacquard", background: "#d9d9d9", lineHeight: "1rem"}}>enter</span>} */}
                   </motion.div>   : p != 0 && 
                     <motion.div initial={{scale: 0}} animate={{scale: 1, transition: {duration: 0.2, delay: i/20}}} className="projects-img-div" style={{position: "relative", pointerEvents: "none"}}>

@@ -31,7 +31,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
   
   const imgData = [
     {"index": 0,
-      "url": "/img/02/panoramatest.jpeg",
+      "url": "/img/02/1.png",
       "pin": "",
       "map": "",
       "x": "90",
@@ -40,7 +40,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
       "date": "Jun 2024"
     },
     {"index": 1,
-      "url": "/img/02/panoramatest2.jpeg",
+      "url": "/img/02/2.png",
       "pin": "",
       "map": "",
       "x": "55",
@@ -49,7 +49,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
       "date": "Nov 2023"
     },
     {"index": 2,
-        "url": "/img/02/panoramatest3.jpeg",
+        "url": "/img/02/3.png",
         "pin": "",
         "map": "",
         "x": "37",
@@ -58,7 +58,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "date": "Mar 2024"
       },
     {"index": 3,
-        "url": "/img/02/panoramatest4.jpeg",
+        "url": "/img/02/4.png",
         "pin": "",
         "map": "",
         "x": "18",
@@ -67,7 +67,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "date": "Oct 2023"
       },
     {"index": 4,
-        "url": "/img/02/panoramatest4.jpeg",
+        "url": "/img/02/5.png",
         "pin": "",
         "map": "",
         "x": "42",
@@ -76,7 +76,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "date": "Oct 2023"
       },
     {"index": 5,
-        "url": "/img/02/panoramatest4.jpeg",
+        "url": "/img/02/6.png",
         "pin": "",
         "map": "",
         "x": "53",
@@ -85,7 +85,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "date": "Oct 2023"
       },
     {"index": 6,
-        "url": "/img/02/panoramatest4.jpeg",
+        "url": "/img/02/7.png",
         "pin": "",
         "map": "",
         "x": "66",
@@ -132,7 +132,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
     fisheye: 1.0,
     navbar: [],
     defaultZoomLvl: 0,
-    src: "/img/02/panoramatest.jpeg",
+    src: "/img/02/1.png",
     plugins: [
          [ MapPlugin, {
             imageUrl: '/img/02/panoramatest.jpeg',
@@ -227,20 +227,30 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         <motion.div id="demon-panorama-container" 
           initial={{scale: 0}} variants={viewerVariants} custom={index} animate={open? "visible" : "hidden"}
           style={{transformOrigin: `${mapValue(imgData[index].x, [0, 100], [0+sidePercentage, 100-sidePercentage])}% ${imgData[index].y}%`}}>
+          
           <ReactPhotoSphereViewer ref={viewerRef} {...props} />
+
           <div id="demon-address-overlay">
-            <div style={{fontWeight: "bold"}}>{imgData[index].place}</div>
-            <div>Google Street View</div>
-            <div style={{borderBottom: "1px solid #ddd"}}></div>
-            <div>{imgData[index].date}</div>
+            <div style={{display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%"}}>
+              <div style={{fontWeight: "bold", fontSize: "0.9rem"}}>{imgData[index].place}</div>
+              <div style={{height: "20px", width: "20px"}}><img src="/img/02/marker.png" style={{width: "100%"}}/></div>
+            </div>
+            <div style={{display: "flex", alignItems: "center", gap: "5px"}}>
+              <div style={{width: "20px", height: "20px", padding: "3px", borderRadius: "10px", background: "white"}}><img src="/img/02/google.png" style={{width: "100%"}}/></div>
+              <div>Google Street View</div>
+            </div>
+            <div style={{borderBottom: "1px solid #aaa"}}></div>
+            <div style={{color: "#aaa"}}>{imgData[index].date}</div>
           </div>
-          <div id="demon-close-btn" onClick={() => setOpen(false)}>X</div>
+
+          <div id="demon-close-btn" onClick={() => setOpen(false)}><img src="/img/02/cross.svg" /></div>
+
           <div id="demon-bottom-center">
             <div style={{display: "flex", gap: "15px", opacity: loading? 0.3 : 1}}>
-              <div id="demon-prev-btn" onClick={() => handleNext()} style={{zIndex: 100, cursor: loading? "default" : "pointer"}}> &lt; </div>
-              <div id="demon-next-btn" onClick={() => handlePrev()} style={{zIndex: 100, cursor: loading? "default" : "pointer"}}> &gt; </div>
+              <div id="demon-prev-btn" onClick={() => handleNext()} style={{zIndex: 100, cursor: loading? "default" : "pointer", fontFamily: 'google'}}><img src="/img/02/left.svg" /></div>
+              <div id="demon-next-btn" onClick={() => handlePrev()} style={{zIndex: 100, cursor: loading? "default" : "pointer", fontFamily: 'google'}}><img src="/img/02/right.svg" /></div>
             </div>
-            <div>Google</div>
+            <div style={{fontFamily: 'google'}}>Google</div>
           </div>
         </motion.div>
 

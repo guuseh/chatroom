@@ -14,6 +14,10 @@
   font-family: 'pinyon';
   src: url("./assets/fonts/PinyonScript-Regular.ttf");
 }
+@font-face {
+  font-family: 'google';
+  src: url("./assets/fonts/circular-std-medium-500.ttf");
+}
 
 *{
   margin: 0;
@@ -222,6 +226,10 @@ a{
   /* justify-self: end; */
   /* border: 1px solid green; */
 }
+.projects-img-active:hover{
+  filter: drop-shadow(var(--pinkshadow))
+}
+
 #exit-door{
   height: 15vh;
   position: absolute;
@@ -250,7 +258,7 @@ a{
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(15px);
-  background: rgba(186,186,186,0.3);
+  background: rgba(146, 139, 135, 0.3);
   text-align: center;
   padding: 10%;
   color: #FFFFFA;
@@ -411,6 +419,7 @@ a{
   position: relative;
   /* top: 100px; */
   z-index: 4;
+  box-shadow: 0 2px 20px #78134b88;
   /* border: 3px solid red; */
   /* opacity: 0.5; */
   /* transform: translate(-50%, -50%); */
@@ -450,20 +459,20 @@ a{
   left: 10px;
   z-index: 1;
   background-color: #222;
-  padding: 20px 30px;
+  padding: 15px 30px;
   color: #ddd;
   font-family: Helvetica;
-  border-radius: 15px;
+  border-radius: 10px;
   font-size: 0.8rem;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
 }
 #demon-close-btn{
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #666;
+  background-color: #525252b5;
   width: 40px;
   height: 40px;
   margin: 10px;
@@ -475,6 +484,7 @@ a{
   cursor: pointer;
   font-family: Helvetica;
   font-weight: bold;
+  padding: 6px;
 }
 #demon-bottom-center{
   position: absolute;
@@ -492,12 +502,13 @@ a{
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  background-color: #11111188;
+  background-color: #39393966;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+  /* font-weight: bold; */
+  padding: 6px;
 }
 .psv-navbar {
   height: 0px !important;
