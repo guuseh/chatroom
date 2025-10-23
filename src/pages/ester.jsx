@@ -64,6 +64,8 @@ const Ester = ({setProjectCounter, visitPage}) => {
   useEffect(() => {
     setProjectCounter(prev => prev+1)
     visitPage("/04")
+    var video = document.querySelector('video');
+  video.play()
   }, [])
 
   const { scrollDir } = useDetectScroll({target: frameRef})
@@ -148,13 +150,13 @@ const Ester = ({setProjectCounter, visitPage}) => {
     grow: {
       width: "90vw",
       height: "85vh",
-      top: "5%",
+      bottom: "10%",
       left: "5%"
     },
     shrink: {
       width: "30vw",
       height: "50vh",
-      top: "35%",
+      bottom: "17%",
       left: "20%"
     }
   }
@@ -163,6 +165,7 @@ const Ester = ({setProjectCounter, visitPage}) => {
 
   // const scaleX = useSpring(progress, {stiffness: 100, damping: 30, restDelta: 0.001})
   // console.log(scaleX)
+  
   
 
   return (
@@ -176,7 +179,10 @@ const Ester = ({setProjectCounter, visitPage}) => {
             <div style={{backgroundColor: "#ff4548"}} onClick={() => setVidClosed(true)}></div>
             <div style={{backgroundColor: "var(--pink)"}} onClick={() => setVidFullscreen(!vidFullscreen)}></div>
           </div>
-        </motion.div>
+          <video autoplay muted loop style={{width: "100%", height: "100%", objectFit: "cover", borderRadius: "0 0 20px 20px"}}>
+            <source src="/img/04/test_sofya.mov" />
+          </video>
+      </motion.div>
 
 
       <motion.div id="ester-frame" variants={frameVariants} animate={closed? {scale: 0} : fullscreen?["start", "grow"]:["start", "shrink"]}

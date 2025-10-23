@@ -387,7 +387,7 @@ a{
   width: 30vw;
   position: absolute;
   left: 20%;
-  top: 35%;
+  bottom: 17%;
   z-index: 2;
   background-color: purple;
   height: 50vh;

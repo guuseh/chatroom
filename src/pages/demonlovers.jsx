@@ -37,7 +37,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
       "x": "90",
       "y": "0",
       "place": "Boyaca",
-      "date": "Jun 2024"
+      "date": "Nov 2023"
     },
     {"index": 1,
       "url": "/img/02/2.png",
@@ -45,7 +45,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
       "map": "",
       "x": "55",
       "y": "43",
-      "place": "Chivata",
+      "place": "Boyaca",
       "date": "Nov 2023"
     },
     {"index": 2,
@@ -54,8 +54,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "map": "",
         "x": "37",
         "y": "53",
-        "place": "62",
-        "date": "Mar 2024"
+        "place": "Boyaca",
+        "date": "Nov 2023"
       },
     {"index": 3,
         "url": "/img/02/4.png",
@@ -63,8 +63,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "map": "",
         "x": "18",
         "y": "62",
-        "place": "Cra 1a",
-        "date": "Oct 2023"
+        "place": "Boyaca",
+        "date": "Jun 2014"
       },
     {"index": 4,
         "url": "/img/02/5.png",
@@ -72,7 +72,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "map": "",
         "x": "42",
         "y": "67",
-        "place": "Cra 1a",
+        "place": "Cra. 1a",
         "date": "Oct 2023"
       },
     {"index": 5,
@@ -81,8 +81,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "map": "",
         "x": "53",
         "y": "59",
-        "place": "Cra 1a",
-        "date": "Oct 2023"
+        "place": "Chivata",
+        "date": "Nov 2023"
       },
     {"index": 6,
         "url": "/img/02/7.png",
@@ -90,8 +90,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         "map": "",
         "x": "66",
         "y": "52",
-        "place": "Cra 1a",
-        "date": "Oct 2023"
+        "place": "Boyaca",
+        "date": "Nov 2023"
       },
     {"index": 7,
         "url": "/img/02/panoramatest4.jpeg",
