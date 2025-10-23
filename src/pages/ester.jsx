@@ -95,11 +95,11 @@ const Ester = ({setProjectCounter, visitPage}) => {
     const interval = setInterval(() => {
       // console.log(typeRef.current.outerText.length)
       let progresscount = typeRef.current.outerText.length
-      let maxcount = texts.length-26
+      let maxcount = texts.length-25
       let percentage = progresscount / maxcount;
       
       setProgress(Math.ceil(percentage*100))
-      scaleX.set(percentage)
+      // scaleX.set(percentage)
 
       if(typeRef.current.outerText.length >= texts.length){
       clearInterval(interval)

@@ -325,7 +325,7 @@ a{
 }
 
 
-/* EVERYONEISAGIRL / ESTER */
+/* EVERYONEISAGIRL / ESTER --- 04 */
 
 #ester-frame{
   width: 50vw;
@@ -396,7 +396,7 @@ a{
 }
 
 
-/* DEMON LOVERS INC */
+/* DEMON LOVERS INC --- 02 */
 #demon-underlay-close{
   position: absolute;
   top: 0;
@@ -526,7 +526,16 @@ a{
   bottom: -40px !important;
 }
 
-/* JAMES PATTERSON / WITCHHUNT */
+/* ANGEL KETHER / ESLISKA --- 03 */
+#kether-imgdiv{
+  height: 70vh;
+}
+#kether-imgdiv img{
+  width: 100%;
+  height: 100%;
+}
+
+/* JAMES PATTERSON / WITCHHUNT --- 05 */
 #james-imgs-container{
   display: flex;
   position: relative;
