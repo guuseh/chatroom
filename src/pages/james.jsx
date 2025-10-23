@@ -75,8 +75,8 @@ const James = ({setProjectCounter, visitPage}) => {
 
     <div className="center-container">
       <motion.div id="james-imgs-container" initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
-        <motion.div custom={"l"} initial={{x: xleft.current, opacity: opleft.current}} whileHover={!left && {x: xleft.current-25, transition: {duration: 0.2}}} animate={{x: xleft.current, opacity: opleft.current, transition: {duration: 0.2}}} style={{zIndex: left ? 10 : 0, cursor: left ? 'default' : 'pointer'}} onClick={() => {handleClick('l')}} className="james-img-div"><img src="/img/05/james1.png" /></motion.div>
-        <motion.div custom={"r"} initial={{x: xright.current, opacity: opleft.current}} whileHover={!right && {x: xright.current+25, transition: {duration: 0.2}}} animate={{x: xright.current, opacity: opright.current, transition: {duration: 0.2}}} style={{zIndex: right ? 10 : 0, cursor: right ? 'default' : 'pointer'}} onClick={() => {handleClick('r')}} className="james-img-div"><img src="/img/05/james2.png" /></motion.div>
+        <motion.div custom={"l"} initial={{x: xleft.current, opacity: opleft.current, scale: 1}} whileHover={!left && {x: xleft.current-25, transition: {duration: 0.2}}} animate={{x: xleft.current, opacity: opleft.current, scale: left? 1 : 0.95, transition: {duration: 0.2}}} style={{zIndex: left ? 10 : 0, cursor: left ? 'default' : 'pointer'}} onClick={() => {handleClick('l')}} className="james-img-div"><img src="/img/05/james1.jpeg" /></motion.div>
+        <motion.div custom={"r"} initial={{x: xright.current, opacity: opleft.current, scale: 0.95}} whileHover={!right && {x: xright.current+25, transition: {duration: 0.2}}} animate={{x: xright.current, opacity: opright.current, scale: right? 1 : 0.95, transition: {duration: 0.2}}} style={{zIndex: right ? 10 : 0, cursor: right ? 'default' : 'pointer'}} onClick={() => {handleClick('r')}} className="james-img-div"><img src="/img/05/james2.jpeg" /></motion.div>
       </motion.div>
     </div>
 
