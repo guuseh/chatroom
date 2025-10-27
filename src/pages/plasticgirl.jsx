@@ -26,7 +26,7 @@ const Plasticgirl = ({setProjectCounter, visitPage}) => {
         <div className="center-container">
 
           <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
-            heeee
+            video...
           </motion.div>
 
         </div>

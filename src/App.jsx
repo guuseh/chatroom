@@ -33,6 +33,7 @@ function App() {
     })
   }
 
+  // shuffle urls for randomised list
   useEffect(() => {
     const shuffled = urls
           .map(v => ({v, sort: Math.random()}))
@@ -43,11 +44,13 @@ function App() {
     // console.log(shuffledUrls)
   }, [])
 
+  // set array for adding projects to empty divs for grid
   useEffect(() => {
     setArray(prev => [...prev, ...shuffledUrls])
 
   }, [shuffledUrls])
 
+  // shuffle divs of grid
   useEffect(() => {
     const shuffled = array
           .map(v => ({v, sort: Math.random()}))

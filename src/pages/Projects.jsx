@@ -30,14 +30,14 @@ const Projects = ({projects}) => {
                   </motion.div>   : p != 0 && 
                     <motion.div initial={{scale: 0}} animate={{scale: 1, transition: {duration: 0.2, delay: i/20}}} className="projects-img-div" style={{position: "relative", pointerEvents: "none"}}>
                       <img key={i*50} style={{alignSelf: i % 4 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 4 == 0 ? "0 auto 0 0" : i % 3 == 0 ? "0 0 0 auto" : "0 auto 0 auto", opacity: 0.4}} onClick={() => {navigate("/room"+p)}} className="projects-img" src={`/img/front${p}.png`}/>
-                      <span style={{position: "absolute", left: i % 4 == 0 ? "10%" : i % 3 == 0 ? "40%" : "25%", top: i % 5 == 0 ? "40%" : i % 4 == 0 ? "50%" : "60%", fontFamily: "jacquard", background: "#d9d9d9", lineHeight: "1rem"}}>locked</span>
+                      <span style={{position: "absolute", left: i % 4 == 0 ? "10%" : i % 3 == 0 ? "40%" : "25%", top: i % 5 == 0 ? "40%" : i % 4 == 0 ? "50%" : "60%", fontFamily: "jacquard", background: "var(--grey)", lineHeight: "1rem"}}>locked</span>
                     </motion.div>    
                     }
                 </motion.div>
             })}
         </motion.div>
 
-        <div><img id="exit-door" src={"img/front/exit.png"} /></div>
+        <div onClick={() => navigate('/exit')}><img id="exit-door" src={"img/front/exit.png"} /></div>
 
         <AnimatePresence>
           {open && <>

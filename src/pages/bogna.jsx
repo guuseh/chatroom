@@ -26,7 +26,7 @@ const Bogna = ({setProjectCounter, visitPage}) => {
         <div className="text-container">
 
           <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
-            <div className="text-page-before">ESSAY by <span style={{fontFamily: "oldbold"}}>BOGNA KONIOR</span> originally published on <span style={{fontFamily: "oldbold"}}><a href="" target="_blank">ŠUM↗</a></span></div>
+            <div className="text-page-before">ESSAY by <span style={{fontFamily: "oldbold"}}>BOGNA KONIOR</span> originally published on <span style={{fontFamily: "oldbold"}}><a href="https://www.sum.si/journal-articles/angelsexual-chatbot-celibacy-and-other-erotic-suspensions" target="_blank">ŠUM↗</a></span></div>
             <div className="text-page-title">Angelsexual</div>
             <div className="text-page-subtitle">Chatbot Celibacy and Other Erotic Suspensions</div>
 
