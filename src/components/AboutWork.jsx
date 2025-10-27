@@ -8,7 +8,7 @@ const AboutWork = ({data}) => {
   return (
     <>
     <div id="about-button" onClick={() => setOpen(prev => !prev)}>
-        (i)
+        <motion.img src="/img/front/info.png" animate={open ? {rotate: 180, transition: {duration: 0.3}} : {rotate: 0, transition: {duration: 0.3}}} style={{height: "100%"}}/>
     </div>
     <AnimatePresence>
         {open && <motion.div id="about-overlay" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>

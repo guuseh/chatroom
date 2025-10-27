@@ -166,6 +166,7 @@ a{
   right: var(--margin);
   z-index: 200;
   cursor: pointer;
+  height: 70px;
 }
 #about-overlay{
   position: absolute;

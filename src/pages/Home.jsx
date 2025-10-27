@@ -72,8 +72,9 @@ const Home = () => {
         <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, -20, 7]}>sarah khadra</motion.div>
       </motion.div>
 
-      <div>
-        <motion.img id="landing-dollhouse" onClick={()=>setClick(true)} animate={click&&"clicked"} variants={houseVariants} onAnimationComplete={() => navigate("/works")} onMouseEnter={() => {setHover(true)}} onMouseLeave={() => setHover(false)} src="/img/front/dollhouse-front.png"/>
+      <div style={{position: "relative"}}>
+        <motion.img id="landing-dollhouse" onClick={()=>setClick(true)} animate={click&&"clicked"} variants={houseVariants} onAnimationComplete={() => navigate("/works")} onMouseEnter={() => {setHover(true)}} onMouseLeave={() => setHover(false)} src={hover ? "/img/front/dollhouse-open.png" : "/img/front/dollhouse-front.png"}/>
+        {hover && <motion.div initial={{opacity: 0}} animate={click?{opacity: 0, transition: {duration: 0.1}}:{opacity: 1, transition: {duration: 0.5}}} style={{position: "absolute", top: "60%", fontFamily: "jacquard", background: "var(--grey)", fontSize: "1rem"}}>click to enter</motion.div>}
         <motion.div className="landing-below pink-button" variants={whoVariants} animate={hover? "show" : "hidden"} initial="hidden">who lives in the dollhouse?</motion.div>
       </div>
 
