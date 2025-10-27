@@ -5,6 +5,7 @@ import Home from "./pages/Home.jsx";
 import Exit from "./pages/Exit.jsx";
 import Projects from "./pages/Projects.jsx"
 import PageMenu from "./components/PageMenu.jsx"
+import Error from "./pages/Error.jsx"
 
 import Bogna from "./pages/bogna.jsx"; //text ROOM 01
 import Demonlovers from "./pages/demonlovers.jsx"; // custom google maps ROOM 02
@@ -79,6 +80,7 @@ function App() {
       <Router basename={import.meta.env.PUBLIC_URL}>
 
         <Routes>
+          <Route path="*" element={<Error />} />
           <Route index path="/" element={<Home />} />
           <Route path="/exit" element={<Exit />} />
           <Route path="/works" element={<Projects projects={shuffledDivs}/>} />
