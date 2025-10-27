@@ -19,11 +19,11 @@ import Sotce from "./pages/sotce.jsx" // video ROOM 10
 
 function App() {
   const urls = ["/01", "/02", "/03", "/04", "/05",
-                "/06", "/07", "/08", "/09", "/10", "/11", "/12"]
+                 "/07", "/08", "/09", "/10",]
   const [shuffledUrls, setShuffledUrls] = useState([])
   const [projectCounter, setProjectCounter] = useState(0)
   const [shuffledDivs, setShuffledDivs] = useState([])
-  const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+  const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/06", "/11", "/12"])
 
   const [visited, setVisited] = useState({})
   const visitPage = (nr) => {
@@ -67,9 +67,10 @@ function App() {
     if(currentWork == shuffledUrls.length-1){
       return "/room"+shuffledUrls[0]
     } else{
-      return "/room"+shuffledUrls[currentWork+1]
+        return "/room"+shuffledUrls[currentWork+1]
+      } 
     }
-  }
+  
 
   // console.log(nextWork)
 

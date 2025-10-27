@@ -18,7 +18,7 @@ const PageMenu = (props) => {
         {props.urls.map((p) => {
           return <>
           {props.visited[p] ? 
-            <div>{p}</div> : <div>x</div>
+            <div><img src={`/img/front${p}.png`} className="nav-img" /></div> : <div>●</div>
           }
           </>
         })}
