@@ -3,7 +3,6 @@ import { useNavigate, Outlet } from 'react-router-dom'
 
 const PageMenu = (props) => {
     const navigate = useNavigate();
-    console.log(props)
     // const url = window.location.pathname
 
 
@@ -18,7 +17,7 @@ const PageMenu = (props) => {
         {props.urls.map((p) => {
           return <>
           {props.visited[p] ? 
-            <div><img src={`/img/front${p}.png`} className="nav-img" /></div> : <div>●</div>
+            <div><img src={`/img/front${p}.png`} className="nav-img" /></div> : <div style={{filter: "drop-shadow(0 0 2px #bcbcbcff)"}}>●</div>
           }
           </>
         })}

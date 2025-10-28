@@ -33,7 +33,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
     {"index": 0,
       "url": "/img/02/1.png",
       "pin": "",
-      "map": "",
+      "map": "/img/02/maps/1b.png",
       "x": "90",
       "y": "0",
       "place": "Boyaca",
@@ -42,7 +42,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
     {"index": 1,
       "url": "/img/02/2.png",
       "pin": "",
-      "map": "",
+      "map": "/img/02/maps/2b.png",
       "x": "55",
       "y": "43",
       "place": "Boyaca",
@@ -51,7 +51,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
     {"index": 2,
         "url": "/img/02/3.png",
         "pin": "",
-        "map": "",
+        "map": "/img/02/maps/3b.png",
         "x": "37",
         "y": "53",
         "place": "Boyaca",
@@ -60,7 +60,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
     {"index": 3,
         "url": "/img/02/4.png",
         "pin": "",
-        "map": "",
+        "map": "/img/02/maps/4b.png",
         "x": "18",
         "y": "62",
         "place": "Boyaca",
@@ -69,7 +69,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
     {"index": 4,
         "url": "/img/02/5.png",
         "pin": "",
-        "map": "",
+        "map": "/img/02/maps/5b.png",
         "x": "42",
         "y": "67",
         "place": "Cra. 1a",
@@ -78,7 +78,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
     {"index": 5,
         "url": "/img/02/6.png",
         "pin": "",
-        "map": "",
+        "map": "/img/02/maps/6b.png",
         "x": "53",
         "y": "59",
         "place": "Chivata",
@@ -87,38 +87,128 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
     {"index": 6,
         "url": "/img/02/7.png",
         "pin": "",
-        "map": "",
+        "map": "/img/02/maps/7b.png",
         "x": "66",
         "y": "52",
         "place": "Boyaca",
         "date": "Nov 2023"
       },
     {"index": 7,
-        "url": "/img/02/panoramatest4.jpeg",
+        "url": "/img/02/8.png", //from here check place
         "pin": "",
-        "map": "",
+        "map": "/img/02/maps/8b.png",
         "x": "83",
         "y": "50",
-        "place": "Cra 1a",
-        "date": "Oct 2023"
+        "place": "Boyaca",
+        "date": "Jun 2014"
       },
     {"index": 8,
-        "url": "/img/02/panoramatest4.jpeg",
+        "url": "/img/02/9.png",
         "pin": "",
-        "map": "",
+        "map": "/img/02/maps/9b.png",
         "x": "80",
         "y": "58",
-        "place": "Cra 1a",
-        "date": "Oct 2023"
+        "place": "Chivata",
+        "date": "Nov 2023"
       },
     {"index": 9,
-        "url": "/img/02/panoramatest4.jpeg",
+        "url": "/img/02/10.png",
         "pin": "",
-        "map": "",
+        "map": "/img/02/maps/10b.png",
         "x": "70",
         "y": "69",
+        "place": "Boyaca",
+        "date": "Jun 2014"
+      },
+    {"index": 10,
+        "url": "/img/02/11.png",
+        "pin": "",
+        "map": "/img/02/maps/11b.png",
+        "x": "80",
+        "y": "20",
+        "place": "Boyaca",
+        "date": "Jun 2014"
+      },
+    {"index": 11,
+        "url": "/img/02/12.png",
+        "pin": "",
+        "map": "/img/02/maps/12b.png",
+        "x": "83",
+        "y": "26",
+        "place": "Boyaca",
+        "date": "Jun 2014"
+      },
+    {"index": 12,
+        "url": "/img/02/13.png",
+        "pin": "",
+        "map": "/img/02/maps/13b.png",
+        "x": "13",
+        "y": "38",
+        "place": "Boyaca",
+        "date": "Nov 2023"
+      },
+    {"index": 13,
+        "url": "/img/02/14.png",
+        "pin": "",
+        "map": "/img/02/maps/14b.png",
+        "x": "14",
+        "y": "57",
+        "place": "Boyaca",
+        "date": "Nov 2023"
+      }
+    ,{"index": 14,
+        "url": "/img/02/15.png",
+        "pin": "",
+        "map": "/img/02/maps/15b.png",
+        "x": "58",
+        "y": "65",
+        "place": "Boyaca",
+        "date": "Jun 2014"
+      }
+    ,{"index": 15,
+        "url": "/img/02/16.png",
+        "pin": "",
+        "map": "/img/02/maps/16b.png",
+        "x": "59",
+        "y": "80",
+        "place": "62",
+        "date": "Mar 2024"
+      }
+    ,{"index": 16,
+        "url": "/img/02/17.png",
+        "pin": "",
+        "map": "/img/02/maps/17b.png",
+        "x": "54",
+        "y": "93",
         "place": "Cra 1a",
         "date": "Oct 2023"
+      }
+    ,{"index": 17,
+        "url": "/img/02/18.png",
+        "pin": "",
+        "map": "/img/02/maps/18b.png",
+        "x": "47.5",
+        "y": "83",
+        "place": "Cra 1a",
+        "date": "Oct 2023"
+      }
+    ,{"index": 18,
+        "url": "/img/02/19.png",
+        "pin": "",
+        "map": "/img/02/maps/19b.png",
+        "x": "45",
+        "y": "85",
+        "place": "Cra 1a",
+        "date": "Oct 2023"
+      }
+    ,{"index": 19,
+        "url": "/img/02/20.png",
+        "pin": "",
+        "map": "/img/02/maps/20b.png",
+        "x": "47",
+        "y": "87.5",
+        "place": "Boyaca",
+        "date": "Nov 2023"
       }]
   
   const [index, setIndex ] = useState(0);
@@ -135,11 +225,12 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
     src: "/img/02/1.png",
     plugins: [
          [ MapPlugin, {
-            imageUrl: '/img/02/panoramatest.jpeg',
-            center: { x: 700, y: 500},
+            imageUrl: '/img/02/maps/1b.png',
+            center: { x: 150, y: 87},
             shape: 'square',
             buttons: {north: false, maximize: false, close: false, reset: false},
-            overlayImage: null
+            overlayImage: null,
+            static: true,
           } ],
           [ VisibleRangePlugin, {
             horizontalRange: [-Math.PI / 1.5, Math.PI / 1.5],
@@ -153,14 +244,17 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
   }
 
   const changePanorama = (i) => {
-    setIndex(i)
+      setIndex(i)
       viewerRef.current.setPanorama(imgData[i].url, {
       showLoader: false,
       position: {
         yaw: (((Math.random() - 0.5) * 3) / 2) * Math.PI,
         pitch: (((Math.random() - 0.5) * 3) / 4) * Math.PI,
       }
-    }).then(() => setLoading(false))
+    }).then(() => {
+      viewerRef.current.getPlugin(MapPlugin).setImage(imgData[i].map)
+      setLoading(false)
+    })
   }
 
   const handleNext = () => {
@@ -184,10 +278,12 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
 
   const handleMapItem = (item) => {
     setIndex(item.index)
-    viewerRef.current.setPanorama(imgData[item.index].url, {
+    viewerRef.current.getPlugin(MapPlugin).setImage(item.map)
+    viewerRef.current.setPanorama(item.url, {
       showLoader: false,
-      transition: false}).then(() => setOpen(true))
+      transition: false}).then(() => {setOpen(true)})
   }
+
 
   const viewerVariants = {
     hidden: (i) => ({ 
@@ -228,7 +324,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
           initial={{scale: 0}} variants={viewerVariants} custom={index} animate={open? "visible" : "hidden"}
           style={{transformOrigin: `${mapValue(imgData[index].x, [0, 100], [0+sidePercentage, 100-sidePercentage])}% ${imgData[index].y}%`}}>
           
-          <ReactPhotoSphereViewer ref={viewerRef} {...props} />
+          <ReactPhotoSphereViewer ref={viewerRef} {...props}/>
 
           <div id="demon-address-overlay">
             <div style={{display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%"}}>
@@ -247,10 +343,10 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
 
           <div id="demon-bottom-center">
             <div style={{display: "flex", gap: "15px", opacity: loading? 0.3 : 1}}>
-              <div id="demon-prev-btn" onClick={() => handleNext()} style={{zIndex: 100, cursor: loading? "default" : "var(--pointer)"}}><img src="/img/02/left.svg" style={{width: "100%"}}/></div>
-              <div id="demon-next-btn" onClick={() => handlePrev()} style={{zIndex: 100, cursor: loading? "default" : "var(--pointer)"}}><img src="/img/02/right.svg" style={{width: "100%"}}/></div>
+              <div id="demon-prev-btn" onClick={() => handleNext()} style={{zIndex: 100, cursor: loading? "var(--default)" : "var(--pointer)"}}><img src="/img/02/left.svg" style={{width: "100%"}}/></div>
+              <div id="demon-next-btn" onClick={() => handlePrev()} style={{zIndex: 100, cursor: loading? "var(--default)" : "var(--pointer)"}}><img src="/img/02/right.svg" style={{width: "100%"}}/></div>
             </div>
-            <div style={{fontFamily: 'google'}}>Google</div>
+            <div style={{fontFamily: 'google', opacity: 0.5}}>Google</div>
           </div>
         </motion.div>
 

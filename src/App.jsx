@@ -21,17 +21,24 @@ import Sotce from "./pages/sotce.jsx" // video ROOM 10
 function App() {
   const urls = ["/01", "/02", "/03", "/04", "/05",
                  "/07", "/08", "/09", "/10",]
-  const [shuffledUrls, setShuffledUrls] = useState([])
+  const [shuffledUrls, setShuffledUrls] = useState([]) // will only contain urls
   const [projectCounter, setProjectCounter] = useState(0)
-  const [shuffledDivs, setShuffledDivs] = useState([])
+  const [shuffledDivs, setShuffledDivs] = useState([]) // will contain also empty 0 divs
   const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/06", "/11", "/12"])
 
-  const [visited, setVisited] = useState({})
+  const [visited, setVisited] = useState({count: 0})
+
   const visitPage = (nr) => {
-    setVisited({
-      ...visited,
-      [nr]: true
-    })
+    if(visited[nr]){
+      return;
+    } else{
+      setVisited({
+        ...visited,
+        [nr]: true,
+        count: visited.count++ 
+      })
+    }
+    
   }
 
   // shuffle urls for randomised list
@@ -61,8 +68,6 @@ function App() {
       setShuffledDivs(shuffled)
   }, [array])
 
-  console.log(shuffledDivs)
-
   const nextWork = () => {
     const currentWork = shuffledUrls.findIndex((url) => url == window.location.pathname.slice(5))
     if(currentWork == shuffledUrls.length-1){
@@ -83,7 +88,7 @@ function App() {
           <Route path="*" element={<Error />} />
           <Route index path="/" element={<Home />} />
           <Route path="/exit" element={<Exit />} />
-          <Route path="/works" element={<Projects projects={shuffledDivs}/>} />
+          <Route path="/works" element={<Projects projects={shuffledDivs} urls={urls} visited={visited}/>} />
 
           <Route path="room" element={<PageMenu next={nextWork} urls={urls} visited={visited}/>}>
             

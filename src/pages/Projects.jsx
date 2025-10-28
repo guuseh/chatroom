@@ -1,19 +1,43 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {motion, AnimatePresence, stagger} from 'motion/react'
 
-const Projects = ({projects}) => {
+const Projects = ({projects, urls, visited}) => {
   const navigate = useNavigate()
   const [window, setWindow] = useState('[+]')
   const [open, setOpen] = useState(false)
   const [display, setDisplay] = useState(false)
   const [hover, setHover] = useState(false)
   const [mouse, setMouse] = useState([])
+  const [notice, setNotice] = useState(false)
+  const timerId = useRef(null);
 
   const handleAbout = () => {
     setOpen(!open)
     setWindow(open? "[+]" : "[ ]")
   }
+
+  const handleExit = () => {
+    if(visited.count < urls.length){
+      setNotice(true)
+    } else{
+      navigate('/exit')
+    }
+  }
+
+  useEffect(() => {
+    if (notice) {
+            //Creating a timeout
+            timerId.current = setTimeout(() => {
+                setNotice(false);
+            }, 3000);
+        }
+
+        return () => {
+            //Clearing a timeout
+            clearTimeout(timerId.current);
+        };
+  }, [notice])
 
 
   return (
@@ -37,7 +61,11 @@ const Projects = ({projects}) => {
             })}
         </motion.div>
 
-        <div onClick={() => navigate('/exit')}><img id="exit-door" src={"img/front/exit.png"} /></div>
+        <motion.div style={{position: "absolute", fontFamily: "tages", background: "var(--pink)", boxShadow: "0 0 20px 10px var(--pink)"}} initial={{opacity: 0}} animate={notice ? {opacity: 1} : {opacity: 0}}>
+          You must collect &#123;{urls.length - visited.count}&#125; more objects from the &#123;doll house&#125;. The &#123;chatroom&#125; remains locked...
+        </motion.div>
+
+        <div onClick={() => handleExit()}><img id="exit-door" src={"img/front/exit.png"} /></div>
 
         <AnimatePresence>
           {open && <>
@@ -52,10 +80,10 @@ const Projects = ({projects}) => {
               <p>
                 The pavilion traces wandering online, searching, discovering, and negotiating identity and attention, turning media consumption into a performative exploration of presence, perception, and unseen forces.
               </p>
-              <p style={{fontFamily: "olditalic"}}>
+              <p>
                 Who lives in the dollhouse, and who watches from the chatroom?
               </p>
-              <p style={{fontFamily: "olditalic", fontSize: "1rem"}}>
+              <p style={{marginTop: "30px", fontSize: "1rem"}}>
                 Curated by Sarah Khadra Hasni and Joshua Esser<br/>
                 Developed by Guus Hoeberechts
               </p>
