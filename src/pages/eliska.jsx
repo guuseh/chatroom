@@ -88,7 +88,7 @@ const workdata = {
 
           <motion.div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px'}} initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
             
-            <div onClick={() => handleNext()}><img src={dice} style={{cursor: "pointer"}}/></div>
+            <div onClick={() => handleNext()}><img src={dice} style={{cursor: "var(--pointer)"}}/></div>
             
             <div id="kether-imgdiv">
               <img src={shuffled[index]} />

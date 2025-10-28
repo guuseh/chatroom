@@ -38,6 +38,7 @@
   --glow: rgba(255, 0, 136, 0.30);
   --pinkshadow: 0 0 15px var(--glow);
   --grey: #d9d9d9;
+  --pointer: url('/img/front/pointer-cursor.png') 20 0, pointer;
   scroll-behavior: smooth;
 }
 body{
@@ -47,7 +48,9 @@ body{
   background: linear-gradient(180deg, rgba(255, 240, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   font-family: 'oldstandard';
   font-size: 1.2rem;
+  cursor: url('/img/front/cursor.png') 0 0, auto;
 }
+
 a{
   color: inherit;
   text-decoration: none;
@@ -135,7 +138,7 @@ a{
   right: 0;
   margin: var(--margin);
   z-index: 100;
-  cursor: pointer;
+  cursor: var(--pointer);
 }
 #img-navbar{
   position: absolute;
@@ -156,7 +159,7 @@ a{
   top: var(--margin);
   left: var(--margin);
   z-index: 10;
-  cursor: pointer;
+  cursor: var(--pointer);
 }
 
 /* ABOUT OVERLAY */
@@ -165,7 +168,7 @@ a{
   top: var(--margin);
   right: var(--margin);
   z-index: 200;
-  cursor: pointer;
+  cursor: var(--pointer);
   height: 70px;
 }
 #about-overlay{
@@ -211,13 +214,21 @@ a{
 #landing-dollhouse{
   height: 50vh;
   margin: 20px 0;
-  cursor: pointer;
+  cursor: var(--pointer);
 }
 .landing-names{
   font-family: jacquard;
 }
 
 /* PROJECTS PAGE */
+#exit-door{
+  height: 15vh;
+  position: absolute;
+  bottom: var(--margin);
+  right: var(--margin);
+  cursor: var(--pointer);
+}
+
 #projects-page{
   display: flex;
   height: 100vh;
@@ -267,20 +278,12 @@ a{
   filter: drop-shadow(var(--pinkshadow))
 }
 
-#exit-door{
-  height: 15vh;
-  position: absolute;
-  bottom: var(--margin);
-  right: var(--margin);
-  cursor: pointer;
-}
-
 #projects-about-window{
   z-index: 10;
   position: absolute;
   top: var(--margin);
   right: var(--margin);
-  cursor: pointer;
+  cursor: var(--pointer);
 }
 
 #projects-about{
@@ -397,7 +400,7 @@ a{
   top: 20px;
   right: var(--margin);
   height: 8vh;
-  cursor: pointer;
+  cursor: var(--pointer);
   z-index: 10;
 }
 
@@ -530,7 +533,7 @@ sup{
   height: 14px;
   /* background-color: red; */
   border-radius: 10px;
-  cursor: pointer;
+  cursor: var(--pointer);
 }
 #progress-ester{
   color: rgba(255, 255, 255, 0.266);
@@ -625,7 +628,7 @@ sup{
 }
 .demon-map-item{
   position: absolute;
-  cursor: pointer;
+  cursor: var(--pointer);
 }
 .demon-map-item img{
   width: 20px;
@@ -659,7 +662,7 @@ sup{
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  cursor: pointer;
+  cursor: var(--pointer);
   font-family: Helvetica;
   font-weight: bold;
   padding: 6px;

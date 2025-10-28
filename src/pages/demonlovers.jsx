@@ -247,8 +247,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
 
           <div id="demon-bottom-center">
             <div style={{display: "flex", gap: "15px", opacity: loading? 0.3 : 1}}>
-              <div id="demon-prev-btn" onClick={() => handleNext()} style={{zIndex: 100, cursor: loading? "default" : "pointer"}}><img src="/img/02/left.svg" style={{width: "100%"}}/></div>
-              <div id="demon-next-btn" onClick={() => handlePrev()} style={{zIndex: 100, cursor: loading? "default" : "pointer"}}><img src="/img/02/right.svg" style={{width: "100%"}}/></div>
+              <div id="demon-prev-btn" onClick={() => handleNext()} style={{zIndex: 100, cursor: loading? "default" : "var(--pointer)"}}><img src="/img/02/left.svg" style={{width: "100%"}}/></div>
+              <div id="demon-next-btn" onClick={() => handlePrev()} style={{zIndex: 100, cursor: loading? "default" : "var(--pointer)"}}><img src="/img/02/right.svg" style={{width: "100%"}}/></div>
             </div>
             <div style={{fontFamily: 'google'}}>Google</div>
           </div>
