@@ -48,6 +48,7 @@
   --grey: #d9d9d9;
   --pointer: url('/img/front/pointer-cursor.png') 20 0, pointer;
   --default: url('/img/front/cursor.png') 0 0, auto;
+  --buttonshadow: rgba(113, 0, 60, 0.557);
   scroll-behavior: smooth;
   cursor: url('/img/front/cursor.png') 0 0, auto;
 }
@@ -228,6 +229,7 @@ a{
   right: var(--margin);
   cursor: var(--pointer);
   z-index: 5;
+  filter: drop-shadow(2px 2px 2px var(--buttonshadow));
 }
 
 #projects-page{
@@ -289,6 +291,7 @@ a{
   transform: translateX(-50%);
   cursor: var(--pointer);
   height: 70px;
+  filter: drop-shadow(0 3px 3px var(--buttonshadow));
 }
 
 #projects-about{
@@ -533,6 +536,7 @@ a{
   cursor: var(--pointer);
   z-index: 5;
   margin-left: 20px;
+  filter: drop-shadow(0 2px 3px var(--buttonshadow));
 }
 .nav-img{
   height: 40px;
@@ -546,6 +550,7 @@ a{
   cursor: var(--pointer);
   height: 70px;
   z-index: 5;
+  filter: drop-shadow(-2px 2px 3px var(--buttonshadow));
   /* border: 1px solid red; */
 }
 #back-to-works img{
@@ -565,6 +570,7 @@ a{
   z-index: 200;
   cursor: var(--pointer);
   height: 70px;
+  filter: drop-shadow(0 3px 3px var(--buttonshadow));
 }
 #about-button img{
   cursor: var(--pointer);
