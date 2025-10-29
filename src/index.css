@@ -538,10 +538,14 @@ a{
   z-index: 5;
   margin-left: 20px;
   filter: drop-shadow(2px 3px 2px var(--buttonshadow));
+  height: 40px;
 }
 .nav-img{
   height: 40px;
+  width: 40px;
   cursor: var(--pointer);
+  display: flex;
+  justify-content: center;
 }
 #back-to-works{
   position: absolute;
