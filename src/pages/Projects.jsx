@@ -28,7 +28,7 @@ const Projects = ({projects, urls, visited, showObjects}) => {
         <motion.div id="projects-img-container">
             {projects.map((p, i) => {
                 return <motion.div key={i*100} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-end" : "flex-start", justifySelf: i % 3 == 0 ? "flex-end" : i % 5 == 0 ? "flex-start" : "center"}}>
-                  { p != 0 && p != "/11" && p != "/12" ?
+                  { p != 0 && p != "/09" && p != "/11" && p != "/12" ?
                   <motion.div className="projects-img-div" initial={{scale: 0}} animate={showObjects && {scale: 1, transition: {duration: 0.2, delay: i/15}}}>
                       <img key={i} onMouseEnter={(e) => {setHover(true); setMouse([e.clientX, e.clientY])}} onMouseLeave={(e) => setHover(false)} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 3 == 0 ? "0 auto 0 0" : i % 5 == 0 ? "0 0 0 auto" : "0 auto 0 auto", cursor: "var(--pointer)"}} onClick={() => {navigate("/room"+p)}} className="projects-img projects-img-active" src={`/img/front${p}.png`}/>
                       {/* {hover&& <span style={{position: "absolute", zIndex: 20, left: mouse[0], top: mouse[1], fontFamily: "jacquard", background: "#d9d9d9", lineHeight: "1rem"}}>enter</span>} */}

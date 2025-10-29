@@ -17,15 +17,19 @@ const AboutWork = ({data}) => {
             <div>
                 {data.artist.map((a) => {
                     return (
-                    a.name != undefined && a.name != ""?
+                    a.name != undefined && a.name != "" && !a.extra ?
                     <div>
                         <span style={{fontSize: "2rem"}}>{a.name}</span>
+                        {a.extra&& <span style={{fontSize: "1rem"}}>&nbsp;{a.extra}</span>}
                         {a.ig&& <span style={{fontSize: "1rem"}}>&nbsp;<a href={`https://www.instagram.com/${a.ig}/`} target="_blank">(Instagram)</a></span>}
                         {a.yt&& <span style={{fontSize: "1rem"}}>&nbsp;<a href={`https://www.youtube.com/@s${a.yt}`} target="_blank">(YouTube)</a></span>}
                         {a.web&& <span style={{fontSize: "1rem"}}>&nbsp;<a href={`${a.web}`} target="_blank">(Website)</a></span>}
                     </div>
                     : a.extra != undefined && a.extra != "" ?
-                        <div style={{margin: "1.5rem 0 1rem 0"}}>{a.extra}</div>
+                        <div style={{margin: "0"}}>
+                            <span style={{fontSize: "1.5rem"}}>{a.name}</span>
+                            <span style={{fontSize: "1rem"}}>&nbsp;{a.extra}</span>
+                        </div>
                     :
                         <div style={{height: "1.5rem"}}></div>
                     )

@@ -11,21 +11,38 @@ const Noura = ({setProjectCounter, visitPage}) => {
 
    const workdata = {
     "title": "Gijinka Complex",
-    "artist": [{
+    "artist": [
+      {
+      "name": "Check back come December to experience the full adventure...",
+      "extra": " "
+    },{
+      "name": undefined
+    },{
       "name": "Noura Tafeche",
       "ig": "nouratafeche",
       "web": "https://nouratafeche.com/"
-    },
-    {
+    },{
       "name": "Tobia Paolo Bettoni",
       "ig": "archiviotpb",
-    },
-    {
+    },{
       "name": undefined
-    },
-    {
-      "name": "",
-      "extra": "Check back come December to experience the full visual novel..."
+    }, {
+      "name": "✦",
+      "extra": " ",
+    },{
+      "name": undefined
+    }, {
+      "name": "Noura Tafeche & Tobia Paolo Bettoni",
+      "extra": "Concept, development & direction"
+    },{
+      "name": "Silvia Gnocchi",
+      "extra": "Game Illustrations"
+    },{
+      "name": "Tobia Paolo Bettoni, Noura Tafeche & Silvia Gnocchi",
+      "extra": "Character Design"
+    },{
+      "name": "Pierfrancesco Asuni",
+      "extra": "Logo Design"
     }],
     "date": "2025"
     }

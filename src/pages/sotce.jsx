@@ -26,9 +26,13 @@ const Sotce = ({setProjectCounter, visitPage}) => {
 
     <div className="theatre-container">
     <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1, ease: "easeIn"}}}>
-      <video className="theatre-video" controls controlsList="nodownload" onContextMenu={(e) => e.preventDefault()}>
+      {/* <video className="theatre-video" controls controlsList="nodownload" onContextMenu={(e) => e.preventDefault()}>
         <source src="/img/10/sotce.mp4" />
-      </video>
+      </video> */}
+      <div style={{position: "absolute", zIndex: 0, top: "50%", left: "50%", transform: "translate(-50%,-50%)", color: "var(--pink)"}}>loading video...</div>
+      <div className="theatre-video">
+        <iframe style={{height: "100%", aspectRatio: "16/9", border: "none"}} src="https://drive.google.com/file/d/1JHI8P2lDSmcdsPvkJr5lavGBO27p9l2P/preview"></iframe>
+      </div>
     </motion.div>
     </div>
 

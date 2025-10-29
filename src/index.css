@@ -41,7 +41,7 @@
   box-sizing: border-box;
   --margin: 20px;
   --lightpink: #fff0ff;
-  --lighttrans: rgba(193, 157, 193, 0.25);
+  --lighttrans: rgba(183, 133, 172, 0.538);
   --pink: #ffc4ff;
   --glow: rgba(255, 0, 136, 0.30);
   --pinkshadow: 0 0 15px var(--glow);
@@ -102,6 +102,8 @@ a{
 .theatre-video{
   /* width: 80vw; */
   height: 75vh;
+  z-index: 2;
+  position: relative;
 }
 .title-overlay{
   width: 100vw;
@@ -584,7 +586,7 @@ a{
   color: var(--lightpink);
   z-index: 100;
   text-align: center;
-  padding: 5%;
+  padding: 10% 5% 5% 5%;
   background-color: var(--lighttrans);
 }
 #about-overlay div:not(#demon-underlay-close){
