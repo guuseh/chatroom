@@ -2,13 +2,16 @@ import {useState, useEffect, useRef} from 'react'
 import {useNavigate, Outlet} from 'react-router-dom'
 import {motion} from 'motion/react'
 
-const ExitDoor = ({urls, visited}) => {
+const ExitDoor = ({urls, visited, showObjects, setShowObjects}) => {
     const navigate = useNavigate()
     const [notice, setNotice] = useState(false)
 
     console.log(window.location.pathname)
 
     const handleExit = () => {
+    if(!showObjects){
+        setShowObjects(true)
+    }
     if(visited.count < urls.length){
         setNotice(true)
     } else{

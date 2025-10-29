@@ -15,11 +15,13 @@ const PageMenu = (props) => {
           {props.urls.map((p) => {
             return <>
             {props.visited[p] ?
-              <div className="nav-img" onClick={() => navigate(`/room${p}`)}><img src={`/img/front${p}.png`} style={{height: "100%", cursor: "var(--pointer)"}} /></div> : <div style={{filter: "drop-shadow(0 0 2px #bcbcbcff)", width: "40px", color: "var(--pink)", textAlign: "center"}}>●</div>
+              <div className="nav-img" onClick={() => navigate(`/room${p}`)}><img src={`/img/front${p}.png`} style={{height: "100%", cursor: "var(--pointer)"}} /></div> 
+              : 
+              <div onClick={() => navigate(`/room${p}`)} style={{filter: "drop-shadow(0 0 2px #bcbcbcff)", width: "40px", color: "var(--pink)", textAlign: "center"}}>●</div>
             }
             </>
           })}
-          <div id="page-menu-next" onClick={() => navigate(props.next())}><img style={{cursor: "var(--pointer)", height: "100%"}} src="/img/front/next.png" /></div>
+          <div id="page-menu-next"><img style={{cursor: "var(--pointer)", height: "100%"}} src="/img/front/next.png" /></div>
         </div>
 
           

@@ -27,8 +27,8 @@ function App() {
   const [projectCounter, setProjectCounter] = useState(0)
   const [shuffledDivs, setShuffledDivs] = useState([]) // will contain also empty 0 divs
   const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/06", "/11", "/12"])
-
   const [visited, setVisited] = useState({count: 0})
+  const [showObjects, setShowObjects] = useState(false)
 
   const visitPage = (nr) => {
     if(visited[nr]){
@@ -93,8 +93,8 @@ function App() {
           <Route index path="/" element={<Home />} />
           <Route path="/exit" element={<Exit />} />
 
-          <Route element={<ExitDoor urls={urls} visited={visited}/>} >
-          <Route path="/works" element={<Projects projects={shuffledDivs} urls={urls} visited={visited}/>} />
+          <Route element={<ExitDoor urls={urls} visited={visited} showObjects={showObjects} setShowObjects={setShowObjects}/>} >
+          <Route path="/works" element={<Projects projects={shuffledDivs} urls={urls} visited={visited} showObjects={showObjects}/>} />
 
           <Route path="room" element={<PageMenu next={nextWork} urls={urls} visited={visited}/>}>
             
