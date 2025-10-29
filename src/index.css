@@ -78,6 +78,7 @@ a{
   height: 100vh;
   background: #FFC4FF;
   background: linear-gradient(180deg, rgba(255, 196, 255, 1) 0%, rgba(179, 179, 179, 1) 100%);
+  padding-top: 3vh;
 }
 
 .center-container{
@@ -90,28 +91,6 @@ a{
   background: #FFC4FF;
   background: linear-gradient(180deg, rgba(255, 196, 255, 1) 0%, rgba(179, 179, 179, 1) 100%);
   /* gap: 100px; */
-}
-.text-container{
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center;
-  flex-direction: column; */
-  width: 100%;
-  height: 100vh;
-  background: #FFC4FF;
-  background: linear-gradient(180deg, rgba(255, 196, 255, 1) 0%, rgba(179, 179, 179, 1) 100%);
-  overflow-y: scroll;
-  padding: 10vh 20vw 15vh 20vw;
-  /* gap: 100px; */
-}
-.text-container > div{
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  /* border: 1px solid black; */
-  overflow-y: scroll;
 }
 .theatre-video{
   width: 80vw;
@@ -129,7 +108,7 @@ a{
   font-family: 'pinyon';
   font-size: 8rem;
   line-height: 8rem;
-  padding: 5%;
+  padding: 5% 10%;
   text-align: center;
 }
 .pink-button{
@@ -607,9 +586,32 @@ a{
 /* --------------------------------------------- PROJECTS --------------------------------------------- */
 
 /* --------------- TEXTS --------------- */
+.text-container{
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center;
+  flex-direction: column; */
+  width: 100%;
+  height: 100vh;
+  background: #FFC4FF;
+  background: linear-gradient(180deg, rgba(255, 196, 255, 1) 0%, rgba(179, 179, 179, 1) 100%);
+  overflow-y: scroll;
+  padding: 15vh 20vw 15vh 20vw;
+  /* gap: 100px; */
+}
+.text-container > div{
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  /* border: 1px solid black; */
+  overflow-y: scroll;
+}
 .text-page-before{
   text-align: center;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
+  /* border: 1px solid green; */
 }
 .text-page-title{
   font-family: jacquard24;
@@ -953,15 +955,15 @@ sup{
 /* --------------- PARKER ITO --------------- */
 #eyes-container{
   /* border: 2px solid green; */
-  aspect-ratio: 4 / 2.63;
+  aspect-ratio: 4 / 2;
   width: fit-content;
   max-width: 80vw;
-  max-height: 85vh;
+  max-height: 75vh;
   overflow: hidden;
   box-sizing: border-box;
 }
 #parkerframe{
-  /* border: 2px solid red; */
+  border: 2px solid red;
   /* max-width: 90vw; */
   width: 1840px;
   height: 1210px;

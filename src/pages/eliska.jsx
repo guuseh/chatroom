@@ -86,15 +86,15 @@ const workdata = {
           
         <div className="center-container">
 
-          <motion.div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px'}} initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
+          <motion.div style={{display: 'flex', alignItems: 'center', gap: '20px'}} initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
             
-            <div onClick={() => handleNext()}><img src={dice} style={{cursor: "var(--pointer)"}}/></div>
+            <div style={{opacity: 0, pointerEvents: "none"}}><img src={dice}/></div>
             
             <div id="kether-imgdiv">
               <img src={shuffled[index]} />
             </div>
 
-            <div>&nbsp;</div>
+            <div onClick={() => handleNext()}><img src={dice} style={{cursor: "var(--pointer)"}}/></div>
 
           </motion.div>
 
