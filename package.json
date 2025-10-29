@@ -17,6 +17,7 @@
     "@smakss/react-scroll-direction": "^4.2.0",
     "motion": "^12.23.22",
     "react": "^19.1.1",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^19.1.1",
     "react-photo-sphere-viewer": "^6.2.3",
     "react-router-dom": "^7.9.3",

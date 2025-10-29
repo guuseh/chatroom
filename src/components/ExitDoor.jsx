@@ -35,11 +35,11 @@ const ExitDoor = ({urls, visited}) => {
  
     return (
     <>
-    <div onClick={() => handleExit()}>
-        <img id="exit-door" src={"/img/front/exit.png"} />
+    <div id="exit-door" onClick={() => handleExit()}>
+        <img src={visited.count < urls.length ? "/img/front/exit.png" : "/img/front/door.gif"} style={{cursor: "var(--pointer)", height: "100%"}}/>
     </div>
 
-    <motion.div style={{position: "absolute", width: "max-content", top: "50%", left: "50%", transform: "translate(-50%, -50%)", fontFamily: "tages", background: "var(--pink)", boxShadow: "0 0 20px 10px var(--pink)"}} initial={{opacity: 0}} animate={notice ? {opacity: 1} : {opacity: 0}}>
+    <motion.div style={{position: "absolute", width: "max-content", top: "50%", left: "50%", transform: "translate(-50%, -50%)", fontFamily: "tages", background: "var(--pink)", boxShadow: "0 0 20px 10px var(--pink)", zIndex: "200"}} initial={{opacity: 0}} animate={notice ? {opacity: 1} : {opacity: 0}}>
           You must collect &#123;{urls.length - visited.count}&#125; more objects from the &#123;doll house&#125;. The &#123;chatroom&#125; remains locked...
     </motion.div>
 

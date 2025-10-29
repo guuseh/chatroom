@@ -7,6 +7,7 @@ import Projects from "./pages/Projects.jsx"
 import PageMenu from "./components/PageMenu.jsx"
 import Error from "./pages/Error.jsx"
 import ExitDoor from "./components/ExitDoor.jsx"
+import PopUp from "./components/PopUp.jsx"
 
 import Bogna from "./pages/bogna.jsx"; //text ROOM 01
 import Demonlovers from "./pages/demonlovers.jsx"; // custom google maps ROOM 02
@@ -85,7 +86,7 @@ function App() {
     <>
       <Router basename={import.meta.env.PUBLIC_URL}>
 
-        {/* <ExitDoor urls={urls} visited={visited}/> */}
+      <PopUp />
 
         <Routes>
           <Route path="*" element={<Error />} />

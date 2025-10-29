@@ -5,7 +5,7 @@ import ExitDoor from "../components/ExitDoor.jsx"
 
 const Projects = ({projects, urls, visited}) => {
   const navigate = useNavigate()
-  const [window, setWindow] = useState('[+]')
+  const [window, setWindow] = useState('about-closed')
   const [open, setOpen] = useState(false)
   const [display, setDisplay] = useState(false)
   const [hover, setHover] = useState(false)
@@ -15,14 +15,14 @@ const Projects = ({projects, urls, visited}) => {
 
   const handleAbout = () => {
     setOpen(!open)
-    setWindow(open? "[+]" : "[ ]")
+    setWindow(open? "about-closed" : "about-open")
   }
 
 
 
   return (
     <motion.div id="projects-page" style={{zIndex: -1}} initial={{backgroundColor: "#000000"}} animate={{backgroundColor: "#00000000", transition: {delay: 0.2, duration: 0.5}}}>
-        <div id="projects-about-window"  onClick={() => handleAbout()}>{window}</div>
+        <div id="projects-about-window" onClick={() => handleAbout()}><img src={`/img/front/${window}.png`} style={{height: "100%"}}/></div>
 
         <motion.div id="projects-img-container">
             {projects.map((p, i) => {

@@ -13,6 +13,7 @@ const Home = () => {
     hidden: (i) => ({
       x: i[0]+"vw",
       y: i[1]+"vh",
+      opacity: 0,
       transition: {
         duration: 0.2,
         // delay: i[2] / 10
@@ -21,6 +22,7 @@ const Home = () => {
     show: (i) => ({
       x: 0,
       y: 0,
+      opacity: 1,
       transition: {
         duration: 0.2,
         delay: i[2] / 10 + 0.1
@@ -74,7 +76,7 @@ const Home = () => {
 
       <div style={{position: "relative"}}>
         <motion.img id="landing-dollhouse" onClick={()=>setClick(true)} animate={click&&"clicked"} variants={houseVariants} onAnimationComplete={() => navigate("/works")} onMouseEnter={() => {setHover(true)}} onMouseLeave={() => setHover(false)} src={hover ? "/img/front/dollhouse-open.png" : "/img/front/dollhouse-front.png"}/>
-        {hover && <motion.div initial={{opacity: 0}} animate={click?{opacity: 0, transition: {duration: 0.1}}:{opacity: 1, transition: {duration: 0.5}}} style={{position: "absolute", top: "60%", fontFamily: "jacquard", background: "var(--grey)", fontSize: "1rem"}}>click to enter</motion.div>}
+        {hover && <motion.div initial={{opacity: 0}} animate={click?{opacity: 0, transition: {duration: 0.1}}:{opacity: 1, transition: {duration: 0.5}}} style={{position: "absolute", top: "60%", fontFamily: "jacquard", background: "var(--grey)", fontSize: "1rem", pointerEvents: "none"}}>click to enter</motion.div>}
         <motion.div className="landing-below pink-button" variants={whoVariants} animate={hover? "show" : "hidden"} initial="hidden">who lives in the dollhouse?</motion.div>
       </div>
 

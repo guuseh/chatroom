@@ -39,7 +39,7 @@ const Exit = () => {
       <motion.div id="exit-center">
         <div id="exit-info-title">The Chatroom<br/>&<br/>The Dollhouse</div>
         <div className="exit-shelf">
-          <div style={{justifySelf: "center", width: "70%", transform: "translateY(10px)"}}>
+          <div style={{justifySelf: "center", width: "300px", transform: "translateY(10px)"}}>
               <img className="exit-img" src="/img/exit/CR_computer.png" style={{width: "100%"}}/>
               <div id="exit-signup">
                 <div>is an interactive and hybrid exhibition project as part of the Wrong Biennale.
