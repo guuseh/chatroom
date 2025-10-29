@@ -92,8 +92,16 @@ a{
   background: linear-gradient(180deg, rgba(255, 196, 255, 1) 0%, rgba(179, 179, 179, 1) 100%);
   /* gap: 100px; */
 }
+.page-container{
+  width: 100%;
+  height: 100vh;
+  background: #FFC4FF;
+  background: linear-gradient(180deg, rgba(255, 196, 255, 1) 0%, rgba(179, 179, 179, 1) 100%);
+  padding-top: 12vh;
+}
 .theatre-video{
-  width: 80vw;
+  /* width: 80vw; */
+  height: 75vh;
 }
 .title-overlay{
   width: 100vw;
@@ -202,7 +210,7 @@ a{
 
 /* --------------- PROJECTS PAGE --------------- */
 #exit-door{
-  height: 12vh;
+  height: 90px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -266,7 +274,7 @@ a{
 #projects-about-window{
   z-index: 10;
   position: absolute;
-  top: var(--margin);
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   cursor: var(--pointer);
@@ -506,7 +514,7 @@ a{
   height: 100px;
   z-index: 30;
   background: linear-gradient(180deg, rgba(179, 179, 179, 0) 0%, rgba(179, 179, 179, 1) 60%);
-  /* pointer-events: none; */
+  pointer-events: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -518,6 +526,7 @@ a{
   margin-left: 20px;
   filter: drop-shadow(2px 3px 2px var(--buttonshadow));
   height: 40px;
+  pointer-events: all;
 }
 .nav-img{
   height: 40px;
@@ -525,6 +534,7 @@ a{
   cursor: var(--pointer);
   display: flex;
   justify-content: center;
+  pointer-events: all;
 }
 #back-to-works{
   position: absolute;
@@ -548,7 +558,7 @@ a{
 /* ------------- ABOUT WORKS OVERLAY ---------------- */
 #about-button{
   position: absolute;
-  top: var(--margin);
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 200;
@@ -942,14 +952,48 @@ sup{
   position: relative;
 }
 .james-img-div{
-  width: 40vw;
+  height: 75vh;
 }
 .james-img-div > img {
-  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 
+
+
+/* --------------- NOURA TAFECHE --- 05 --------------- */
+#noura-coverart{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%)
+}
+.noura-file{
+  height: 55vh;
+  position: absolute;
+  bottom: -250px;
+  display: inline-block;
+  cursor: var(--pointer);
+}
+.noura-file img{
+  cursor: var(--pointer);
+}
+#noura-right{
+  position: absolute;
+  left: 40%;
+  bottom: -35%;
+}
+#noura-center{
+  position: absolute;
+  left: 30%;
+  bottom: -38%;
+}
+#noura-left{
+  position: absolute;
+  left: 20%;
+  bottom: -41%;
+}
 
 
 /* --------------- PARKER ITO --------------- */

@@ -103,7 +103,7 @@ function App() {
               <Route path="03" element={<Eliska setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
               <Route path="04" element={<Ester setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
               <Route path="05" element={<James setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
-              {/* <Route path="06" element={<Noura setProjectCounter={setProjectCounter} visitPage={visitPage}/>} /> */}
+              <Route path="06" element={<Noura setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
               <Route path="07" element={<Parkerito setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
               <Route path="08" element={<Plasticgirl setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
               <Route path="09" element={<Sarahchefka setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />

@@ -26,7 +26,7 @@ const Sotce = ({setProjectCounter, visitPage}) => {
 
     <div className="theatre-container">
     <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1, ease: "easeIn"}}}>
-      <video className="theatre-video" controls>
+      <video className="theatre-video" controls controlsList="nodownload" onContextMenu={(e) => e.preventDefault()}>
         <source src="/img/10/sotce.mp4" />
       </video>
     </motion.div>

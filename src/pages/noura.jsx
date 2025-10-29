@@ -1,4 +1,6 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
+import {motion} from 'motion/react'
+import AboutWork from "../components/AboutWork.jsx"
 
 const Noura = ({setProjectCounter, visitPage}) => {
   // ROOM 06
@@ -6,8 +8,61 @@ const Noura = ({setProjectCounter, visitPage}) => {
     setProjectCounter(prev => prev+1)
     visitPage("/06")
   }, [])
+
+   const workdata = {
+    "title": "Gijinka Complex",
+    "artist": [{
+      "name": "Noura Tafeche",
+      "ig": "nouratafeche",
+      "web": "https://nouratafeche.com/"
+    },
+    {
+      "name": "Tobia Paolo Bettoni",
+      "ig": "archiviotpb",
+    },
+    {
+      "name": undefined
+    },
+    {
+      "name": "",
+      "extra": "Check back come December to experience the full visual novel..."
+    }],
+    "date": "2025"
+    }
+
+    const [left, setLeft] = useState(false)
+    const [center, setCenter] = useState(false)
+    const [right, setRight] = useState(false)
+
+    const fileVariants = {
+      down: (i) => ({
+        y: 0,
+        scale: 1
+      }),
+      up: (i) => ({
+        y: "-110%",
+        scale: 1.2
+      })
+    }
+
   return (
-    <div>Noura</div>
+    <>
+      <motion.div initial={{opacity: 1}} animate={{opacity: 0, transition: {delay: 2.5}}} className="title-overlay">"{workdata.title}"</motion.div>
+
+      <div className="page-container">
+        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1, ease: "easeIn"}}}>
+          <div id="noura-coverart" style={{height: "50vh", marginTop: "8vh"}}><img src="/img/06/coverart.png" style={{height: "100%"}}/></div>
+          
+          
+        <motion.div onClick={() => setRight(!right)} className="noura-file" id="noura-right" variants={fileVariants} custom="l" animate={right ? "up" : "down"}><img src="/img/06/character1.png" style={{height: "100%"}}/></motion.div>
+        <motion.div onClick={() => setCenter(!center)} className="noura-file" id="noura-center" variants={fileVariants} custom="l" animate={center ? "up" : "down"}><img src="/img/06/character1.png" style={{height: "100%"}}/></motion.div>
+        <motion.div onClick={() => setLeft(!left)} className="noura-file" id="noura-left" variants={fileVariants} custom="l" animate={left ? "up" : "down"}><img src="/img/06/character1.png" style={{height: "100%"}}/></motion.div>
+         
+        </motion.div>
+      </div>
+
+      <AboutWork data={workdata}/>
+    </>
   )
 }
 

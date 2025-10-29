@@ -38,7 +38,11 @@ const Ester = ({setProjectCounter, visitPage}) => {
       "ig": "_lavender_fi",
     },
     {
-      "name": "– as: everyoneisagirl",
+      "name": undefined,
+      "extra": "working together as:"
+    },
+    {
+      "name": "everyoneisagirl",
       "ig": "everyoneisagirl"
     }],
     "date": "2025"

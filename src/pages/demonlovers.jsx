@@ -217,7 +217,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
 
 
   const props = {
-    height: '80vh',
+    height: '75vh',
     width: '80vw',
     fisheye: 0.5,
     navbar: [],
