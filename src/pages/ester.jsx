@@ -36,8 +36,9 @@ const Ester = ({setProjectCounter, visitPage}) => {
     {
       "name": "Sofya Rakitina",
       "ig": "_lavender_fi",
-    },
-    {
+    },{
+      "name": undefined
+    },{
       "name": undefined,
       "extra": "working together as:"
     },

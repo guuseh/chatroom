@@ -45,7 +45,7 @@ const Parkerito = ({setProjectCounter, visitPage}) => {
     <motion.div initial={{opacity: 1}} animate={{opacity: 0, transition: {delay: 2.5}}} className="title-overlay">"{workdata.title}"</motion.div>
 
     <div class="theatre-container">
-      <motion.div id="eyes-container" className="theatre-item" ref={ref}  initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
+      <motion.div id="eyes-container" ref={ref}  initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
         {/* {html} */}
         <iframe id="parkerframe" src="https://parker.sex/eyes" 
           style={{backgroundColor:"#aaa", left: `-${shiftLeft}px`, top: `-${shiftTop}px`}}/>

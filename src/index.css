@@ -98,6 +98,8 @@ a{
   background: #FFC4FF;
   background: linear-gradient(180deg, rgba(255, 196, 255, 1) 0%, rgba(179, 179, 179, 1) 100%);
   padding-top: 12vh;
+  overflow:hidden;
+  position: relative;
 }
 .theatre-video{
   /* width: 80vw; */
@@ -1000,20 +1002,20 @@ sup{
 
 /* --------------- PARKER ITO --------------- */
 #eyes-container{
-  /* border: 2px solid green; */
   aspect-ratio: 4 / 2;
   width: fit-content;
   max-width: 80vw;
   max-height: 75vh;
   overflow: hidden;
   box-sizing: border-box;
+  position: relative;
 }
 #parkerframe{
-  border: 2px solid red;
   /* max-width: 90vw; */
   width: 1840px;
   height: 1210px;
   position: relative;
   border: none;
-  transform: scale(0.6)
+  transform: scale(0.6);
+  overflow: hidden;
 }
