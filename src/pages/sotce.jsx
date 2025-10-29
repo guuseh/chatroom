@@ -12,9 +12,10 @@ const Sotce = ({setProjectCounter, visitPage}) => {
   const workdata = {
     "title": "is it genuine interest you feel?",
     "artist": [{
-      "name": "Bogna Konior",
-      "ig": "bognamk",
-      "web": "https://www.bognamk.com/"
+      "name": "Sotce",
+      "ig": "sotce",
+      "yt": "s0tce",
+      "web": "https://sotce.com/"
     }],
     "date": "2025"
     }

@@ -10,9 +10,9 @@ const Sarahchefka = ({setProjectCounter, visitPage}) => {
     }, [])
 
      const workdata = {
-    "title": "untitled text",
+    "title": "Why I Am Seeing This",
     "artist": [{
-      "name": "Sarah Chefka",
+      "name": "Sarah Chekfa",
       "ig": "girlboss__interrupted",
       "web": "https://sarahchekfa.me/"
     }],

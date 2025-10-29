@@ -19,19 +19,19 @@ const Exit = () => {
         <div className="exit-shelf">
           <div className="exit-img-div" style={{}}>
               <img className="exit-img" src="/img/exit/CR_1.png" />
-              <div className="exit-img-text">what happens if this text is super long?</div>
+              <div className="exit-img-text">a girl who grew wings accidentally</div>
           </div>
         </div>
-        <div className="exit-shelf">
+        <div className="exit-shelf centered-shelf">
           <div className="exit-img-div" style={{justifySelf: "center"}}>
               <img className="exit-img" src="/img/exit/CR_2.png" />
-              <div className="exit-img-text"></div>
+              <div className="exit-img-text">an influencer folding herself into the screen</div>
           </div>
         </div>
         <div className="exit-shelf">
           <div className="exit-img-div">
               <img className="exit-img" src="/img/exit/CR_3.png" />
-              <div className="exit-img-text"></div>
+              <div className="exit-img-text">ghosts trapped in .jpg files</div>
           </div>
         </div>
       </motion.div>
@@ -54,13 +54,13 @@ const Exit = () => {
         <div className="exit-shelf">
           <div className="exit-img-div">
               <img className="exit-img" src="/img/exit/CR_4.png" />
-              <div className="exit-img-text"></div>
+              <div className="exit-img-text">a jar of innocence</div>
           </div>
         </div>
         <div className="exit-shelf">
           <div className="exit-img-div">
               <img className="exit-img" src="/img/exit/CR_5.png" />
-              <div className="exit-img-text"></div>
+              <div className="exit-img-text">horses, dolls, bunnies and apparitions</div>
           </div>
         </div>
       </motion.div>

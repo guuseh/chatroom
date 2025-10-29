@@ -49,6 +49,7 @@
   --pointer: url('/img/front/pointer-cursor.png') 20 0, pointer;
   --default: url('/img/front/cursor.png') 0 0, auto;
   scroll-behavior: smooth;
+  cursor: url('/img/front/cursor.png') 0 0, auto;
 }
 body{
   width: 100vw;
@@ -66,7 +67,7 @@ a{
   cursor: var(--pointer);
 }
 
-/* BASIC STYLES */
+/* --------------- BASIC STYLES --------------- */
 .theatre-container{
   display: flex;
   justify-content: center;
@@ -130,10 +131,11 @@ a{
   text-align: center;
 }
 .pink-button{
-  padding: 10px;
+  padding: 5px;
   border-radius: 40px;
   background-color: #ff008845;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
   box-shadow: 0 0 20px 30px #ff008845;
   font-family: tages;
 }
@@ -142,69 +144,11 @@ a{
   font-size: 6rem;
 }
 
-/* MENU */
-#page-menu{
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: var(--margin);
-  z-index: 100;
-  cursor: var(--pointer);
-}
-#img-navbar{
-  position: absolute;
-  bottom: var(--margin);
-  right: 50vw;
-  transform: translateX(50%);
-  display: flex;
-  gap: 10px;
-  width: fit-content;
-  z-index: 100;
-  align-items: center;
-}
-.nav-img{
-  height: 40px;
-}
-#back-to-works{
-  position: absolute;
-  top: var(--margin);
-  left: var(--margin);
-  z-index: 10;
-  cursor: var(--pointer);
-}
 
-/* ABOUT OVERLAY */
-#about-button{
-  position: absolute;
-  top: var(--margin);
-  right: var(--margin);
-  z-index: 200;
-  cursor: var(--pointer);
-  height: 70px;
-}
-#about-overlay{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  backdrop-filter: blur(10px);
-  color: var(--lightpink);
-  z-index: 100;
-  text-align: center;
-  padding: 5%;
-  background-color: var(--lighttrans);
-}
-#about-overlay div:not(#demon-underlay-close){
-  z-index: 20;
-}
 
-/* LANDING PAGE */
+
+
+/* -------------- LANDING PAGE --------------- */
 #landing-container{
   display: flex;
   justify-content: center;
@@ -231,11 +175,16 @@ a{
   font-family: jacquard;
 }
 
-/* PROJECTS PAGE */
+
+
+
+
+
+/* --------------- PROJECTS PAGE --------------- */
 #exit-door{
-  height: 15vh;
+  height: 12vh;
   position: absolute;
-  bottom: var(--margin);
+  top: var(--margin);
   right: var(--margin);
   cursor: var(--pointer);
 }
@@ -293,7 +242,7 @@ a{
   z-index: 10;
   position: absolute;
   top: var(--margin);
-  right: var(--margin);
+  left: var(--margin);
   cursor: var(--pointer);
 }
 
@@ -320,7 +269,11 @@ a{
   z-index: 20;
 }
 
-/* EXIT PAGE */
+
+
+
+
+/* --------------- EXIT PAGE --------------- */
 #exit-page{
   display: flex;
   /* justify-content: space-between; */
@@ -368,12 +321,16 @@ a{
 }
 #exit-whowatches{
   position: absolute;
-  bottom: 10vh;
+  bottom: 12vh;
 }
 .exit-shelf{
   position: relative;
   width: 100%;
+  display: flex;
   /* border: 1px solid red; */
+}
+.centered-shelf{
+  justify-content: center;
 }
 .exit-shelf::after{
   content: '';
@@ -425,13 +382,15 @@ a{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  height: 53%;
 }
 #exit-signup > div:first-of-type{
   color: white;
   padding: 10px 0;
 }
 #exit-signup > div:last-of-type{
-  font-weight: bolder;
+  /* font-weight: bolder; */
   padding: 2px 4px;
   box-shadow: inset 0 4px 5px rgb(219, 219, 219);
   background-color: var(--grey);
@@ -459,6 +418,11 @@ a{
 #exit-info-title{
   font-family: jacquard;
   text-align: center;
+  font-size: 5vh;
+  line-height: 5vh;
+  justify-self: flex-start;
+  /* border: 1px solid red; */
+  width: 69%;;
 }
 #exit-info-text{
   font-size: 1rem;
@@ -474,7 +438,109 @@ a{
 }
 
 
-/* TEXTS */
+
+
+
+
+/* --------------- MENU --------------- */
+#page-menu{
+  /* position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: var(--margin); */
+  z-index: 100;
+  cursor: var(--pointer);
+  height: 70px;
+}
+#page-menu > img{
+  cursor: var(--pointer);
+  height: 100%;
+}
+#img-navbar{
+  /* position: absolute;
+  bottom: var(--margin);
+  right: 50vw;
+  transform: translateX(50%); */
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+  z-index: 100;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+#page-menu-gradient{
+  /* border: 1px solid green; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  z-index: 30;
+  background: linear-gradient(180deg, rgba(179, 179, 179, 0) 0%, rgba(179, 179, 179, 1) 60%);
+  /* pointer-events: none; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--margin);
+}
+.nav-img{
+  height: 40px;
+}
+#back-to-works{
+  /* position: absolute;
+  bottom: var(--margin);
+  left: var(--margin); */
+  cursor: var(--pointer);
+  height: 70px;
+  /* border: 1px solid red; */
+}
+#back-to-works img{
+  cursor: var(--pointer);
+}
+
+
+
+
+
+/* ------------- ABOUT WORKS OVERLAY ---------------- */
+#about-button{
+  position: absolute;
+  top: var(--margin);
+  left: var(--margin);
+  z-index: 200;
+  cursor: var(--pointer);
+  height: 70px;
+}
+#about-button img{
+  cursor: var(--pointer);
+}
+#about-overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  backdrop-filter: blur(10px);
+  color: var(--lightpink);
+  z-index: 100;
+  text-align: center;
+  padding: 5%;
+  background-color: var(--lighttrans);
+}
+#about-overlay div:not(#demon-underlay-close){
+  z-index: 20;
+}
+
+
+
+/* --------------------------------------------- PROJECTS --------------------------------------------- */
+
+/* --------------- TEXTS --------------- */
 .text-page-before{
   text-align: center;
   margin-bottom: 10vh;
@@ -575,7 +641,11 @@ sup{
   align-self: flex-start;
 }
 
-/* EVERYONEISAGIRL / ESTER --- 04 */
+
+
+
+
+/* --------------- EVERYONEISAGIRL / ESTER --- 04 --------------- */
 
 #ester-frame{
   width: 50vw;
@@ -647,7 +717,10 @@ sup{
 }
 
 
-/* DEMON LOVERS INC --- 02 */
+
+
+
+/* --------------- DEMON LOVERS INC --- 02 --------------- */
 #demon-underlay-close{
   position: absolute;
   top: 0;
@@ -778,7 +851,10 @@ sup{
   bottom: -40px !important;
 }
 
-/* ANGEL KETHER / ESLISKA --- 03 */
+
+
+
+/* --------------- ANGEL KETHER / ESLISKA --- 03 --------------- */
 #kether-imgdiv{
   height: 70vh;
   width: 70vh;
@@ -789,7 +865,10 @@ sup{
   object-fit: contain;
 }
 
-/* JAMES PATTERSON / WITCHHUNT --- 05 */
+
+
+
+/* --------------- JAMES PATTERSON / WITCHHUNT --- 05 --------------- */
 #james-imgs-container{
   display: flex;
   position: relative;
@@ -803,7 +882,9 @@ sup{
 }
 
 
-/* PARKER ITO */
+
+
+/* --------------- PARKER ITO --------------- */
 #eyes-container{
   /* border: 2px solid green; */
   aspect-ratio: 4 / 2.63;

@@ -22,7 +22,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
   const workdata = {
     "title": "Location Scouting",
     "artist": [{
-      "name": "Demon Lovers inc",
+      "name": "Demon Lovers Inc.",
       "ig": "daemonlovers",
     }],
     "date": "2025"

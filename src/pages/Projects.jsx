@@ -1,6 +1,7 @@
 import {useState, useEffect, useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {motion, AnimatePresence, stagger} from 'motion/react'
+import ExitDoor from "../components/ExitDoor.jsx"
 
 const Projects = ({projects, urls, visited}) => {
   const navigate = useNavigate()
@@ -9,35 +10,14 @@ const Projects = ({projects, urls, visited}) => {
   const [display, setDisplay] = useState(false)
   const [hover, setHover] = useState(false)
   const [mouse, setMouse] = useState([])
-  const [notice, setNotice] = useState(false)
-  const timerId = useRef(null);
+
+
 
   const handleAbout = () => {
     setOpen(!open)
     setWindow(open? "[+]" : "[ ]")
   }
 
-  const handleExit = () => {
-    if(visited.count < urls.length){
-      setNotice(true)
-    } else{
-      navigate('/exit')
-    }
-  }
-
-  useEffect(() => {
-    if (notice) {
-            //Creating a timeout
-            timerId.current = setTimeout(() => {
-                setNotice(false);
-            }, 3000);
-        }
-
-        return () => {
-            //Clearing a timeout
-            clearTimeout(timerId.current);
-        };
-  }, [notice])
 
 
   return (
@@ -61,11 +41,7 @@ const Projects = ({projects, urls, visited}) => {
             })}
         </motion.div>
 
-        <motion.div style={{position: "absolute", fontFamily: "tages", background: "var(--pink)", boxShadow: "0 0 20px 10px var(--pink)"}} initial={{opacity: 0}} animate={notice ? {opacity: 1} : {opacity: 0}}>
-          You must collect &#123;{urls.length - visited.count}&#125; more objects from the &#123;doll house&#125;. The &#123;chatroom&#125; remains locked...
-        </motion.div>
-
-        <div onClick={() => handleExit()}><img id="exit-door" src={"img/front/exit.png"} /></div>
+        {/* <ExitDoor /> */}
 
         <AnimatePresence>
           {open && <>

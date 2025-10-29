@@ -6,6 +6,7 @@ import Exit from "./pages/Exit.jsx";
 import Projects from "./pages/Projects.jsx"
 import PageMenu from "./components/PageMenu.jsx"
 import Error from "./pages/Error.jsx"
+import ExitDoor from "./components/ExitDoor.jsx"
 
 import Bogna from "./pages/bogna.jsx"; //text ROOM 01
 import Demonlovers from "./pages/demonlovers.jsx"; // custom google maps ROOM 02
@@ -84,10 +85,14 @@ function App() {
     <>
       <Router basename={import.meta.env.PUBLIC_URL}>
 
+        {/* <ExitDoor urls={urls} visited={visited}/> */}
+
         <Routes>
           <Route path="*" element={<Error />} />
           <Route index path="/" element={<Home />} />
           <Route path="/exit" element={<Exit />} />
+
+          <Route element={<ExitDoor urls={urls} visited={visited}/>} >
           <Route path="/works" element={<Projects projects={shuffledDivs} urls={urls} visited={visited}/>} />
 
           <Route path="room" element={<PageMenu next={nextWork} urls={urls} visited={visited}/>}>
@@ -103,6 +108,7 @@ function App() {
               <Route path="09" element={<Sarahchefka setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
               <Route path="10" element={<Sotce setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
             
+          </Route>
           </Route>
 
         </Routes>

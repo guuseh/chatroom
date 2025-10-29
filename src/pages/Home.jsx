@@ -37,7 +37,7 @@ const Home = () => {
       }
     },
     show: {
-      y: 0,
+      y: 10,
       opacity: 1,
       transition: {
         duration: 0.2,
@@ -63,13 +63,13 @@ const Home = () => {
   return (
     <motion.div id="landing-container" initial={{background: "#00000000"}} animate={click&&{background: "#000000FF", transition: {delay: 0.2, duration: 0.7}}}>
       <motion.div className="landing-below landing-names" >
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 20, 1]}>CrystalArmour</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 10, 2]}>guus hoeberechts</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 5, 3]}>plastic girl</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 0, 4]}>demonlovers</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, -5, 5]}>sotce</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, -10, 6]}>angelkether</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, -20, 7]}>sarah khadra</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 20, 1]}>bloodpiano1</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 10, 2]}>Guus Hoeberechts</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 5, 3]}>Plastic Girl</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 0, 4]}>Demon Lovers Inc.</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, -5, 5]}>Sotce</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, -10, 6]}>Angel Kether</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, -20, 7]}>Sarah Khadra</motion.div>
       </motion.div>
 
       <div style={{position: "relative"}}>
@@ -79,13 +79,13 @@ const Home = () => {
       </div>
 
       <div className="landing-below landing-names">
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 20, 8]}>noura tafeche</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 10, 9]}>tobia paolo bettoni</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 5, 10]}>sarah chefka</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 0, 11]}>everyoneisagirl</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, -5, 12]}>parker ito</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, -10, 13]}>bogna konior</motion.div>
-        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, -20, 14]}>joshua esser</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 20, 8]}>Noura Tafeche</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 10, 9]}>Tobia Paolo Bettoni</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 5, 10]}>Sarah Chekfa</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, 0, 11]}>Everyoneisagirl</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, -5, 12]}>Parker Ito</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, -10, 13]}>Bogna Konior</motion.div>
+        <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[-25, -20, 14]}>Joshua Esser</motion.div>
       </div>
       
     </motion.div>

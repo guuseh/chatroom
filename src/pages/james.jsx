@@ -28,7 +28,7 @@ const James = ({setProjectCounter, visitPage}) => {
     const workdata = {
     "title": activeSide == 'l' ? "Solace" : "Pawns",
     "artist": [{
-      "name": "BloodPiano1",
+      "name": "bloodpiano1",
       "ig": "bloodpiano1",
     }],
     "date": "2025"
