@@ -44,7 +44,7 @@ const Exit = () => {
               <div id="exit-signup">
                 <div>is an interactive and hybrid exhibition project as part of the Wrong Biennale.
                   The doll.house is now active as of November 1st 2025. The chatroom will be announced soon</div>
-                <div>sign up for updates</div>
+                <div><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">sign up for updates</a></div>
               </div>
           </div>
         </div>
