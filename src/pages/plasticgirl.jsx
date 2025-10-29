@@ -23,10 +23,15 @@ const Plasticgirl = ({setProjectCounter, visitPage}) => {
     <>
         <motion.div initial={{opacity: 1}} animate={{opacity: 0, transition: {delay: 2.5}}} className="title-overlay">"{workdata.title}"</motion.div>
           
-        <div className="center-container">
+        <div className="theatre-container">
 
           <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
-            video...
+            
+          <div style={{position: "absolute", zIndex: 0, top: "50%", left: "50%", transform: "translate(-50%,-50%)", color: "var(--pink)"}}>loading video...</div>
+          <div className="theatre-video">
+            <iframe style={{height: "100%", aspectRatio: "4/3", border: "none"}} src="https://drive.google.com/file/d/1wCT1cjG4kx0IRHrKa0qLxZKqACqYOHXD/preview"></iframe>
+          </div>
+
           </motion.div>
 
         </div>
