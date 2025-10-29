@@ -875,6 +875,14 @@ sup{
   flex-direction: column;
   gap: 7px;
 }
+#demon-loading-map{
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  z-index: 50;
+  font-family: olditalic;
+  color: rgba(133, 133, 133, 0.7)
+}
 #demon-close-btn{
   position: absolute;
   top: 0;

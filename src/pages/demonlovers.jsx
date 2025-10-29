@@ -348,6 +348,11 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
             </div>
             <div style={{fontFamily: 'google', opacity: 0.5}}>Google</div>
           </div>
+
+          {loading && <div id="demon-loading-map">
+            loading new map...
+          </div>
+          }
         </motion.div>
 
         <div id="demon-map-container" ref={mapRef}>
