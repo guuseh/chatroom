@@ -57,7 +57,7 @@ const Noura = ({setProjectCounter, visitPage}) => {
         scale: 1
       }),
       up: (i) => ({
-        y: "-110%",
+        y: "-100%",
         scale: 1.2
       })
     }
@@ -72,8 +72,8 @@ const Noura = ({setProjectCounter, visitPage}) => {
           
           
         <motion.div onClick={() => setRight(!right)} className="noura-file" id="noura-right" variants={fileVariants} custom="l" animate={right ? "up" : "down"}><img src="/img/06/character1.png" style={{height: "100%"}}/></motion.div>
-        <motion.div onClick={() => setCenter(!center)} className="noura-file" id="noura-center" variants={fileVariants} custom="l" animate={center ? "up" : "down"}><img src="/img/06/character1.png" style={{height: "100%"}}/></motion.div>
-        <motion.div onClick={() => setLeft(!left)} className="noura-file" id="noura-left" variants={fileVariants} custom="l" animate={left ? "up" : "down"}><img src="/img/06/character1.png" style={{height: "100%"}}/></motion.div>
+        <motion.div onClick={() => setCenter(!center)} className="noura-file" id="noura-center" variants={fileVariants} custom="l" animate={center ? "up" : "down"}><img src="/img/06/character2.png" style={{height: "100%"}}/></motion.div>
+        <motion.div onClick={() => setLeft(!left)} className="noura-file" id="noura-left" variants={fileVariants} custom="l" animate={left ? "up" : "down"}><img src="/img/06/character3.png" style={{height: "100%"}}/></motion.div>
          
         </motion.div>
       </div>
