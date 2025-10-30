@@ -7,6 +7,7 @@ const Exit = () => {
   const [restart, setRestart] = useState(false)
 
   const handleRestart = () => {
+    localStorage.removeItem("visited");
     setRestart(true)
   }
 
