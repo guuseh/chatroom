@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
-import {motion} from 'motion/react'
+import {motion, stagger} from 'motion/react'
 
 const Exit = ({resetVisited}) => {
   const navigate = useNavigate();
@@ -19,35 +19,53 @@ const Exit = ({resetVisited}) => {
     setRestart(true)
   }
 
+  const shelfVariants = {
+    init:{
+      scale: 0
+    },
+    popUp: {
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        staggerChildren: 0.1
+      }
+    },
+    exit: {
+      opacity: 0, 
+      scale: 1,
+      transition: {duration: 0.7}
+    }
+  }
+
   return (
     <div id="exit-page">
 
       <motion.div id="exit-restart" onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}><img className="exit-img" src="/img/front/dollhouse-front.png" /></motion.div>
       
-      <motion.div id="exit-left" animate={restart &&{opacity: 0, transition: {duration: 0.7}}}>
-        <div className="exit-shelf">
+      <motion.div id="exit-left" variants={shelfVariants} initial="init" animate={restart ? "exit" : "popUp"}>
+        <motion.div className="exit-shelf" variants={shelfVariants}>
           <div className="exit-img-div" style={{}}>
               <img className="exit-img" src="/img/exit/CR_1.png" />
               <div className="exit-img-text">a girl who grew wings accidentally</div>
           </div>
-        </div>
-        <div className="exit-shelf centered-shelf">
+        </motion.div>
+        <motion.div className="exit-shelf centered-shelf" variants={shelfVariants}>
           <div className="exit-img-div" style={{justifySelf: "center"}}>
               <img className="exit-img" src="/img/exit/CR_2.png" />
               <div className="exit-img-text">an influencer folding herself into the screen</div>
           </div>
-        </div>
-        <div className="exit-shelf">
+        </motion.div>
+        <motion.div className="exit-shelf" variants={shelfVariants}>
           <div className="exit-img-div">
               <img className="exit-img" src="/img/exit/CR_3.png" />
               <div className="exit-img-text">ghosts trapped in .jpg files</div>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
 
-      <motion.div id="exit-center" animate={restart &&{opacity: 0, transition: {duration: 0.7}}}>
-        <div id="exit-info-title">The Chatroom<br/>&<br/>The Dollhouse</div>
-        <div className="exit-shelf">
+      <motion.div id="exit-center" variants={shelfVariants} initial="init" animate={restart ? "exit" : "popUp"}>
+        <motion.div id="exit-info-title" variants={shelfVariants}>The Chatroom<br/>&<br/>The Dollhouse</motion.div>
+        <motion.div className="exit-shelf" variants={shelfVariants}>
           <div style={{justifySelf: "center", width: "300px", transform: "translateY(10px)"}}>
               <img className="exit-img" src="/img/exit/CR_computer.png" style={{width: "100%"}}/>
               <div id="exit-signup">
@@ -56,25 +74,25 @@ const Exit = ({resetVisited}) => {
                 <div><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">sign up for updates</a></div>
               </div>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
 
-      <motion.div id="exit-right" animate={restart &&{opacity: 0, transition: {duration: 0.7}}}>
-        <div className="exit-shelf">
+      <motion.div id="exit-right" variants={shelfVariants} initial="init" animate={restart ? "exit" : "popUp"}>
+        <motion.div className="exit-shelf" variants={shelfVariants}>
           <div className="exit-img-div">
               <img className="exit-img" src="/img/exit/CR_4.png" />
               <div className="exit-img-text">a jar of innocence</div>
           </div>
-        </div>
-        <div className="exit-shelf">
+        </motion.div>
+        <motion.div className="exit-shelf" variants={shelfVariants}>
           <div className="exit-img-div">
               <img className="exit-img" src="/img/exit/CR_5.png" />
               <div className="exit-img-text">horses, dolls, bunnies and apparitions</div>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
 
-      <motion.div className="pink-button" id="exit-whowatches">who watches from the chatroom?</motion.div>
+      <motion.div initial="init" animate={restart ? "exit" : "popUp"} variants={shelfVariants} className="pink-button" id="exit-whowatches">who watches from the chatroom?</motion.div>
 
       {/* INCLUDING CHAT */}
       {/* <motion.div id="exit-leftgrid" animate={restart &&{opacity: 0, transition: {duration: 0.7}}}>
