@@ -79,6 +79,8 @@ a{
   background: #FFC4FF;
   background: linear-gradient(180deg, rgba(255, 196, 255, 1) 0%, rgba(179, 179, 179, 1) 100%);
   padding-top: 3vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .center-container{
@@ -91,6 +93,8 @@ a{
   background: #FFC4FF;
   background: linear-gradient(180deg, rgba(255, 196, 255, 1) 0%, rgba(179, 179, 179, 1) 100%);
   /* gap: 100px; */
+  position: relative;
+  overflow: hidden;
 }
 .page-container{
   width: 100%;
@@ -220,8 +224,9 @@ a{
   transform: translateY(-50%);
   right: var(--margin);
   cursor: var(--pointer);
-  z-index: 5;
+  z-index: 10;
   filter: drop-shadow(2px 3px 2px var(--buttonshadow));
+  pointer-events: "all";
 }
 
 #projects-page{
@@ -810,7 +815,7 @@ sup{
   bottom: 0;
   left: 0;
   right: 0;
-  /* z-index: -1; */
+  z-index: 0;
 }
 #demon-container{
   position: relative;
