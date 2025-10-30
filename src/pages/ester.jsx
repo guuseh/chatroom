@@ -208,6 +208,8 @@ const Ester = ({setProjectCounter, visitPage}) => {
               speed={50}
               ref={typeRef}
           />}
+          
+          <div style={{height: 20}}></div>
           <motion.div ref={elementRef} style={{width: 10, height: 50, backgroundColor: ""}}></motion.div>
         </div>
       </motion.div>
