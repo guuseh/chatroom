@@ -371,8 +371,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
 
           <div id="demon-bottom-center">
             <div style={{display: "flex", gap: "15px", opacity: loading? 0.3 : 1}}>
-              <div id="demon-prev-btn" onClick={() => handleNext()} style={{zIndex: 100, cursor: loading? "var(--default)" : "var(--pointer)"}}><img src="/img/02/left.svg" style={{width: "100%"}}/></div>
-              <div id="demon-next-btn" onClick={() => handlePrev()} style={{zIndex: 100, cursor: loading? "var(--default)" : "var(--pointer)"}}><img src="/img/02/right.svg" style={{width: "100%"}}/></div>
+              <div id="demon-prev-btn" onClick={() => handleNext()} style={{zIndex: 100, cursor: loading? "var(--default)" : "var(--pointer)"}}><img src="/img/02/left.svg" style={{width: "100%", cursor: loading? "var(--default)" : "var(--pointer)"}}/></div>
+              <div id="demon-next-btn" onClick={() => handlePrev()} style={{zIndex: 100, cursor: loading? "var(--default)" : "var(--pointer)"}}><img src="/img/02/right.svg" style={{width: "100%", cursor: loading? "var(--default)" : "var(--pointer)"}}/></div>
             </div>
             <div style={{fontFamily: 'google', opacity: 0.5}}>Google</div>
           </div>
@@ -388,7 +388,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
           {
             imgData.map((item, i) => {
               return <div className="demon-map-item" style={{top: item.y+'%', left: item.x+'%'}} key={i}
-                onClick={() => handleMapItem(item)}><img className="demon-marker" src="/img/02/marker.png" /></div>
+                onClick={() => handleMapItem(item)}><img className="demon-marker" src="/img/02/marker.png" style={{cursor: "var(--pointer)"}}/></div>
             })
           }
         </div>

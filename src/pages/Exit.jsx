@@ -40,7 +40,7 @@ const Exit = ({resetVisited}) => {
   return (
     <div id="exit-page">
 
-      <motion.div id="exit-restart" onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}><img className="exit-img" src="/img/front/dollhouse-front.png" /></motion.div>
+      <motion.div id="exit-restart" onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}><img className="exit-img" src="/img/front/dollhouse-front.png" style={{cursor: "var(--pointer)"}}/></motion.div>
       
       <motion.div id="exit-left" variants={shelfVariants} initial="init" animate={restart ? "exit" : "popUp"}>
         <motion.div className="exit-shelf" variants={shelfVariants}>

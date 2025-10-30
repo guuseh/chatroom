@@ -30,8 +30,8 @@ const Sotce = ({setProjectCounter, visitPage}) => {
         <source src="/img/10/sotce.mp4" />
       </video> */}
       <div style={{position: "absolute", zIndex: 0, top: "50%", left: "50%", transform: "translate(-50%,-50%)", color: "var(--pink)"}}>loading video...</div>
-      <div className="theatre-video">
-        <iframe style={{height: "100%", aspectRatio: "16/9", border: "none"}} src="https://drive.google.com/file/d/1JHI8P2lDSmcdsPvkJr5lavGBO27p9l2P/preview"></iframe>
+      <div className="theatre-video" style={{cursor: "var(--pointer)"}}>
+        <iframe style={{height: "100%", aspectRatio: "16/9", border: "none", cursor: "var(--pointer)"}} src="https://drive.google.com/file/d/1JHI8P2lDSmcdsPvkJr5lavGBO27p9l2P/preview"></iframe>
       </div>
     </motion.div>
     </div>

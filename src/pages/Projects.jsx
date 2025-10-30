@@ -23,7 +23,7 @@ const Projects = ({projects, urls, visited, showObjects}) => {
 
   return (
     <motion.div id="projects-page" style={{zIndex: -1}} initial={{backgroundColor: "#000000"}} animate={{backgroundColor: "#00000000", transition: {delay: 0.2, duration: 0.5}}}>
-        <motion.div id="projects-about-window" onClick={() => handleAbout()} ><motion.img animate={open ? {rotate: 180, transition: {duration: 0.3}} : {rotate: 0, transition: {duration: 0.3}}} src={`/img/front/about-closed.png`} style={{height: "100%"}}/></motion.div>
+        <motion.div id="projects-about-window" onClick={() => handleAbout()} ><motion.img animate={open ? {rotate: 180, transition: {duration: 0.3}} : {rotate: 0, transition: {duration: 0.3}}} src={`/img/front/about-closed.png`} style={{height: "100%", cursor: "var(--pointer)"}}/></motion.div>
 
         <motion.div id="projects-img-container">
             {projects.map((p, i) => {

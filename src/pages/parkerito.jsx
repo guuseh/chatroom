@@ -48,7 +48,7 @@ const Parkerito = ({setProjectCounter, visitPage}) => {
       <motion.div id="eyes-container" ref={ref}  initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
         {/* {html} */}
         <iframe id="parkerframe" src="https://parker.sex/eyes" 
-          style={{backgroundColor:"#aaa", left: `-${shiftLeft}px`, top: `-${shiftTop}px`}}/>
+          style={{backgroundColor:"#aaa", left: `-${shiftLeft}px`, top: `-${shiftTop}px`, pointerEvents: "none"}}/>
       </motion.div>
     </div>
 
