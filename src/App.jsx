@@ -43,6 +43,8 @@ function App() {
     
   }
 
+   console.log("app jsx – urls: " + urls + ", visited: " + visited, visited.count)
+
   // shuffle urls for randomised list
   useEffect(() => {
     const shuffled = urls
