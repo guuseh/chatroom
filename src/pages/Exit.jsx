@@ -15,7 +15,7 @@ const Exit = ({resetVisited}) => {
       window.location.href = "/"; // full reload fallback
       return;
     }
-    
+
     setRestart(true)
   }
 
@@ -24,7 +24,7 @@ const Exit = ({resetVisited}) => {
 
       <motion.div id="exit-restart" onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}><img className="exit-img" src="/img/front/dollhouse-front.png" /></motion.div>
       
-      <motion.div id="exit-left">
+      <motion.div id="exit-left" animate={restart &&{opacity: 0, transition: {duration: 0.7}}}>
         <div className="exit-shelf">
           <div className="exit-img-div" style={{}}>
               <img className="exit-img" src="/img/exit/CR_1.png" />
@@ -45,7 +45,7 @@ const Exit = ({resetVisited}) => {
         </div>
       </motion.div>
 
-      <motion.div id="exit-center">
+      <motion.div id="exit-center" animate={restart &&{opacity: 0, transition: {duration: 0.7}}}>
         <div id="exit-info-title">The Chatroom<br/>&<br/>The Dollhouse</div>
         <div className="exit-shelf">
           <div style={{justifySelf: "center", width: "300px", transform: "translateY(10px)"}}>
@@ -59,7 +59,7 @@ const Exit = ({resetVisited}) => {
         </div>
       </motion.div>
 
-      <motion.div id="exit-right">
+      <motion.div id="exit-right" animate={restart &&{opacity: 0, transition: {duration: 0.7}}}>
         <div className="exit-shelf">
           <div className="exit-img-div">
               <img className="exit-img" src="/img/exit/CR_4.png" />

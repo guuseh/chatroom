@@ -834,11 +834,13 @@ sup{
   object-fit: contain;
   left: 50%;
   transform: translate(-50%);
+  will-change: transform;
 }
+
 #demon-map-img{
   object-fit: contain;
   height: 100%;
-  position: relative;
+  /* position: relative; */
 }
 .demon-map-item{
   position: absolute;

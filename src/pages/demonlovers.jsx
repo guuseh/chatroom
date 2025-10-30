@@ -23,7 +23,9 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
 
   const triggerReflow = () => {
     // Force a reflow after Safari's initial incorrect layout pass
+    console.log("triggerReflow")
     mapRef.current?.offsetHeight; // read layout
+    mapRef.current?.offsetWidth;
     mapRef.current?.style.setProperty("--safari-fix", Math.random()); // trigger a repaint
   };
 
@@ -378,7 +380,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         </motion.div>
 
         <div id="demon-map-container" ref={mapRef}>
-          <img src="/img/02/map.png" id="demon-map-img" />
+          <img src="/img/02/map.png" id="demon-map-img" style={{height: "100%"}}/>
           {
             imgData.map((item, i) => {
               return <div className="demon-map-item" style={{top: item.y+'%', left: item.x+'%'}} key={i}
