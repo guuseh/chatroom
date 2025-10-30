@@ -31,22 +31,33 @@ function App() {
   const [showObjects, setShowObjects] = useState(false)
 
   const visitPage = (nr) => {
-    if(visited[nr]){
-      return;
-    } else{
-      setVisited({
-        ...visited,
-        [nr]: true,
-        count: visited.count++ 
-      })
-    }
-    
+    // if(visited[nr]){
+    //   return;
+    // } else{
+    //   setVisited({
+    //     ...visited,
+    //     [nr]: true,
+    //     count: visited.count++ 
+    //   })
+    // }
+    setVisited((prev) => {
+      if (prev[nr]) return prev; // already visited
+      const newCount = prev.count + 1;
+      return { ...prev, [nr]: true, count: newCount };
+    });
   }
 
    console.log("app jsx – urls: " + urls + ", visited: " + visited, visited.count)
 
   // shuffle urls for randomised list
   useEffect(() => {
+
+    // LOCAL STORAGE
+    const saved = localStorage.getItem("visited");
+    if (saved) {
+      setVisited(JSON.parse(saved));
+    }
+
     const shuffled = urls
           .map(v => ({v, sort: Math.random()}))
           .sort((a, b) => a.sort - b.sort)
@@ -55,6 +66,11 @@ function App() {
     setShuffledUrls(shuffled)
     // console.log(shuffledUrls)
   }, [])
+
+  // LOCALSTORAGE
+   useEffect(() => {
+    localStorage.setItem("visited", JSON.stringify(visited));
+  }, [visited]);
 
   // set array for adding projects to empty divs for grid
   useEffect(() => {
