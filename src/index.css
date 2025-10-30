@@ -191,6 +191,8 @@ a{
   align-items: center;
   height: 100vh;
   gap: 10%;
+  overflow: hidden;
+  position: relative;
 }
 #landing-container > div{
   display: flex;

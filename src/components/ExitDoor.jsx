@@ -73,7 +73,7 @@ const ExitDoor = ({urls, visited, showObjects, setShowObjects}) => {
     }
 
     <motion.div style={{position: "absolute", width: "max-content", top: "50%", left: "50%", transform: "translate(-50%, -50%)", fontFamily: "tages", background: "var(--pink)", boxShadow: "0 0 20px 10px var(--pink)", zIndex: "200", pointerEvents: "none"}} initial={{opacity: 0}} animate={notice ? {opacity: 1} : {opacity: 0}}>
-        You must collect &#123;{urls.length - visited.count}&#125; more objects from the &#123;doll house&#125;. The &#123;chatroom&#125; remains locked...
+        You must collect &#123;{urls.length - visited.count}&#125; more {urls.length - visited.count == 1 ? "object" : "objects"} from the &#123;doll house&#125;. The &#123;chatroom&#125; remains locked...
     </motion.div>
     
 
