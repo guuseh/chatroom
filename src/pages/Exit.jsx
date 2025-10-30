@@ -2,12 +2,20 @@ import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {motion} from 'motion/react'
 
-const Exit = () => {
+const Exit = ({resetVisited}) => {
   const navigate = useNavigate();
   const [restart, setRestart] = useState(false)
 
   const handleRestart = () => {
-    localStorage.removeItem("visited");
+    if (typeof resetVisited === "function") {
+      resetVisited();
+    } else {
+      // fallback: clear localStorage and force a reload
+      localStorage.removeItem("visited");
+      window.location.href = "/"; // full reload fallback
+      return;
+    }
+    
     setRestart(true)
   }
 

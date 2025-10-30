@@ -47,8 +47,6 @@ function App() {
     });
   }
 
-   console.log("app jsx – urls: " + urls + ", visited: " + visited, visited.count)
-
   // shuffle urls for randomised list
   useEffect(() => {
 
@@ -56,6 +54,11 @@ function App() {
     const saved = localStorage.getItem("visited");
     if (saved) {
       setVisited(JSON.parse(saved));
+    }
+
+    const show = localStorage.getItem("showObjects");
+    if(showObjects){
+      setShowObjects(JSON.parse(show))
     }
 
     const shuffled = urls
@@ -68,9 +71,22 @@ function App() {
   }, [])
 
   // LOCALSTORAGE
-   useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("visited", JSON.stringify(visited));
   }, [visited]);
+
+  useEffect(() => {
+    localStorage.setItem("showObjects", JSON.stringify(showObjects));
+  }, [showObjects]);
+
+  const resetVisited = () => {
+  // clear localStorage
+  localStorage.removeItem("visited");
+  localStorage.removeItem("showObjects")
+  setVisited({ count: 0 });
+  setShowObjects(false);
+  setProjectCounter(0);
+};
 
   // set array for adding projects to empty divs for grid
   useEffect(() => {
@@ -109,7 +125,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Error />} />
           <Route index path="/" element={<Home />} />
-          <Route path="/exit" element={<Exit />} />
+          <Route path="/exit" element={<Exit resetVisited={resetVisited} />} />
 
           <Route element={<ExitDoor urls={urls} visited={visited} showObjects={showObjects} setShowObjects={setShowObjects}/>} >
           <Route path="/works" element={<Projects projects={shuffledDivs} urls={urls} visited={visited} showObjects={showObjects}/>} />
