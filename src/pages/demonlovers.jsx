@@ -17,7 +17,29 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
   useEffect(() => {
     setProjectCounter(prev => prev+1)
     visitPage("/02")
-  }, [])
+
+  const mapImg = document.getElementById("demon-map-img");
+  if (!mapImg) return;
+
+  const triggerReflow = () => {
+    // Force a reflow after Safari's initial incorrect layout pass
+    mapRef.current?.offsetHeight; // read layout
+    mapRef.current?.style.setProperty("--safari-fix", Math.random()); // trigger a repaint
+  };
+
+  // Run after image loads
+  if (mapImg.complete) {
+    // already loaded — still trigger
+    requestAnimationFrame(triggerReflow);
+  } else {
+    mapImg.addEventListener("load", triggerReflow, { once: true });
+  }
+
+  // Also rerun after small delay to catch any missed timing
+  const timeout = setTimeout(triggerReflow, 500);
+
+  return () => clearTimeout(timeout);
+}, []);
 
   const workdata = {
     "title": "Location Scouting",
