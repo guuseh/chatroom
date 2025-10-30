@@ -1004,7 +1004,7 @@ sup{
   transform: translate(-50%, -50%)
 }
 .noura-file{
-  height: 60vh;
+  height: 57vh;
   position: absolute;
   bottom: -250px;
   display: inline-block;
@@ -1012,6 +1012,8 @@ sup{
 }
 .noura-file img{
   cursor: var(--pointer);
+  pointer-events: fill;
+  filter: drop-shadow(0 15px 5px rgba(137, 137, 137, 0.734))
 }
 #noura-right{
   position: absolute;
