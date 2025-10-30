@@ -312,6 +312,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
   const viewerVariants = {
     hidden: (i) => ({ 
       scale: 0,
+      x: "-50%",
+      y: "-50%",
       transition: {
         duration: 0.3,
         type: "tween",
@@ -319,6 +321,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
       } }),
     visible: (i) => ({ 
       scale: 1,
+      x: "-50%",
+      y: "-50%",
       transition: {
           duration: 0.3,
           type: "tween",
