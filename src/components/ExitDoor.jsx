@@ -7,7 +7,7 @@ const ExitDoor = ({urls, visited, showObjects, setShowObjects}) => {
     const [notice, setNotice] = useState(false)
     const [exit, setExit] = useState(false)
 
-    console.log("exit door – urls: " + urls + ", visited: " + visited)
+    console.log("exit door – urls: " + urls + ", visited: " + visited, visited.count)
 
     const handleExit = () => {
         if(!showObjects){

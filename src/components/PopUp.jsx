@@ -5,8 +5,6 @@ import {motion} from 'motion/react'
 const PopUp = () => {
     const [closePop, setClosePop] = useState(false)
 
-    console.log(closePop)
-
 
   return (
     isMobile && 
