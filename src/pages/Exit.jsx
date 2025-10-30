@@ -5,6 +5,8 @@ import {motion, stagger} from 'motion/react'
 const Exit = ({resetVisited}) => {
   const navigate = useNavigate();
   const [restart, setRestart] = useState(false)
+  const [tooltip, setTooltip] = useState(false)
+  const [mouse, setMouse] = useState([])
 
   const handleRestart = () => {
     if (typeof resetVisited === "function") {
@@ -40,11 +42,15 @@ const Exit = ({resetVisited}) => {
   return (
     <div id="exit-page">
 
-      <motion.div id="exit-restart" onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}><img className="exit-img" src="/img/front/dollhouse-front.png" style={{cursor: "var(--pointer)"}}/></motion.div>
+      {tooltip && <div className="tooltip" style={{top: mouse[1], left: mouse[0]}}>start over</div>}
+
+      <motion.div id="exit-restart" onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true)}} onMouseLeave={() => setTooltip(false)} onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}>
+        <img className="exit-img" src="/img/front/dollhouse-front.png" style={{cursor: "var(--pointer)"}}/>
+      </motion.div>
       
       <motion.div id="exit-left" variants={shelfVariants} initial="init" animate={restart ? "exit" : "popUp"}>
         <motion.div className="exit-shelf" variants={shelfVariants}>
-          <div className="exit-img-div" style={{}}>
+          <div className="exit-img-div">
               <img className="exit-img" src="/img/exit/CR_1.png" />
               <div className="exit-img-text">a girl who grew wings accidentally</div>
           </div>

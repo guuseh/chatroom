@@ -7,6 +7,7 @@ const Home = () => {
 
   const [hover, setHover] = useState(false);
   const [click, setClick] = useState(false);
+  const [mouse, setMouse] = useState([])
 
 
   const nameVariants = {
@@ -63,6 +64,9 @@ const Home = () => {
   }
 
   return (
+    <>
+    {hover && <div className="tooltip" style={{top: mouse[1], left: mouse[0]}}>enter</div>}
+
     <motion.div id="landing-container" initial={{background: "#00000000"}} animate={click&&{background: "#000000FF", transition: {delay: 0.2, duration: 0.7}}}>
       <motion.div className="landing-below landing-names" >
         <motion.div variants={nameVariants} animate={hover? "show" : "hidden"} initial="hidden" custom={[25, 20, 1]}>bloodpiano1</motion.div>
@@ -75,8 +79,8 @@ const Home = () => {
       </motion.div>
 
       <div style={{position: "relative"}}>
-        <motion.img id="landing-dollhouse" onClick={()=>setClick(true)} animate={click&&"clicked"} variants={houseVariants} onAnimationComplete={() => navigate("/works")} onMouseEnter={() => {setHover(true)}} onMouseLeave={() => setHover(false)} src={hover ? "/img/front/dollhouse-open.png" : "/img/front/dollhouse-front.png"}/>
-        {hover && <motion.div initial={{opacity: 0}} animate={click?{opacity: 0, transition: {duration: 0.1}}:{opacity: 1, transition: {duration: 0.5}}} style={{position: "absolute", top: "60%", fontFamily: "jacquard", background: "var(--grey)", fontSize: "1rem", pointerEvents: "none"}}>click to enter</motion.div>}
+        <motion.img id="landing-dollhouse" onClick={()=>setClick(true)} animate={click&&"clicked"} variants={houseVariants} onAnimationComplete={() => navigate("/works")} onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setHover(true)}} onMouseLeave={() => setHover(false)} src={hover ? "/img/front/dollhouse-open.png" : "/img/front/dollhouse-front.png"}/>
+        {/* {hover && <motion.div initial={{opacity: 0}} animate={click?{opacity: 0, transition: {duration: 0.1}}:{opacity: 1, transition: {duration: 0.5}}} style={{position: "absolute", top: "60%", fontFamily: "jacquard", background: "var(--grey)", fontSize: "1rem", pointerEvents: "none"}}>click to enter</motion.div>} */}
         <motion.div className="landing-below pink-button" variants={whoVariants} animate={hover? "show" : "hidden"} initial="hidden">who lives in the dollhouse?</motion.div>
       </div>
 
@@ -91,6 +95,7 @@ const Home = () => {
       </div>
       
     </motion.div>
+    </>
   )
 }
 
