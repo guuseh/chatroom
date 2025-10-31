@@ -7,6 +7,7 @@ const Exit = ({resetVisited}) => {
   const [restart, setRestart] = useState(false)
   const [tooltip, setTooltip] = useState(false)
   const [mouse, setMouse] = useState([])
+  const [tipText, setTipText] = useState('')
 
   const handleRestart = () => {
     if (typeof resetVisited === "function") {
@@ -42,29 +43,29 @@ const Exit = ({resetVisited}) => {
   return (
     <div id="exit-page">
 
-      {tooltip && <div className="tooltip" style={{top: mouse[1], left: mouse[0]}}>start over</div>}
+      {tooltip && <div className="tooltip" style={{top: mouse[1], left: mouse[0]}}>{tipText}</div>}
 
-      <motion.div id="exit-restart" onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true)}} onMouseLeave={() => setTooltip(false)} onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}>
+      <motion.div id="exit-restart" onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('start over')}} onMouseLeave={() => setTooltip(false)} onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}>
         <img className="exit-img" src="/img/front/dollhouse-front.png" style={{cursor: "var(--pointer)"}}/>
       </motion.div>
       
       <motion.div id="exit-left" variants={shelfVariants} initial="init" animate={restart ? "exit" : "popUp"}>
         <motion.div className="exit-shelf" variants={shelfVariants}>
           <div className="exit-img-div">
-              <img className="exit-img" src="/img/exit/CR_1.png" />
-              <div className="exit-img-text">a girl who grew wings accidentally</div>
+              <img className="exit-img" src="/img/exit/CR_1.png" onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('a girl who grew wings accidentally')}} onMouseLeave={() => setTooltip(false)}/>
+              {/* <div className="exit-img-text">a girl who grew wings accidentally</div> */}
           </div>
         </motion.div>
         <motion.div className="exit-shelf centered-shelf" variants={shelfVariants}>
           <div className="exit-img-div" style={{justifySelf: "center"}}>
-              <img className="exit-img" src="/img/exit/CR_2.png" />
-              <div className="exit-img-text">an influencer folding herself into the screen</div>
+              <img className="exit-img" src="/img/exit/CR_2.png" onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('an influencer folding herself into the screen')}} onMouseLeave={() => setTooltip(false)}/>
+              {/* <div className="exit-img-text">an influencer folding herself into the screen</div> */}
           </div>
         </motion.div>
         <motion.div className="exit-shelf" variants={shelfVariants}>
           <div className="exit-img-div">
-              <img className="exit-img" src="/img/exit/CR_3.png" />
-              <div className="exit-img-text">ghosts trapped in .jpg files</div>
+              <img className="exit-img" src="/img/exit/CR_3.png" onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('ghosts trapped in .jpg files')}} onMouseLeave={() => setTooltip(false)} />
+              {/* <div className="exit-img-text">ghosts trapped in .jpg files</div> */}
           </div>
         </motion.div>
       </motion.div>
@@ -75,10 +76,15 @@ const Exit = ({resetVisited}) => {
           <div style={{justifySelf: "center", width: "300px", transform: "translateY(10px)"}}>
               <img className="exit-img" src="/img/exit/CR_computer.png" style={{width: "100%"}}/>
               <div id="exit-signup">
-                <div>is an interactive and hybrid exhibition project as part of the Wrong Biennale.
-                  The doll.house is now active as of November 1st 2025. The chatroom will be announced soon</div>
-                <div><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">sign up for updates</a></div>
+                <div>
+                  <div>Your journey pauses here but it's not over... Not all doors are open yet, some transcend the plains we have been moving on.</div>
+                  <div>Thank you for exploring TC&TD: an interactive and hybrid exhibition project as part of the Wrong Biennale.</div>
+                  <div>The &#123;Chatroom&#125; will be announced soon...The &#123;Dollhouse&#125; still hides secret rooms...</div>
+                </div>
+                {/* <div><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">sign up for updates</a></div> */}
               </div>
+              <div id="exit-signup-btn"><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">Receive clues?</a></div>
+
           </div>
         </motion.div>
       </motion.div>
@@ -86,14 +92,14 @@ const Exit = ({resetVisited}) => {
       <motion.div id="exit-right" variants={shelfVariants} initial="init" animate={restart ? "exit" : "popUp"}>
         <motion.div className="exit-shelf" variants={shelfVariants}>
           <div className="exit-img-div">
-              <img className="exit-img" src="/img/exit/CR_4.png" />
-              <div className="exit-img-text">a jar of innocence</div>
+              <img className="exit-img" src="/img/exit/CR_4.png" onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('a jar of innocence')}} onMouseLeave={() => setTooltip(false)} />
+              {/* <div className="exit-img-text">a jar of innocence</div> */}
           </div>
         </motion.div>
         <motion.div className="exit-shelf" variants={shelfVariants}>
           <div className="exit-img-div">
-              <img className="exit-img" src="/img/exit/CR_5.png" />
-              <div className="exit-img-text">horses, dolls, bunnies and apparitions</div>
+              <img className="exit-img" src="/img/exit/CR_5.png" onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('horses, dolls, bunnies and apparitions')}} onMouseLeave={() => setTooltip(false)} />
+              {/* <div className="exit-img-text">horses, dolls, bunnies and apparitions</div> */}
           </div>
         </motion.div>
       </motion.div>
