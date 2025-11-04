@@ -48,7 +48,7 @@ const Projects = ({projects, urls, visited, showObjects}) => {
           
           <motion.div id="projects-about" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <div id="demon-underlay-close" onClick={() => handleAbout()}></div>
-              <p>
+              <p style={{marginTop: "20px"}}>
                 The &#123;Chatroom&#125; & The &#123;Dollhouse&#125;<br/>
                 …is a hybrid art project…
               </p>
@@ -66,9 +66,12 @@ const Projects = ({projects, urls, visited, showObjects}) => {
                 and who watches from the Chatroom?
               </p>
               
-              <p style={{marginTop: "30px", fontSize: "1rem"}}>
-                Curated by Sarah Khadra Hasni and Joshua Esser<br/>
-                Developed by Guus Hoeberechts<br/>
+              <p style={{marginTop: "20px", fontSize: "1rem"}}>
+                Curated by 
+                Sarah Khadra Hasni <span style={{fontSize: "0.9rem", opacity: 0.8}}><a href={`https://www.instagram.com/succubi`} target="_blank">(Instagram)</a> <a href={`https://sarahkhadra.com`} target="_blank">(Website)</a></span> 
+                &nbsp;and Joshua Esser <span style={{fontSize: "0.9rem", opacity: 0.8}}><a href={`https://www.instagram.com/joshuaesser/`} target="_blank">(Instagram)</a></span><br/>
+                Developed by Guus Hoeberechts <span style={{fontSize: "0.9rem", opacity: 0.8}}><a href={`https://www.guushoeberechts.nl`} target="_blank">(Website)</a></span><br/><br/>
+                <a href="mailto:thechatroomandthedollhouse@gmail.com" style={{opacity: 0.8}}>(Send us an email)</a><br/><br/>
                 As part of The Wrong Biennale 2025–26
               </p>
           </motion.div></>}

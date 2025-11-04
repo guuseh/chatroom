@@ -83,8 +83,10 @@ const Exit = ({resetVisited}) => {
                 </div>
                 {/* <div><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">sign up for updates</a></div> */}
               </div>
-              <div id="exit-signup-btn"><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">Receive clues?</a></div>
-
+              <div id="exit-comp-btns">
+              <div id="exit-signup-btn"><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">Receive clues</a></div>
+              <div id="exit-email-btn"><a href="mailto:thechatroomandthedollhouse@gmail.com" target="_blank">Have a question?</a></div>
+              </div>
           </div>
         </motion.div>
       </motion.div>

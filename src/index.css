@@ -397,7 +397,7 @@ a{
   left: 0;
   right: 0;
   height: 15px;
-  background-color: #CECEB5;
+  background-color: #FFEBFF;
   position: absolute;
   border-radius: 10px;
   box-shadow: 0 4px 5px #0000005d;
@@ -450,9 +450,20 @@ a{
   padding: 10px 0;
   background-color: black;
   border-radius: 5px;
+  overflow: scroll;
 }
 #exit-signup > div > div:not(:last-child){
   margin-bottom: 7px;
+}
+#exit-comp-btns{
+  position: absolute;
+  left: 50%;
+  font-size: 1rem;
+  transform: translateX(-50%);
+  font-family: web;
+  bottom: 50px;
+  display: flex;
+  gap: 10px;
 }
 #exit-signup-btn{
   /* font-weight: bolder; */
@@ -460,15 +471,24 @@ a{
   box-shadow: inset 0 4px 5px rgb(219, 219, 219), 1px 2px 3px rgba(0,0,0,0.7);
   background-color: var(--grey);
   border: 1px solid black;
-  width: fit-content;
+  width: max-content;
   cursor: var(--pointer);
-  font-family: web;
-  position: absolute;
-  left: 50%;
-  font-size: 1rem;
-  transform: translateX(-50%);
+  
+  
+  
   /* bottom: -15px; */
-  bottom: 50px;
+  /* bottom: 50px; */
+}
+#exit-email-btn{
+  padding: 2px 4px;
+  box-shadow: inset 0 4px 5px rgb(219, 219, 219), 1px 2px 3px rgba(0,0,0,0.7);
+  background-color: var(--grey);
+  border: 1px solid black;
+  width: max-content;
+  cursor: var(--pointer);
+
+  /* bottom: -15px; */
+  /* bottom: 15px; */
 }
 #exit-rightgrid{
   display: inline-grid;
