@@ -58,9 +58,9 @@ const Projects = ({projects, urls, visited, showObjects}) => {
               
               <p>The website will be updated with new artefacts between its launch on November 1st, 2025, and its completion on March 31st, 2026.</p>
               
-              <p>A first IRL and intimate online exploration will offer visitors a guided engagement with its immersive digital world, deepening the interactive experience. Date and location TBA.</p>
+              <p>A first IRL and intimate online exploration will offer visitors a guided engagement with its immersive digital world, deepening the interactive experience as part of Vorspiel <span style={{fontSize: "0.9rem", opacity: 0.8}}><a href="https://vorspiel.berlin/events/exit-the-dollhouse-participatory-game-night-guided-website-exploration" target="_blank" rel="noreferrer">(Website)</a></span>, Thu 29.01.2026 18:00–21:00 at SomoS Art House.</p>
               
-              <p>The &#123;Chatroom&#125; is the &lt;IRL&gt; mirror. Date and location TBA.</p>
+              <p>The &#123;Chatroom&#125; is the &lt;IRL&gt; mirror, main exhibition at SomoS Art House, Tue 03.03 – Sat 14.03.2026.</p>
               
               <p>
                 Who lives in the Dollhouse<br/>
