@@ -10,7 +10,7 @@ const ExitDoor = ({urls, visited, showObjects, setShowObjects}) => {
     const handleExit = () => {
         if(!showObjects){
             setShowObjects(true)
-            localStorage.setItem("showObjects", true);
+            localStorage.setItem("showObjects", 'true');
         }
         if(visited.count < urls.length){
             setNotice(true)

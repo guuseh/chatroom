@@ -47,6 +47,8 @@ function App() {
     });
   }
 
+  console.log(showObjects)
+
   // shuffle urls for randomised list
   useEffect(() => {
 
