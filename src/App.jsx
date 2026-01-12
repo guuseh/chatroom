@@ -79,7 +79,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("showObjects", JSON.stringify(showObjects));
-    localStorage.setItem("motherfucker", JSON.stringify(showObjects))
   }, [showObjects]);
 
   const resetVisited = () => {  

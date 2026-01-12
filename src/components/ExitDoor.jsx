@@ -10,7 +10,6 @@ const ExitDoor = ({urls, visited, showObjects, setShowObjects}) => {
     const handleExit = () => {
         if(!showObjects){
             setShowObjects(true)
-            localStorage.setItem("showObjects", 'true');
         }
         if(visited.count < urls.length){
             setNotice(true)
@@ -22,11 +21,6 @@ const ExitDoor = ({urls, visited, showObjects, setShowObjects}) => {
     
     const timerId = useRef(null);
 
-    useEffect(() => {
-        if(exit){
-            setShowObjects(true)
-        }
-    }, [])
 
     useEffect(() => {
     if (notice) {
