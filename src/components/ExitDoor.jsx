@@ -22,6 +22,12 @@ const ExitDoor = ({urls, visited, showObjects, setShowObjects}) => {
     const timerId = useRef(null);
 
     useEffect(() => {
+        if(exit){
+            setShowObjects(true)
+        }
+    }, [])
+
+    useEffect(() => {
     if (notice) {
             //Creating a timeout
             timerId.current = setTimeout(() => {
