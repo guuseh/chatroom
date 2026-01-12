@@ -79,16 +79,17 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("showObjects", JSON.stringify(showObjects));
+    localStorage.setItem("motherfucker", JSON.stringify(showObjects))
   }, [showObjects]);
 
-  const resetVisited = () => {
+  const resetVisited = () => {  
   // clear localStorage
   localStorage.removeItem("visited");
   localStorage.removeItem("showObjects")
   setVisited({ count: 0 });
   setShowObjects(false);
   setProjectCounter(0);
-};
+  };
 
   // set array for adding projects to empty divs for grid
   useEffect(() => {
