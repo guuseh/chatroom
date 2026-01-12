@@ -28,7 +28,7 @@ function App() {
   const [shuffledDivs, setShuffledDivs] = useState([]) // will contain also empty 0 divs
   const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/09", "/11", "/12"])
   const [visited, setVisited] = useState({count: 0})
-  const [showObjects, setShowObjects] = useState(false)
+  const [showObjects, setShowObjects] = useState(null)
 
   const visitPage = (nr) => {
     // if(visited[nr]){
@@ -59,7 +59,7 @@ function App() {
     }
 
     const show = localStorage.getItem("showObjects");
-    if(showObjects){
+    if(show){
       setShowObjects(JSON.parse(show))
     }
 
@@ -78,7 +78,9 @@ function App() {
   }, [visited]);
 
   useEffect(() => {
+    if(showObjects != null){
     localStorage.setItem("showObjects", JSON.stringify(showObjects));
+    }
   }, [showObjects]);
 
   const resetVisited = () => {  
