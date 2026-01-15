@@ -405,13 +405,14 @@ a{
     top: auto;
     bottom: 50px;
     transform: translateY(0%);
-    z-index: 10;
+    z-index: 40;
   }
   #projects-about-window{
     height: 60px;
   }
   #projects-about{
     padding: 5%;
+    z-index: 45;
   }
   #projects-about p{
     font-size: 0.8rem;
