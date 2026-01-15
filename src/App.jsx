@@ -21,12 +21,46 @@ import Sarahchefka from "./pages/sarahchefka.jsx" // text ROOM 09
 import Sotce from "./pages/sotce.jsx" // video ROOM 10
 
 function App() {
+  const useMediaQuery = (query) => {
+    const [matches, setMatches] = useState(false);
+  
+    useEffect(() => {
+      const media = window.matchMedia(query);
+      if (media.matches !== matches) {
+        setMatches(media.matches);
+      }
+  
+      const listener = () => {
+        setMatches(media.matches);
+      };
+  
+      if (typeof media.addEventListener === "function") {
+        media.addEventListener("change", listener);
+      } else {
+        media.addListener(listener);
+      }
+  
+      return () => {
+        if (typeof media.removeEventListener === "function") {
+          media.removeEventListener("change", listener);
+        } else {
+          // media.removeListener(listenerList);
+        }
+      };
+    }, [matches, query]);
+  
+    return matches;
+  }
+  const useIsSmall = () => useMediaQuery("(max-width: 600px");
+
+  const isSmall = useIsSmall();
+  
   const urls = ["/01", "/02", "/03", "/04", "/05",
                  "/06", "/07", "/08", "/09", "/10",]
   const [shuffledUrls, setShuffledUrls] = useState([]) // will only contain urls
   const [projectCounter, setProjectCounter] = useState(0)
   const [shuffledDivs, setShuffledDivs] = useState([]) // will contain also empty 0 divs
-  const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"])
+  const [array, setArray] = useState(isSmall ? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"] : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]) // on desktop: 7x4 (28) grid, on mobile 4x6 (24) grid
   const [visited, setVisited] = useState({count: 0})
   const [showObjects, setShowObjects] = useState(null)
 
@@ -67,7 +101,7 @@ function App() {
           .map(({v}) => v)
 
     setShuffledUrls(shuffled)
-    // console.log(shuffledUrls)
+    console.log(shuffled)
   }, [])
 
   // LOCALSTORAGE
@@ -115,39 +149,7 @@ function App() {
       } 
     }
 
-  const useMediaQuery = (query) => {
-    const [matches, setMatches] = useState(false);
   
-    useEffect(() => {
-      const media = window.matchMedia(query);
-      if (media.matches !== matches) {
-        setMatches(media.matches);
-      }
-  
-      const listener = () => {
-        setMatches(media.matches);
-      };
-  
-      if (typeof media.addEventListener === "function") {
-        media.addEventListener("change", listener);
-      } else {
-        media.addListener(listener);
-      }
-  
-      return () => {
-        if (typeof media.removeEventListener === "function") {
-          media.removeEventListener("change", listener);
-        } else {
-          // media.removeListener(listenerList);
-        }
-      };
-    }, [matches, query]);
-  
-    return matches;
-  }
-  const useIsSmall = () => useMediaQuery("(max-width: 600px");
-
-  const isSmall = useIsSmall();
   
 
   return (

@@ -405,7 +405,7 @@ a{
     top: auto;
     bottom: 50px;
     transform: translateY(0%);
-    z-index: 40;
+    z-index: 10;
   }
   #projects-about-window{
     height: 60px;
