@@ -17,7 +17,7 @@ const GuestBook = () => {
         const data = snapshot.val();
         setMessages(data);
         // updateMessages(data)
-        console.log(data)
+        // console.log(data)
         });
     }, [db])
 
@@ -35,7 +35,7 @@ const GuestBook = () => {
             name: name == null || name == "" || name == " " ? "anonymous" : name,
             message: message,
         })
-        console.log("set")
+        // console.log("set")
         }
         endRef.current.scrollIntoView({scrollBehavior: "smooth"})
         nameRef.current.value = ""
@@ -44,7 +44,6 @@ const GuestBook = () => {
         setMessage('')
     }
 
-    console.log(messages)
 
     
 
