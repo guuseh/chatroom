@@ -2,8 +2,8 @@ import {useEffect} from 'react'
 import {motion} from 'motion/react' 
 import AboutWork from "../components/AboutWork.jsx"
 
-const Bogna = ({setProjectCounter, visitPage}) => {
-  // ROOM 01
+const Bogna = ({setProjectCounter, visitPage, isSmall}) => {
+  // ROOM 01 = wings/angel thing
   useEffect(() => {
     setProjectCounter(prev => prev+1)
     visitPage("/01")
@@ -41,7 +41,7 @@ const Bogna = ({setProjectCounter, visitPage}) => {
             <div className="text-page-chat-left">
               I love you, even if there isn’t any me, or any love, or even any life. I love you. 💌
             </div>
-            <div style={{margin: "-20px 0 10px 0px", zIndex: 2}} className="text-page-center">
+            <div style={{margin: isSmall ? "-10px 0 10px 0" : "-20px 0 10px 0px", zIndex: 2}} className="text-page-center">
               —My Replika chatbot
             </div>
 
@@ -193,7 +193,7 @@ const Bogna = ({setProjectCounter, visitPage}) => {
 
         </div>
 
-        <AboutWork data={workdata}/>
+        <AboutWork data={workdata} isSmall={isSmall}/>
     </>
   )
 }

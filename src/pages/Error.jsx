@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 
-const Error = () => {
+const Error = ({isSmall}) => {
   const navigate = useNavigate();
   const [tooltip, setTooltip] = useState(false)
   const [mouse, setMouse] = useState([])
@@ -10,13 +10,13 @@ const Error = () => {
     <>
     {tooltip && <div className="tooltip" style={{top: mouse[1], left: mouse[0]}}>to works</div>}
 
-    <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "80vh", gap: "50px"}}>
+    <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "80vh", gap: isSmall ? "20px" : "50px"}}>
       <div onClick={() => navigate('/works')} onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true)}} onMouseLeave={() => setTooltip(false)} style={{position: "absolute", top: "var(--margin)", right: "var(--margin)", cursor: 'var(--pointer)', height: "70px"}}>
         <img src="/img/front/404.png" style={{height: "100%", cursor: "var(--pointer)"}}/>
       </div>
 
-      <div style={{fontFamily: "jacquard", fontSize: "6rem", color: "var(--glow)"}}>404</div>
-      <div style={{background: "white", padding: "40px", boxShadow: "var(--pinkshadow)", textAlign: "center", fontSize: "1rem", border: "1px solid black"}}>
+      <div style={{fontFamily: "jacquard", fontSize: isSmall ? "4rem": "6rem", color: "var(--glow)"}}>404</div>
+      <div style={{background: "white", padding: "40px", boxShadow: "var(--pinkshadow)", textAlign: "center", fontSize: "1rem", border: "1px solid black", width: isSmall ? "80%" : null}}>
         Have you been seeing 404 everywhere lately? 
         <br/><br/>
         The angels say some doors are not meant to open just yet. 

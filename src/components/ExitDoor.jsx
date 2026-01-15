@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from 'react'
 import {useNavigate, Outlet} from 'react-router-dom'
 import {motion} from 'motion/react'
 
-const ExitDoor = ({urls, visited, showObjects, setShowObjects}) => {
+const ExitDoor = ({urls, visited, showObjects, setShowObjects, isSmall}) => {
     const navigate = useNavigate()
     const [notice, setNotice] = useState(false)
     const [exit, setExit] = useState(false)
@@ -73,7 +73,7 @@ const ExitDoor = ({urls, visited, showObjects, setShowObjects}) => {
     </motion.div>
     }
 
-    <motion.div style={{position: "absolute", width: "max-content", top: "50%", left: "50%", transform: "translate(-50%, -50%)", fontFamily: "tages", background: "var(--pink)", boxShadow: "0 0 20px 10px var(--pink)", zIndex: "200", pointerEvents: "none"}} initial={{opacity: 0}} animate={notice ? {opacity: 1} : {opacity: 0}}>
+    <motion.div style={{position: "absolute", width: isSmall ? "80svw" : "max-content", top: "50%", left: "50%", transform: "translate(-50%, -50%)", fontFamily: "tages", background: "var(--pink)", boxShadow: "0 0 20px 10px var(--pink)", zIndex: "200", pointerEvents: "none", textAlign: "center"}} initial={{opacity: 0}} animate={notice ? {opacity: 1} : {opacity: 0}}>
         You must collect &#123;{urls.length - visited.count}&#125; more {urls.length - visited.count == 1 ? "object" : "objects"} from the &#123;doll house&#125;. The &#123;chatroom&#125; remains locked...
     </motion.div>
     

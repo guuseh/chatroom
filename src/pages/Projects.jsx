@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import {motion, AnimatePresence, stagger} from 'motion/react'
 import ExitDoor from "../components/ExitDoor.jsx"
 
-const Projects = ({projects, urls, visited, showObjects}) => {
+const Projects = ({projects, urls, visited, showObjects, isSmall}) => {
   const navigate = useNavigate()
   const [window, setWindow] = useState('about-closed')
   const [open, setOpen] = useState(false)
@@ -29,7 +29,7 @@ const Projects = ({projects, urls, visited, showObjects}) => {
         <motion.div id="projects-img-container">
             {projects.map((p, i) => {
                 return <motion.div key={i*100} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-end" : "flex-start", justifySelf: i % 3 == 0 ? "flex-end" : i % 5 == 0 ? "flex-start" : "center"}}>
-                  { p != 0 && p != "/09" && p != "/11" && p != "/12" ?
+                  { p != 0 && p != "/11" && p != "/12" ?
                   <motion.div className="projects-img-div" initial={{scale: 0}} animate={showObjects && {scale: 1, transition: {duration: 0.2, delay: i/15}}}>
                       <img key={i} onMouseEnter={(e) => {setHover(true); setMouse([e.clientX, e.clientY])}} onMouseLeave={(e) => setHover(false)} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 3 == 0 ? "0 auto 0 0" : i % 5 == 0 ? "0 0 0 auto" : "0 auto 0 auto", cursor: "var(--pointer)"}} onClick={() => {navigate("/room"+p)}} className="projects-img projects-img-active" src={`/img/front${p}.png`}/>
                   </motion.div>   : p != 0 && 
@@ -58,7 +58,7 @@ const Projects = ({projects, urls, visited, showObjects}) => {
               
               <p>The website will be updated with new artefacts between its launch on November 1st, 2025, and its completion on March 31st, 2026.</p>
               
-              <p>A first IRL and intimate online exploration will offer visitors a guided engagement with its immersive digital world, deepening the interactive experience as part of Vorspiel <span style={{fontSize: "0.9rem", opacity: 0.8}}><a href="https://vorspiel.berlin/events/exit-the-dollhouse-participatory-game-night-guided-website-exploration" target="_blank" rel="noreferrer">(Website)</a></span>, Thu 29.01.2026 18:00–21:00 at SomoS Art House.</p>
+              <p>A first IRL and intimate online exploration will offer visitors a guided engagement with its immersive digital world, deepening the interactive experience as part of Vorspiel <span style={{fontSize: isSmall? "0.6rem" : "0.9rem", opacity: 0.8}}><a href="https://vorspiel.berlin/events/exit-the-dollhouse-participatory-game-night-guided-website-exploration" target="_blank" rel="noreferrer">(Website)</a></span>, Thu 29.01.2026 18:00–21:00 at SomoS Art House.</p>
               
               <p>The &#123;Chatroom&#125; is the &lt;IRL&gt; mirror, main exhibition at SomoS Art House, Tue 03.03 – Sat 14.03.2026.</p>
               
@@ -67,11 +67,11 @@ const Projects = ({projects, urls, visited, showObjects}) => {
                 and who watches from the Chatroom?
               </p>
               
-              <p style={{marginTop: "20px", fontSize: "1rem"}}>
+              <p style={{marginTop: isSmall ? null : "20px", fontSize: isSmall ? "0.7rem" : "1rem"}}>
                 Curated by 
-                Sarah Khadra Hasni <span style={{fontSize: "0.9rem", opacity: 0.8}}><a href={`https://www.instagram.com/succubi`} target="_blank">(Instagram)</a> <a href={`https://sarahkhadra.com`} target="_blank">(Website)</a></span> 
-                &nbsp;and Joshua Esser <span style={{fontSize: "0.9rem", opacity: 0.8}}><a href={`https://www.instagram.com/joshuaesser/`} target="_blank">(Instagram)</a></span><br/>
-                Developed by Guus Hoeberechts <span style={{fontSize: "0.9rem", opacity: 0.8}}><a href={`https://www.guushoeberechts.nl`} target="_blank">(Website)</a></span><br/><br/>
+                Sarah Khadra Hasni <span style={{fontSize: isSmall ? "0.6rem": "0.9rem", opacity: 0.8}}><a href={`https://www.instagram.com/succubi`} target="_blank">(Instagram)</a> <a href={`https://sarahkhadra.com`} target="_blank">(Website)</a></span> 
+                &nbsp;and Joshua Esser <span style={{fontSize: isSmall ? "0.6rem": "0.9rem", opacity: 0.8}}><a href={`https://www.instagram.com/joshuaesser/`} target="_blank">(Instagram)</a></span><br/>
+                Developed by Guus Hoeberechts <span style={{fontSize: isSmall ? "0.6rem": "0.9rem", opacity: 0.8}}><a href={`https://www.guushoeberechts.nl`} target="_blank">(Website)</a></span><br/><br/>
                 <a href="mailto:thechatroomandthedollhouse@gmail.com" style={{opacity: 0.8}}>(Send us an email)</a><br/><br/>
                 As part of The Wrong Biennale 2025–26
               </p>

@@ -2,8 +2,8 @@ import {useEffect, useState} from 'react'
 import {motion} from 'motion/react'
 import AboutWork from "../components/AboutWork.jsx"
 
-const Noura = ({setProjectCounter, visitPage}) => {
-  // ROOM 06
+const Noura = ({setProjectCounter, visitPage, isSmall}) => {
+  // ROOM 06 = ball and chains
   useEffect(() => {
     setProjectCounter(prev => prev+1)
     visitPage("/06")
@@ -13,11 +13,6 @@ const Noura = ({setProjectCounter, visitPage}) => {
     "title": "Gijinka Complex",
     "artist": [
       {
-      "name": "Check back come December to experience the full adventure...",
-      "extra": " "
-    },{
-      "name": undefined
-    },{
       "name": "Noura Tafeche",
       "ig": "nouratafeche",
       "web": "https://nouratafeche.com/"
@@ -28,7 +23,7 @@ const Noura = ({setProjectCounter, visitPage}) => {
       "name": undefined
     }, {
       "name": "✦",
-      "extra": " ",
+      "extra": "",
     },{
       "name": undefined
     }, {
@@ -57,11 +52,13 @@ const Noura = ({setProjectCounter, visitPage}) => {
     const fileVariants = {
       down: (i) => ({
         y: 0,
+        x: 0,
         zIndex: i == 'l' ? 3 : i == 'c' ? 4 : 5,
         scale: 1
       }),
       up: (i) => ({
-        y: "-105%",
+        y: isSmall ? "-150%": "-105%",
+        x: isSmall && i == 'l' ? "-8%" : isSmall && i == "c" ? "0%" : isSmall && i == "r" ? "8%" : "-10%",
         zIndex: i == 'l' ? 10 : i == 'c' ? 11 : 12,
         scale: 1.2
       }),
@@ -81,9 +78,23 @@ const Noura = ({setProjectCounter, visitPage}) => {
 
       <div className="page-container">
         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1, ease: "easeIn"}}}>
-          <div id="noura-coverart" style={{height: "50vh", marginTop: "8vh"}}><img src="/img/06/coverart.png" style={{height: "100%"}}/></div>
-          
-          
+          {/* <div id="noura-coverart" style={{height: "50vh", marginTop: "8vh"}}><img src="/img/06/coverart.png" style={{height: "100%"}}/></div> */}
+          <div id="noura-iframe">
+                          <div>
+                            {/* <button class="fullscreen_btn" title="Enter fullscreen">
+                                <img src="https://itch.io/static/images/enlarge.svg?1768119818"/>
+                            </button> */}
+                            <iframe msallowfullscreen="true" frameborder="0" allowfullscreen="true" id="game_drop" src="https://html-classic.itch.zone/html/15899580/index.html" allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated; web-share" allowtransparency="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                        </div>
+
+            {/* <iframe frameborder="0" src="https://itch.io/embed/4078057?link_color=ff69bb" width="552" height="167"><a href="https://tobia-paolo-bettoni.itch.io/gijinka-complex-demo">Gijinka Complex DEMO by Noura Tafeche &amp; Tobia Paolo Bettoni</a></iframe> */}
+          </div>
+
+        <div id="noura-info">
+          {!isSmall&&<img src="/img/06/coverart.png" style={{height: "100%", width: "100%"}}/>}
+          <div id="noura-button" className="exit-btn"><a href="https://tobia-paolo-bettoni.itch.io/gijinka-complex-demo" target="_blank" rel="noreferrer">More information &#8594;</a></div>
+        </div>
+
         <motion.div onClick={() => {setRight(!right); right && setRightH(false)}} onAnimationComplete={(latest) => {latest == "down" && setRightH(true)}} whileHover={!right && rightH && "hover"} className="noura-file" id="noura-right" variants={fileVariants} custom="l" animate={right ? "up" : "down"}><img src="/img/06/character1.png" style={{height: "100%"}}/></motion.div>
         <motion.div onClick={() => {setCenter(!center); center && setCenterH(false)}} onAnimationComplete={(latest) => {latest == "down" && setCenterH(true)}} whileHover={!center && centerH && "hover"} className="noura-file" id="noura-center" variants={fileVariants} custom="c" animate={center ? "up" : "down"}><img src="/img/06/character2.png" style={{height: "100%"}}/></motion.div>
         <motion.div onClick={() => {setLeft(!left); left && setLeftH(false)}} onAnimationComplete={(latest) => {latest == "down" && setLeftH(true)}} whileHover={!left && leftH && "hover"} className="noura-file" id="noura-left" variants={fileVariants} custom="r" animate={left ? "up" : "down"}><img src="/img/06/character3.png" style={{height: "100%"}}/></motion.div>
@@ -91,7 +102,7 @@ const Noura = ({setProjectCounter, visitPage}) => {
         </motion.div>
       </div>
 
-      <AboutWork data={workdata}/>
+      <AboutWork data={workdata} isSmall={isSmall}/>
     </>
   )
 }

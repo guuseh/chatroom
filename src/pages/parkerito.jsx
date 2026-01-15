@@ -2,8 +2,8 @@ import {useState, useEffect, useRef} from 'react'
 import {motion} from 'motion/react' 
 import AboutWork from "../components/AboutWork.jsx"
 
-const Parkerito = ({setProjectCounter, visitPage}) => {
-  // ROOM 07
+const Parkerito = ({setProjectCounter, visitPage, isSmall}) => {
+  // ROOM 07 = 3 8-ball
   const ref = useRef();
   const [shiftLeft, setShiftLeft] = useState()
   const [shiftTop, setShiftTop] = useState()
@@ -29,16 +29,21 @@ const Parkerito = ({setProjectCounter, visitPage}) => {
   }, [shiftLeft])
 
   const getMeasurements = () => {
+    console.log(ref.current)
     let left = (1840 - ref.current.offsetWidth) / 2
     let top = (1210 - ref.current.offsetHeight) / 2
     setScroll(left, top)
+    
   }
   const setScroll = (left, top) => {
     setShiftLeft(left)
     setShiftTop(top)
   }
-
-  window.addEventListener('resize', getMeasurements)
+  
+  useEffect(() => {
+      window.addEventListener('resize', getMeasurements)
+      return () => window.removeEventListener("resize", getMeasurements)
+  }, [])
 
   return (
     <>
@@ -52,7 +57,7 @@ const Parkerito = ({setProjectCounter, visitPage}) => {
       </motion.div>
     </div>
 
-    <AboutWork data={workdata}/>
+    <AboutWork data={workdata} isSmall={isSmall}/>
     </>
   )
 }

@@ -31,6 +31,10 @@
   src: url("./assets/fonts/IstokWeb-Regular.ttf");
 }
 @font-face {
+  font-family: webbold;
+  src: url("./assets/fonts/IstokWeb-Bold.ttf");
+}
+@font-face {
   font-family: tages;
   src: url("./assets/fonts/Tagesschrift-Regular.ttf");
 }
@@ -67,6 +71,17 @@ a{
   color: inherit;
   text-decoration: none;
   cursor: var(--pointer);
+}
+
+@media (max-width: 600px){
+  html, body{
+    overflow: hidden;
+    max-height: 100svh;
+    max-width: 100svw;
+    overscroll-behavior: none;
+    position: fixed;
+    font-size: 1rem;
+  }
 }
 
 /* --------------- BASIC STYLES --------------- */
@@ -191,6 +206,21 @@ a{
   background-color: var(--grey);
 }
 
+@media (max-width: 600px){
+  .title-overlay{
+    width: 100svw;
+    height: 100svh;
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
+
+  .theatre-video{
+    width: 90svw;
+    height: auto;
+    z-index: 2;
+    position: relative;
+  }
+}
 
 
 
@@ -222,6 +252,33 @@ a{
 }
 .landing-names{
   font-family: jacquard;
+}
+
+@media (max-width: 600px){
+  #landing-container{
+    width: 100vw;
+    flex-direction: column;
+    gap: 0px;
+    background: #FFF0FF;
+    background: linear-gradient(180deg, rgba(255, 240, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    height: 100vh;
+  }
+  #landing-dollhouse{
+    height: auto;
+    margin: 0;
+    width: 70vw;
+  }
+  .landing-below{
+    cursor: pointer;
+    z-index: 10;
+  }
+  .landing-names{
+    font-size: 12px;
+    pointer-events: none;
+  }
+  #landing-container > div{
+    gap: 2px;
+  }
 }
 
 
@@ -328,18 +385,50 @@ a{
   z-index: 20;
 }
 
-
+@media (max-width: 600px){
+  #projects-page{
+    align-items: center;
+    overflow: hidden;
+    height: 100svh;
+    width: 100svw;
+  }
+  #projects-img-container{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(6, 10svh);
+    gap: 0;
+    margin: 0;
+    width: 90%;
+  }
+  #exit-door{
+    height: 60px;
+    top: auto;
+    bottom: 50px;
+    transform: translateY(0%);
+    z-index: 40;
+  }
+  #projects-about-window{
+    height: 60px;
+  }
+  #projects-about{
+    padding: 5%;
+  }
+  #projects-about p{
+    font-size: 0.8rem;
+  }
+}
 
 
 
 /* --------------- EXIT PAGE --------------- */
 #exit-page{
   display: flex;
-  /* justify-content: space-between; */
-  justify-content: space-around;
-  /* align-items: center; */
-  align-items: flex-end;
-  height: 70vh;
+  justify-content: center;
+  gap: 5vw;
+  /* justify-content: space-around; */
+  align-items: center;
+  /* align-items: flex-end; */
+  height: 100vh;
 }
 #exit-leftgrid{
   display: inline-grid;
@@ -347,14 +436,14 @@ a{
   grid-template-rows: 15vh 15vh 25vh 15vh;
   grid-template-areas: 
     "top-left top-left top-right"
-    "center-left center-left center-right"
+    "center-left bottom-right bottom-right"
     "bottom-left bottom-right bottom-right"
     "title title title";
   justify-items: center;
   height: 90vh;
   width: 40vw;
   gap: 30px 50px;
-  margin-left: 10vw;
+  /* margin-left: 10vw; */
 }
 #exit-left{
   display: flex;
@@ -406,14 +495,19 @@ a{
 .exit-img-div{
   /* border: 1px solid black; */
   /* height: 100%; */
-  height: 17vh;
+  /* height: 17vh; */
   width: fit-content;
   display: flex;
   position: relative;
   padding: 0 20px;
+  align-items: flex-end;
 }
 .exit-img{
   height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  /* border: 1px solid red; */
 }
 .exit-img-text{
   position: absolute;
@@ -465,7 +559,7 @@ a{
   display: flex;
   gap: 10px;
 }
-#exit-signup-btn{
+.exit-btn{
   /* font-weight: bolder; */
   padding: 2px 4px;
   box-shadow: inset 0 4px 5px rgb(219, 219, 219), 1px 2px 3px rgba(0,0,0,0.7);
@@ -473,23 +567,23 @@ a{
   border: 1px solid black;
   width: max-content;
   cursor: var(--pointer);
-  
-  
-  
+  font-family: web;
+  font-size: 0.9rem;
   /* bottom: -15px; */
   /* bottom: 50px; */
 }
-#exit-email-btn{
+/* #exit-email-btn{
   padding: 2px 4px;
   box-shadow: inset 0 4px 5px rgb(219, 219, 219), 1px 2px 3px rgba(0,0,0,0.7);
   background-color: var(--grey);
   border: 1px solid black;
   width: max-content;
   cursor: var(--pointer);
-
-  /* bottom: -15px; */
-  /* bottom: 15px; */
-}
+  font-family: web;
+  font-size: 0.9rem;
+  bottom: -15px;
+  bottom: 15px;
+} */
 #exit-rightgrid{
   display: inline-grid;
   grid-template-columns: 2fr 3fr;
@@ -497,10 +591,10 @@ a{
   grid-template-areas:
   "info chat"
   "info type";
-  height: 70vh;
-  width: 35vw;
+  height: 80vh;
+  width: 40vw;
   gap: 20px 30px;
-  margin-right: 5vw;
+  margin-right: 2vw;
 }
 #exit-rightgrid > div{
   border: 1px solid black;
@@ -511,16 +605,35 @@ a{
 #exit-info-title{
   font-family: jacquard;
   text-align: center;
-  font-size: 5vh;
-  line-height: 5vh;
+  /* font-size: 5vh; */
+  /* line-height: 5vh; */
+  /* font-size: 2vh; */
   justify-self: flex-start;
   /* border: 1px solid red; */
-  width: 300px;
+  /* width: 300px; */
+  width: 100%;
 }
 #exit-info-text{
-  font-size: 1rem;
+  font-size: 0.9rem;
+  line-height: 1rem;
+  margin: 20px 5px 0 5px;
+  font-family: web;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* height: 80%; */
+}
+#exit-info-text div{
   margin: 10px 0;
 }
+#exit-info-buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: auto 0 20px 0;
+}
+
 #exit-restart{
   position: absolute;
   top: 20px;
@@ -529,8 +642,12 @@ a{
   cursor: var(--pointer);
   z-index: 10;
 }
-
-
+/* --------------- GUEST BOOK --------------- */
+#exit-chatcontainer{
+  overflow: scroll;
+  font-family: web;
+  font-size: 0.9rem;
+}
 
 
 
@@ -606,6 +723,40 @@ a{
 }
 #back-to-works img{
   cursor: var(--pointer);
+}
+
+@media (max-width: 600px){
+  #back-to-works{
+    height: 70px;
+    top: auto;
+    bottom: 50px;
+    transform: translateY(0%);
+    z-index: 40;
+  }
+  #img-navbar{
+    gap: 0;
+    width: 100%;
+    background-color: rgb(163, 163, 163);
+    border-radius: 15px;
+  }
+  #page-menu-gradient{
+    height: 120px;
+    align-items: end;
+    padding: 10px var(--margin);
+    background: linear-gradient(180deg, rgba(179, 179, 179, 0) 0%, rgba(179, 179, 179, 1) 40%);
+
+  }
+  .nav-img{
+    height: 30px;
+    width: 30px;
+  }
+  #page-menu-next{
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 40;
+  }
 }
 
 
@@ -685,7 +836,8 @@ a{
   font-size: 10rem;
   text-align: center;
   color: white;
-  filter: drop-shadow(var(--pinkshadow))
+  filter: drop-shadow(var(--pinkshadow));
+  overflow: visible;
 }
 .text-page-subtitle{
   font-family: jacquard;
@@ -699,7 +851,8 @@ a{
   width: fit-content;
 }
 .text-page-normal{
-  margin: 15px 0
+  margin: 15px 0;
+  width: 100%;
 }
 .text-page-center{
   width: 70%;
@@ -776,80 +929,37 @@ sup{
   align-self: flex-start;
 }
 
+@media (max-width: 600px){
+  .text-container{
+    width: 100svw;
+    padding: 15vh 5svw 15vh 5svw;
+  }
+  .text-page-before{
+    text-align: center;
+    margin-bottom: 3vh;
+  }
+  .text-page-title{
+    font-size: 4rem;
+  }
+  .text-page-subtitle{
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin-bottom: 5svh;
+  }
+  .text-page-center{
+    width: 90%;
+  }
+  .text-page-chat-left{
+    max-width: 85%;
+    margin: 5px 0 5px 12px;
+  }
+  .text-page-chat-right{
+    max-width: 68%;
+    margin: 5px 12px 5px 0;
+  }
+}
 
 
-
-
-/* --------------- EVERYONEISAGIRL / ESTER --- 04 --------------- */
-
-#ester-frame{
-  width: 50vw;
-  aspect-ratio: 4 / 2.5;
-  position: absolute;
-  top: 15%;
-  right: 15%;
-  z-index: 5;
-  filter: drop-shadow(var(--pinkshadow));
-}
-.ester-border-container{
-  width: 100%;
-  height: 40px;
-  background-color: #565556;
-  border-radius: 20px 20px 0 0;
-  position: relative;
-  z-index: 0;
-  display: flex;
-  padding: 14px;
-  gap: 8px;
-}
-.ester-border-container div:not(#progress-ester){
-  width: 14px;
-  height: 14px;
-  /* background-color: red; */
-  border-radius: 10px;
-  cursor: var(--pointer);
-}
-#progress-ester{
-  color: rgba(255, 255, 255, 0.266);
-  justify-self: end;
-  width: fit-content;
-  margin-left: auto;
-  align-self: start;
-  font-size: 1rem;
-  line-height: 1rem;
-}
-#ester-text-container{
-  background: #3f3f3f;
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-  color: var(--pink);
-  padding: 40px;
-  box-sizing: border-box;
-  font-family: web;
-  font-size: 1rem;
-  line-height: 1.1rem;
-  border-radius: 0 0 20px 20px;
-  scroll-behavior: smooth;
-  position: relative;
-  user-select: none;
-}
-#ester-progress{
-  height: 10px;
-  width: 50vw;
-  background-color: white;
-}
-#ester-video-frame{
-  width: 30vw;
-  position: absolute;
-  left: 20%;
-  bottom: 17%;
-  z-index: 2;
-  background-color: purple;
-  height: 50vh;
-  border-radius: 20px;
-  filter: drop-shadow(var(--pinkshadow));
-}
 
 
 
@@ -1008,7 +1118,31 @@ sup{
   bottom: -40px !important;
 }
 
-
+@media (max-width: 600px){
+   #demon-map-container{
+    height: 60%;
+   }
+   #demon-address-overlay{
+    padding: 10px 10px;
+    font-size: 0.6rem;
+    gap: 5px;
+  }
+  #demon-bottom-center{
+    left: 0;
+    transform: translateY(50%);
+    bottom: 50%;
+    width: 100%;
+    margin: 0px;
+    pointer-events: none;
+  }
+  .psv-map{
+    bottom: 0px !important;
+    width: 120px !important;
+    height: 70px !important;
+    pointer-events: none;
+    border: 1px solid black;
+}
+}
 
 
 /* --------------- ANGEL KETHER / ESLISKA --- 03 --------------- */
@@ -1022,7 +1156,99 @@ sup{
   object-fit: contain;
 }
 
+@media (max-width: 600px){
+  #kether-imgdiv{
+    height: 80svw;
+    width: 80svw;
+  }
+}
 
+
+
+
+/* --------------- EVERYONEISAGIRL / ESTER --- 04 --------------- */
+
+#ester-frame{
+  width: 50vw;
+  aspect-ratio: 4 / 2.5;
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  z-index: 5;
+  filter: drop-shadow(var(--pinkshadow));
+}
+.ester-border-container{
+  width: 100%;
+  height: 40px;
+  background-color: #565556;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  padding: 14px;
+  gap: 8px;
+}
+.ester-border-container div:not(#progress-ester){
+  width: 14px;
+  height: 14px;
+  /* background-color: red; */
+  border-radius: 10px;
+  cursor: var(--pointer);
+}
+#progress-ester{
+  color: rgba(255, 255, 255, 0.266);
+  justify-self: end;
+  width: fit-content;
+  margin-left: auto;
+  align-self: start;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+#ester-text-container{
+  background: #3f3f3f;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  color: var(--pink);
+  padding: 40px;
+  box-sizing: border-box;
+  font-family: web;
+  font-size: 1rem;
+  line-height: 1.1rem;
+  border-radius: 0 0 20px 20px;
+  scroll-behavior: smooth;
+  position: relative;
+  user-select: none;
+}
+#ester-progress{
+  height: 10px;
+  width: 50vw;
+  background-color: white;
+}
+#ester-video-frame{
+  width: 30vw;
+  position: absolute;
+  left: 20%;
+  bottom: 17%;
+  z-index: 2;
+  background-color: purple;
+  height: 50vh;
+  border-radius: 20px;
+  filter: drop-shadow(var(--pinkshadow));
+}
+
+@media (max-width: 600px){
+  #ester-text-container{
+    padding: 20px;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    border-radius: 0 0 15px 15px;
+  }
+  .ester-border-container{
+    border-radius: 15px 15px 0 0;
+  }
+
+}
 
 
 /* --------------- JAMES PATTERSON / WITCHHUNT --- 05 --------------- */
@@ -1038,18 +1264,54 @@ sup{
   object-fit: cover;
 }
 
+@media (max-width: 600px){
+  #james-imgs-container{
+    flex-direction: column;
+  }
+  .james-img-div{
+    height: 80svw;
+  }
+}
 
 
 
-/* --------------- NOURA TAFECHE --- 05 --------------- */
+
+/* --------------- NOURA TAFECHE --- 06 --------------- */
 #noura-coverart{
   position: absolute;
-  left: 50%;
+  left: 35%;
   top: 40%;
   transform: translate(-50%, -50%)
 }
+#noura-iframe{
+  position: absolute;
+  width: 600px;
+  height: 450px;
+  left: 10%;
+  top: 50%;
+  transform: translate(0, -50%);
+  filter: drop-shadow(var(--pinkshadow));
+}
+#noura-iframe iframe{
+    width: 600px;
+    height: 450px;
+    /* aspect-ratio: 4 / 3; */
+  }
+#noura-button{
+  width: fit-content;
+}
+#noura-info{
+  width: 200px;
+  position: absolute;
+  top: 25%;
+  right: 18%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 .noura-file{
-  height: 57vh;
+  height: 53vh;
   position: absolute;
   bottom: -250px;
   display: inline-block;
@@ -1062,18 +1324,51 @@ sup{
 }
 #noura-right{
   position: absolute;
-  left: 40%;
-  bottom: -35%;
+  right: 2%;
+  bottom: -21%;
 }
 #noura-center{
   position: absolute;
-  left: 30%;
-  bottom: -38%;
+  right: 6%;
+  bottom: -28%;
 }
 #noura-left{
   position: absolute;
-  left: 20%;
-  bottom: -41%;
+  right: 8%;
+  bottom: -35%;
+}
+
+@media (max-width: 600px){
+  #noura-iframe iframe{
+    width: 90svw;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+  #noura-iframe{
+    left: 5%;
+    top: 55%;
+    transform: translate(0%, -50%);
+  }
+  #noura-info{
+    top: 62%;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .noura-file{
+    height: 55svw;
+  }
+  #noura-right{
+    right: 2%;
+    bottom: -3%;
+  }
+  #noura-center{
+    right: 10%;
+    bottom: -7%;
+  }
+  #noura-left{
+    right: 14%;
+    bottom: -11%;
+  }
 }
 
 
@@ -1095,4 +1390,13 @@ sup{
   border: none;
   transform: scale(0.6);
   overflow: hidden;
+}
+
+@media (max-width: 600px){
+  #eyes-container{
+    max-width: 90svw;
+  }
+  #parkerframe{
+    transform: scale(0.2);
+  }
 }

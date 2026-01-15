@@ -5,8 +5,8 @@ import useDetectScroll from "@smakss/react-scroll-direction"
 import AboutWork from "../components/AboutWork.jsx"
 
 
-const Ester = ({setProjectCounter, visitPage}) => {
-  //ROOM 04
+const Ester = ({setProjectCounter, visitPage, isSmall}) => {
+  //ROOM 04 = 4 keys
 
   const texts = `She’s fascinated with a fairytale that never ends. Petals going sideways, ollying off the rails. I died and came back with more limbs, and more, and more. Like a ghost I reach for something that is dead to me. Sipping on the limit, a hey-day spritz.
   \nWomen dreaming of being orbs, smooth, metallic. Orbs with voices dreaming of becoming women. Skin like nitrous oxide.
@@ -136,10 +136,10 @@ const Ester = ({setProjectCounter, visitPage}) => {
       right: "5%"
     },
     shrink: {
-      width: "50vw",
+      width: isSmall ? "70svw" : "50vw",
       height: "50vh",
       top: "15%",
-      right: "15%"
+      right: isSmall ? "5%": "15%"
     }
   }
 
@@ -159,10 +159,10 @@ const Ester = ({setProjectCounter, visitPage}) => {
       left: "5%"
     },
     shrink: {
-      width: "30vw",
-      height: "50vh",
-      bottom: "17%",
-      left: "20%"
+      width: isSmall ? "60svw" : "30vw",
+      height: isSmall ? "30svh":"50vh",
+      bottom: isSmall ? "23%" : "17%",
+      left: isSmall ? "5%" : "20%"
     }
   }
   // animate={{opacity: 1, transition: {duration: 1, delay: 1, ease: "easeIn"}}}
@@ -191,7 +191,7 @@ const Ester = ({setProjectCounter, visitPage}) => {
 
 
       <motion.div id="ester-frame" variants={frameVariants} animate={closed? {scale: 0} : fullscreen?["start", "grow"]:["start", "shrink"]}
-        initial={{opacity: 0}} onAnimationComplete={(latest) => {latest == "start" && setStartType(true)}}
+        initial={{opacity: 0}} onAnimationComplete={(ani) => {ani == "start" && setStartType(true)}}
        >
         <div className="ester-border-container">
           <div style={{backgroundColor: "#ff4548"}} onClick={() => setClosed(true)}></div>
@@ -216,7 +216,7 @@ const Ester = ({setProjectCounter, visitPage}) => {
 
       {/* <motion.div id="ester-progress" style={{scaleX}}></motion.div> */}
     </motion.div>
-    <AboutWork data={workdata}/>
+    <AboutWork data={workdata} isSmall={isSmall}/>
     </>
   )
 }

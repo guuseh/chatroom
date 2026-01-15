@@ -2,8 +2,8 @@ import {useEffect, useState, useRef} from 'react'
 import {motion} from 'motion/react' 
 import AboutWork from "../components/AboutWork.jsx"
 
-const Eliska = ({setProjectCounter, visitPage}) => {
-  // ROOM 03
+const Eliska = ({setProjectCounter, visitPage, isSmall}) => {
+  // ROOM 03 = conjoined twins
   useEffect(() => {
     setProjectCounter(prev => prev+1)
     visitPage("/03")
@@ -86,9 +86,9 @@ const workdata = {
           
         <div className="center-container">
 
-          <motion.div style={{display: 'flex', alignItems: 'center', gap: '20px'}} initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
+          <motion.div style={{display: 'flex', flexDirection: isSmall ? "column" : null, alignItems: 'center', gap: '20px'}} initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1.5, ease: "easeIn"}}}>
             
-            <div style={{opacity: 0, pointerEvents: "none"}}><img src={dice}/></div>
+            {!isSmall&& <div style={{opacity: 0, pointerEvents: "none"}}><img src={dice}/></div>}
             
             <div id="kether-imgdiv">
               <img src={shuffled[index]} />
@@ -100,7 +100,7 @@ const workdata = {
 
         </div>
 
-        <AboutWork data={workdata}/>
+        <AboutWork data={workdata} isSmall={isSmall}/>
     </>
   )
 }

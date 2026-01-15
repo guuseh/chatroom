@@ -2,8 +2,8 @@ import {useEffect} from 'react'
 import {motion} from 'motion/react' 
 import AboutWork from "../components/AboutWork.jsx"
 
-const Plasticgirl = ({setProjectCounter, visitPage}) => {
-  // ROOM 08
+const Plasticgirl = ({setProjectCounter, visitPage, isSmall}) => {
+  // ROOM 08 = 6 winged moth
   useEffect(() => {
     setProjectCounter(prev => prev+1)
     visitPage("/08")
@@ -29,14 +29,14 @@ const Plasticgirl = ({setProjectCounter, visitPage}) => {
             
           <div style={{position: "absolute", zIndex: 0, top: "50%", left: "50%", transform: "translate(-50%,-50%)", color: "var(--pink)"}}>loading video...</div>
           <div className="theatre-video">
-            <iframe style={{height: "100%", aspectRatio: "4/3", border: "none"}} src="https://drive.google.com/file/d/1wCT1cjG4kx0IRHrKa0qLxZKqACqYOHXD/preview"></iframe>
+            <iframe style={{height: isSmall ? null : "100%", width: isSmall ? "100%": null, aspectRatio: "4/3", border: "none"}} src="https://drive.google.com/file/d/1wCT1cjG4kx0IRHrKa0qLxZKqACqYOHXD/preview"></iframe>
           </div>
 
           </motion.div>
 
         </div>
 
-        <AboutWork data={workdata}/>
+        <AboutWork data={workdata} isSmall={isSmall}/>
     </>
   )
 }

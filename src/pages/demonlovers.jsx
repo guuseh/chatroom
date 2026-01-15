@@ -9,8 +9,8 @@ import AboutWork from "../components/AboutWork.jsx"
 
 // import PageMenu from "../components/PageMenu.jsx"
 
-const Demonlovers = ({setProjectCounter, visitPage}) => {
-  //ROOM 02
+const Demonlovers = ({setProjectCounter, visitPage, isSmall}) => {
+  //ROOM 02 = horse swing
   const viewerRef = useRef(null);
   const mapRef = useRef();
 
@@ -23,7 +23,6 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
 
   const triggerReflow = () => {
     // Force a reflow after Safari's initial incorrect layout pass
-    console.log("triggerReflow")
     mapRef.current?.offsetHeight; // read layout
     mapRef.current?.offsetWidth;
     mapRef.current?.style.setProperty("--safari-fix", Math.random()); // trigger a repaint
@@ -330,8 +329,8 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
         } })
   }
 
-  const sideSpace = (window.innerWidth - window.innerHeight) / 2
-  const sidePercentage =  sideSpace / window.innerWidth * 100 - 5
+  const sideSpace = isSmall ? (window.innerHeight - window.innerWidth) / 2 : (window.innerWidth - window.innerHeight) / 2
+  const sidePercentage = isSmall ? sideSpace / window.innerHeight *100 - 5 : sideSpace / window.innerWidth * 100 - 5
 
   const mapValue = (number, [inMin, inMax], [outMin, outMax]) => {
     return (number - inMin) / (inMax - inMin) * (outMax - outMin) + outMin;
@@ -350,19 +349,19 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
 
         <motion.div id="demon-panorama-container" 
           initial={{scale: 0}} variants={viewerVariants} custom={index} animate={open? "visible" : "hidden"}
-          style={{transformOrigin: `${mapValue(imgData[index].x, [0, 100], [0+sidePercentage, 100-sidePercentage])}% ${imgData[index].y}%`}}>
+          style={{transformOrigin: isSmall ? `${imgData[index].x}% ${mapValue(imgData[index].y, [0, 100], [0+sidePercentage, 100-sidePercentage])}%` : `${mapValue(imgData[index].x, [0, 100], [0+sidePercentage, 100-sidePercentage])}% ${imgData[index].y}%`}}>
           
           <ReactPhotoSphereViewer ref={viewerRef} {...props}/>
 
           <div id="demon-address-overlay">
-            <div style={{display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%"}}>
-              <div style={{fontWeight: "bold", fontSize: "0.9rem"}}>{imgData[index].place}</div>
-              <div style={{height: "20px", width: "20px"}}><img src="/img/02/marker.png" style={{width: "100%"}}/></div>
+            <div style={{display: "flex", alignItems: "center", justifyContent: "space-between",gap: "10px", width: "100%"}}>
+              <div style={{fontWeight: "bold", fontSize: isSmall ? "0.7rem":"0.9rem"}}>{imgData[index].place}</div>
+              <div style={{height:isSmall ? "10px":"20px", width:isSmall ? "10px": "20px"}}><img src="/img/02/marker.png" style={{width: "100%"}}/></div>
             </div>
-            <div style={{display: "flex", alignItems: "center", gap: "5px"}}>
+           {!isSmall && <div style={{display: "flex", alignItems: "center", gap: "5px"}}>
               <div style={{width: "20px", height: "20px", padding: "3px", borderRadius: "10px", background: "white"}}><img src="/img/02/google.png" style={{width: "100%"}}/></div>
               <div>Google Street View</div>
-            </div>
+            </div>}
             <div style={{borderBottom: "1px solid #aaa"}}></div>
             <div style={{color: "#aaa"}}>{imgData[index].date}</div>
           </div>
@@ -370,11 +369,11 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
           <div id="demon-close-btn" onClick={() => setOpen(false)}><img src="/img/02/cross.svg" style={{width: "100%"}}/></div>
 
           <div id="demon-bottom-center">
-            <div style={{display: "flex", gap: "15px", opacity: loading? 0.3 : 1}}>
-              <div id="demon-prev-btn" onClick={() => handleNext()} style={{zIndex: 100, cursor: loading? "var(--default)" : "var(--pointer)"}}><img src="/img/02/left.svg" style={{width: "100%", cursor: loading? "var(--default)" : "var(--pointer)"}}/></div>
-              <div id="demon-next-btn" onClick={() => handlePrev()} style={{zIndex: 100, cursor: loading? "var(--default)" : "var(--pointer)"}}><img src="/img/02/right.svg" style={{width: "100%", cursor: loading? "var(--default)" : "var(--pointer)"}}/></div>
+            <div style={{display: "flex", gap: "15px", justifyContent: isSmall ? "space-between" : null, opacity: loading? 0.3 : 1, width: "100%"}}>
+              <div id="demon-prev-btn" onClick={() => handleNext()} style={{zIndex: 100, cursor: loading? "var(--default)" : "var(--pointer)", pointerEvents: "all"}}><img src="/img/02/left.svg" style={{width: "100%", cursor: loading? "var(--default)" : "var(--pointer)"}}/></div>
+              <div id="demon-next-btn" onClick={() => handlePrev()} style={{zIndex: 100, cursor: loading? "var(--default)" : "var(--pointer)", pointerEvents: "all"}}><img src="/img/02/right.svg" style={{width: "100%", cursor: loading? "var(--default)" : "var(--pointer)"}}/></div>
             </div>
-            <div style={{fontFamily: 'google', opacity: 0.5}}>Google</div>
+            {!isSmall && <div style={{fontFamily: 'google', opacity: 0.5}}>Google</div>}
           </div>
 
           {loading && <div id="demon-loading-map">
@@ -396,7 +395,7 @@ const Demonlovers = ({setProjectCounter, visitPage}) => {
       </motion.div>
     </div>
 
-    <AboutWork data={workdata}/>
+    <AboutWork data={workdata} isSmall={isSmall}/>
     </>
   )
 }

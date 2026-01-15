@@ -10,9 +10,11 @@ const PageMenu = (props) => {
 
   return (
     <>
-    {tooltip && <div className="tooltip" style={{top: mouse[1], left: mouse[0]}}>collect more</div>}
+    {tooltip && !props.isSmall && <div className="tooltip" style={{top: mouse[1], left: mouse[0]}}>collect more</div>}
 
     <div id="back-to-works" onClick={() => navigate("/works")}><img src="/img/front/dollhouse-open.png" style={{height: "100%"}}/></div>
+    {props.isSmall && <div id="page-menu-next" onClick={() => navigate(props.next())} onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true)}} onMouseLeave={() => setTooltip(false)}><img style={{cursor: "var(--pointer)", height: "100%"}} src="/img/front/next.png" /></div>}       
+
     <div id="page-menu-gradient">
       
         <div id="img-navbar">
@@ -25,11 +27,11 @@ const PageMenu = (props) => {
             }
             </>
           })}
-          <div id="page-menu-next" onClick={() => navigate(props.next())} onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true)}} onMouseLeave={() => setTooltip(false)}><img style={{cursor: "var(--pointer)", height: "100%"}} src="/img/front/next.png" /></div>
+        {!props.isSmall && <div id="page-menu-next" onClick={() => navigate(props.next())} onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true)}} onMouseLeave={() => setTooltip(false)}><img style={{cursor: "var(--pointer)", height: "100%"}} src="/img/front/next.png" /></div>}       
         </div>
-
-          
+   
       </div>
+      
       <Outlet />
     </>
   )

@@ -22,11 +22,11 @@ import Sotce from "./pages/sotce.jsx" // video ROOM 10
 
 function App() {
   const urls = ["/01", "/02", "/03", "/04", "/05",
-                 "/06", "/07", "/08", "/10",]
+                 "/06", "/07", "/08", "/09", "/10",]
   const [shuffledUrls, setShuffledUrls] = useState([]) // will only contain urls
   const [projectCounter, setProjectCounter] = useState(0)
   const [shuffledDivs, setShuffledDivs] = useState([]) // will contain also empty 0 divs
-  const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/09", "/11", "/12"])
+  const [array, setArray] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"])
   const [visited, setVisited] = useState({count: 0})
   const [showObjects, setShowObjects] = useState(null)
 
@@ -46,8 +46,6 @@ function App() {
       return { ...prev, [nr]: true, count: newCount };
     });
   }
-
-  console.log(showObjects)
 
   // shuffle urls for randomised list
   useEffect(() => {
@@ -116,36 +114,68 @@ function App() {
         return "/room"+shuffledUrls[currentWork+1]
       } 
     }
-  
 
-  // console.log(nextWork)
+  const useMediaQuery = (query) => {
+    const [matches, setMatches] = useState(false);
+  
+    useEffect(() => {
+      const media = window.matchMedia(query);
+      if (media.matches !== matches) {
+        setMatches(media.matches);
+      }
+  
+      const listener = () => {
+        setMatches(media.matches);
+      };
+  
+      if (typeof media.addEventListener === "function") {
+        media.addEventListener("change", listener);
+      } else {
+        media.addListener(listener);
+      }
+  
+      return () => {
+        if (typeof media.removeEventListener === "function") {
+          media.removeEventListener("change", listener);
+        } else {
+          // media.removeListener(listenerList);
+        }
+      };
+    }, [matches, query]);
+  
+    return matches;
+  }
+  const useIsSmall = () => useMediaQuery("(max-width: 600px");
+
+  const isSmall = useIsSmall();
+  
 
   return (
     <>
       <Router basename={import.meta.env.PUBLIC_URL}>
 
-      <PopUp />
+      {/* <PopUp /> */}
 
         <Routes>
-          <Route path="*" element={<Error />} />
-          <Route index path="/" element={<Home />} />
+          <Route path="*" element={<Error isSmall={isSmall}/>} />
+          <Route index path="/" element={<Home isSmall={isSmall}/>} />
           <Route path="/exit" element={<Exit resetVisited={resetVisited} />} />
 
-          <Route element={<ExitDoor urls={urls} visited={visited} showObjects={showObjects} setShowObjects={setShowObjects}/>} >
-          <Route path="/works" element={<Projects projects={shuffledDivs} urls={urls} visited={visited} showObjects={showObjects}/>} />
+          <Route element={<ExitDoor isSmall={isSmall} urls={urls} visited={visited} showObjects={showObjects} setShowObjects={setShowObjects}/>} >
+          <Route path="/works" element={<Projects projects={shuffledDivs} urls={urls} visited={visited} showObjects={showObjects} isSmall={isSmall}/>} />
 
-          <Route path="room" element={<PageMenu next={nextWork} urls={urls} visited={visited}/>}>
+          <Route path="room" element={<PageMenu next={nextWork} urls={urls} visited={visited} isSmall={isSmall}/>}>
             
-              <Route path="01" element={<Bogna setProjectCounter={setProjectCounter} visitPage={visitPage} />} />
-              <Route path="02" element={<Demonlovers setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
-              <Route path="03" element={<Eliska setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
-              <Route path="04" element={<Ester setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
-              <Route path="05" element={<James setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
-              <Route path="06" element={<Noura setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
-              <Route path="07" element={<Parkerito setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
-              <Route path="08" element={<Plasticgirl setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
-              {/* <Route path="09" element={<Sarahchefka setProjectCounter={setProjectCounter} visitPage={visitPage}/>} /> */}
-              <Route path="10" element={<Sotce setProjectCounter={setProjectCounter} visitPage={visitPage}/>} />
+              <Route path="01" element={<Bogna setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="02" element={<Demonlovers setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="03" element={<Eliska setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="04" element={<Ester setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="05" element={<James setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="06" element={<Noura setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="07" element={<Parkerito setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="08" element={<Plasticgirl setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="09" element={<Sarahchefka setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="10" element={<Sotce setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
             
           </Route>
           </Route>

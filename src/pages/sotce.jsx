@@ -2,8 +2,8 @@ import {useEffect} from 'react'
 import {motion} from 'motion/react'
 import AboutWork from "../components/AboutWork.jsx"
 
-const Sotce = ({setProjectCounter, visitPage}) => {
-  // ROOM 10
+const Sotce = ({setProjectCounter, visitPage, isSmall}) => {
+  // ROOM 10 = mug
   useEffect(() => {
     setProjectCounter(prev => prev+1)
     visitPage("/10")
@@ -36,7 +36,7 @@ const Sotce = ({setProjectCounter, visitPage}) => {
     </motion.div>
     </div>
 
-    <AboutWork data={workdata}/>
+    <AboutWork data={workdata} isSmall={isSmall}/>
     </>
   )
 }
