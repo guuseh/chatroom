@@ -54,7 +54,7 @@ function App() {
   const useIsSmall = () => useMediaQuery("(max-width: 600px");
 
   const isSmall = useIsSmall();
-  
+
   const urls = ["/01", "/02", "/03", "/04", "/05",
                  "/06", "/07", "/08", "/09", "/10",]
   const [shuffledUrls, setShuffledUrls] = useState([]) // will only contain urls
@@ -156,7 +156,7 @@ function App() {
     <>
       <Router basename={import.meta.env.PUBLIC_URL}>
 
-      {/* <PopUp /> */}
+      <PopUp />
 
         <Routes>
           <Route path="*" element={<Error isSmall={isSmall}/>} />
