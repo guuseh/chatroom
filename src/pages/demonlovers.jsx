@@ -240,8 +240,8 @@ const Demonlovers = ({setProjectCounter, visitPage, isSmall}) => {
 
 
   const props = {
-    height: '75vh',
-    width: '80vw',
+    height: isSmall ? '60vh' : '75vh',
+    width: isSmall ? '90vw' : '80vw',
     fisheye: 0.5,
     navbar: [],
     defaultZoomLvl: 0,
@@ -329,7 +329,7 @@ const Demonlovers = ({setProjectCounter, visitPage, isSmall}) => {
         } })
   }
 
-  const sideSpace = isSmall ? (window.innerHeight - window.innerWidth) / 2 : (window.innerWidth - window.innerHeight) / 2
+  const sideSpace = isSmall ? (window.innerHeight - window.innerWidth*0.9) / 2 : (window.innerWidth - window.innerHeight) / 2
   const sidePercentage = isSmall ? sideSpace / window.innerHeight *100 - 5 : sideSpace / window.innerWidth * 100 - 5
 
   const mapValue = (number, [inMin, inMax], [outMin, outMax]) => {

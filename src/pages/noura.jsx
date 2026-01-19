@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import {motion} from 'motion/react'
 import AboutWork from "../components/AboutWork.jsx"
+import {isMobile} from 'react-device-detect'
 
 const Noura = ({setProjectCounter, visitPage, isSmall}) => {
   // ROOM 06 = ball and chains
@@ -8,6 +9,8 @@ const Noura = ({setProjectCounter, visitPage, isSmall}) => {
     setProjectCounter(prev => prev+1)
     visitPage("/06")
   }, [])
+
+  const [popup, setPopup] = useState(true)
 
    const workdata = {
     "title": "Gijinka Complex",
@@ -57,7 +60,7 @@ const Noura = ({setProjectCounter, visitPage, isSmall}) => {
         scale: 1
       }),
       up: (i) => ({
-        y: isSmall ? "-150%": "-105%",
+        y: isSmall ? "-150%": i == 'l' ? "-80%" : i == 'c' ? "-90%" : i == 'r' && "-100%",
         x: isSmall && i == 'l' ? "-8%" : isSmall && i == "c" ? "0%" : isSmall && i == "r" ? "8%" : "-10%",
         zIndex: i == 'l' ? 10 : i == 'c' ? 11 : 12,
         scale: 1.2
@@ -77,10 +80,20 @@ const Noura = ({setProjectCounter, visitPage, isSmall}) => {
       <motion.div initial={{opacity: 1}} animate={{opacity: 0, transition: {delay: 2.5}}} className="title-overlay">"{workdata.title}"</motion.div>
 
       <div className="page-container">
-        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1, ease: "easeIn"}}}>
+        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 1, ease: "easeIn"}}} id="noura-page-container">
           {/* <div id="noura-coverart" style={{height: "50vh", marginTop: "8vh"}}><img src="/img/06/coverart.png" style={{height: "100%"}}/></div> */}
           <div id="noura-iframe">
-                          <div>
+                          <div style={{position: "relative"}}>
+                            {isMobile && popup &&
+                              <div id="noura-mobilepopup">
+                                This demo is not optimised for mobile. If for some reason it does not work for you, please follow the <div style={{display: "inline-block"}}>&lt;Read more&gt;</div> button to open the demo directly on itch.io!<br/><br/>
+                                <div className="exit-btn" style={{margin: "auto", width: "fit-content"}} onClick={() => setPopup(false)}>&nbsp;let me play&nbsp;</div>
+                                </div>
+                              }
+                            {!isMobile && popup && 
+                              <div id="noura-mobilepopup">There's a small chance this demo does not run smoothly on this website in your browser. If you notice any problems, please follow the <div style={{display: "inline-block"}}>&lt;Read more&gt;</div> button to open the demo directly on itch.io! <br/><br/>
+                              <div className="exit-btn" style={{margin: "auto", width: "fit-content"}} onClick={() => setPopup(false)}>&nbsp;let me play&nbsp;</div>
+                              </div>}
                             {/* <button class="fullscreen_btn" title="Enter fullscreen">
                                 <img src="https://itch.io/static/images/enlarge.svg?1768119818"/>
                             </button> */}
@@ -92,7 +105,7 @@ const Noura = ({setProjectCounter, visitPage, isSmall}) => {
 
         <div id="noura-info">
           {!isSmall&&<img src="/img/06/coverart.png" style={{height: "100%", width: "100%"}}/>}
-          <div id="noura-button" className="exit-btn"><a href="https://tobia-paolo-bettoni.itch.io/gijinka-complex-demo" target="_blank" rel="noreferrer">More information &#8594;</a></div>
+          <div id="noura-button" className="exit-btn"><a href="https://tobia-paolo-bettoni.itch.io/gijinka-complex-demo" target="_blank" rel="noreferrer">Read more &#8594;</a></div>
         </div>
 
         <motion.div onClick={() => {setRight(!right); right && setRightH(false)}} onAnimationComplete={(latest) => {latest == "down" && setRightH(true)}} whileHover={!right && rightH && "hover"} className="noura-file" id="noura-right" variants={fileVariants} custom="l" animate={right ? "up" : "down"}><img src="/img/06/character1.png" style={{height: "100%"}}/></motion.div>

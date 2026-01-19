@@ -23,8 +23,10 @@ const Projects = ({projects, urls, visited, showObjects, isSmall}) => {
 
 
   return (
+    <>
+    <motion.div id="projects-about-window" onClick={() => handleAbout()} ><motion.img animate={open ? {rotate: 180, transition: {duration: 0.3}} : {rotate: 0, transition: {duration: 0.3}}} src={`/img/front/about-closed.png`} style={{height: "100%", cursor: "var(--pointer)"}}/></motion.div>
+
     <motion.div id="projects-page" style={{zIndex: -1}} initial={{backgroundColor: "#000000"}} animate={{backgroundColor: "#00000000", transition: {delay: 0.2, duration: 0.5}}}>
-        <motion.div id="projects-about-window" onClick={() => handleAbout()} ><motion.img animate={open ? {rotate: 180, transition: {duration: 0.3}} : {rotate: 0, transition: {duration: 0.3}}} src={`/img/front/about-closed.png`} style={{height: "100%", cursor: "var(--pointer)"}}/></motion.div>
 
         <motion.div id="projects-img-container">
             {projects.map((p, i) => {
@@ -34,13 +36,16 @@ const Projects = ({projects, urls, visited, showObjects, isSmall}) => {
                       <img key={i} onMouseEnter={(e) => {setHover(true); setMouse([e.clientX, e.clientY])}} onMouseLeave={(e) => setHover(false)} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 3 == 0 ? "0 auto 0 0" : i % 5 == 0 ? "0 0 0 auto" : "0 auto 0 auto", cursor: "var(--pointer)"}} onClick={() => {navigate("/room"+p)}} className="projects-img projects-img-active" src={`/img/front${p}.png`}/>
                   </motion.div>   : p != 0 && 
                     <motion.div initial={{scale: 0}} animate={showObjects && {scale: 1, transition: {duration: 0.2, delay: i/15}}} className="projects-img-div" style={{position: "relative"}}>
-                      <img key={i*50} style={{alignSelf: i % 4 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 4 == 0 ? "0 auto 0 0" : i % 3 == 0 ? "0 0 0 auto" : "0 auto 0 auto", opacity: 0.4}} className="projects-img" src={`/img/front${p}.png`}/>
+                      <img key={i*50} style={{alignSelf: i % 4 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 4 == 0 ? "0 auto 0 0" : i % 3 == 0 ? "0 0 0 auto" : "0 auto 0 auto", opacity: 0.5}} className="projects-img" src={`/img/front${p}.png`}/>
                       <span style={{position: "absolute", left: i % 4 == 0 ? "0%" : i % 3 == 0 ? "0%" : "0%", top: i % 5 == 0 ? "40%" : i % 4 == 0 ? "50%" : "60%", fontFamily: "jacquard", background: "var(--grey)", lineHeight: "1rem", cursor: "var(--pointer)"}}><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">receive clue?</a></span>
                     </motion.div>    
                     }
                 </motion.div>
             })}
         </motion.div>
+
+        {/* <motion.div id="projects-about-window" onClick={() => handleAbout()} ><motion.img animate={open ? {rotate: 180, transition: {duration: 0.3}} : {rotate: 0, transition: {duration: 0.3}}} src={`/img/front/about-closed.png`} style={{height: "100%", cursor: "var(--pointer)"}}/></motion.div> */}
+
 
         {/* <ExitDoor /> */}
 
@@ -78,6 +83,7 @@ const Projects = ({projects, urls, visited, showObjects, isSmall}) => {
           </motion.div></>}
         </AnimatePresence>
     </motion.div>
+    </>
   )
 }
 

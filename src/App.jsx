@@ -60,7 +60,8 @@ function App() {
   const [shuffledUrls, setShuffledUrls] = useState([]) // will only contain urls
   const [projectCounter, setProjectCounter] = useState(0)
   const [shuffledDivs, setShuffledDivs] = useState([]) // will contain also empty 0 divs
-  const [array, setArray] = useState(isSmall ? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"] : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]) // on desktop: 7x4 (28) grid, on mobile 4x6 (24) grid
+  // const [array, setArray] = useState(isSmall ? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"] : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]) // on desktop: 7x4 (28) grid, on mobile 4x6 (24) grid
+  const [array, setArray] = useState([])
   const [visited, setVisited] = useState({count: 0})
   const [showObjects, setShowObjects] = useState(null)
 
@@ -101,8 +102,10 @@ function App() {
           .map(({v}) => v)
 
     setShuffledUrls(shuffled)
-    console.log(shuffled)
+
+    document.documentElement.style.setProperty('--vh-p', window.innerHeight + "px")
   }, [])
+
 
   // LOCALSTORAGE
   useEffect(() => {
@@ -126,9 +129,17 @@ function App() {
 
   // set array for adding projects to empty divs for grid
   useEffect(() => {
-    setArray(prev => [...prev, ...shuffledUrls])
+    if(isSmall){
+      let empty = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]
+      setArray([...shuffledUrls, ...empty])
+    } else{
+      let empty = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]
+      setArray([...shuffledUrls, ...empty])
+    }
+    // setArray(prev => [...prev, ...shuffledUrls])
 
   }, [shuffledUrls])
+
 
   // shuffle divs of grid
   useEffect(() => {

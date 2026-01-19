@@ -82,7 +82,10 @@ const Ester = ({setProjectCounter, visitPage, isSmall}) => {
 
   useEffect(() => {
     if(!done && !scroll){ 
-      elementRef.current.scrollIntoView()
+      frameCustomRef.current.scrollTo({
+        top: frameCustomRef.current.scrollHeight,
+        behavior: "smooth"
+      })
     }
   }, [isInView]);
 
@@ -93,6 +96,7 @@ const Ester = ({setProjectCounter, visitPage, isSmall}) => {
       setScroll(false)
     }
   }
+
 
   const scaleX = useSpring(progress)
 
@@ -184,7 +188,7 @@ const Ester = ({setProjectCounter, visitPage, isSmall}) => {
             <div style={{backgroundColor: "#ff4548"}} onClick={() => setVidClosed(true)}></div>
             <div style={{backgroundColor: "var(--pink)"}} onClick={() => setVidFullscreen(!vidFullscreen)}></div>
           </div>
-          <video autoplay muted loop style={{width: "100%", height: "100%", objectFit: "cover", borderRadius: "0 0 20px 20px"}}>
+          <video autoPlay muted loop playsInline style={{width: "100%", height: "100%", objectFit: "cover", borderRadius: "0 0 20px 20px"}}>
             <source src="/img/04/test_sofya.mov" />
           </video>
       </motion.div>

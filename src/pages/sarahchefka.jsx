@@ -39,7 +39,7 @@ const Sarahchefka = ({setProjectCounter, visitPage, isSmall}) => {
           <div className="text-page-normal">I am seeing a mirror, split perfectly in half, discarded, on the street, because a girl on the Internet told me I can be a size 4, 5, or 6, and still start a GLP-1.</div>
           <div className="text-page-normal">I am seeing a new mother on the Internet demonstrate to me how her body transformed through pregnancy, because a doula at a death meditation reminded me that mine is fragile and vulnerable.</div>
           <div className="text-page-normal">I am seeing a girl on the Internet wearing hoop earrings because I was thinking about reincarnation earlier today.</div>
-          <div className="text-page-normal" style={{width: "fit-content", marginTop: "30px"}}>The Internet see-saw:<br/>I see, therefore I saw.</div>
+          <div className="text-page-normal" style={{width: "fit-content", marginTop: "30px", marginBottom: isSmall ? "150px" : null}}>The Internet see-saw:<br/>I see, therefore I saw.</div>
           </motion.div>
 
         </div>
