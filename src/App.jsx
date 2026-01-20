@@ -172,7 +172,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Error isSmall={isSmall}/>} />
           <Route index path="/" element={<Home isSmall={isSmall}/>} />
-          <Route path="/exit" element={<Exit resetVisited={resetVisited} />} />
+          <Route path="/exit" element={<Exit resetVisited={resetVisited} visited={visited} isSmall={isSmall}/>} />
 
           <Route element={<ExitDoor isSmall={isSmall} urls={urls} visited={visited} showObjects={showObjects} setShowObjects={setShowObjects}/>} >
           <Route path="/works" element={<Projects projects={shuffledDivs} urls={urls} visited={visited} showObjects={showObjects} isSmall={isSmall}/>} />

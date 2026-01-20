@@ -10,6 +10,7 @@ const GuestBook = () => {
     const endRef = useRef();
     const nameRef = useRef();
     const messageRef = useRef();
+    const listRef = useRef();
 
     useEffect(() => {
         const messagesRef = ref(db, 'messages/');
@@ -37,11 +38,14 @@ const GuestBook = () => {
         })
         // console.log("set")
         }
-        endRef.current.scrollIntoView({scrollBehavior: "smooth"})
+        listRef.current.scrollTo({
+            top: listRef.current.scrollHeight, 
+            behavior: "smooth"})
         nameRef.current.value = ""
         setName('')
         messageRef.current.value = ""
         setMessage('')
+
     }
 
 
@@ -51,24 +55,30 @@ const GuestBook = () => {
 
   return (
     <>
-        <div style={{gridArea: "chat"}} id="exit-chatcontainer">
+        <div style={{gridArea: "chat"}} id="exit-chatcontainer" ref={listRef}>
             {messages != null && Object.keys(messages).map((m, i) => {
                 return <div><span style={{fontFamily: "webbold"}}>{messages[m].name}:</span> {messages[m].message}</div>
             })}
+            {messages == null && 
+                <div id="exit-chat-nomessages">nothing to see here :( yet!! leave the first message :)</div>}
             <div ref={endRef}></div>
-                </div>
+        </div>
         <div style={{gridArea: "type"}} id="exit-typecontainer">
-            <input type="text"
-                ref={nameRef}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Enter name"/><br/>
-            <input type="text"
-                ref={messageRef}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Enter message"
-                style={{width: "100%"}}/>
+            <div>
+                <textarea
+                    rows="1"
+                    ref={nameRef}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter name"/><br/>
+                <textarea
+                    rows="3"
+                    ref={messageRef}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Enter message"
+                    style={{width: "100%"}}/>
+            </div>
             <div className="exit-btn" onClick={() => sendSomething()}>send</div>
         </div>
     </>
