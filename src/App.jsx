@@ -19,6 +19,7 @@ import Parkerito from "./pages/parkerito.jsx" // custom eyes html ROOM 07
 import Plasticgirl from "./pages/plasticgirl.jsx" // video ROOM 08
 import Sarahchefka from "./pages/sarahchefka.jsx" // text ROOM 09
 import Sotce from "./pages/sotce.jsx" // video ROOM 10
+import Denzel from "./pages/denzel.jsx" // text ROOM 14
 
 function App() {
   const useMediaQuery = (query) => {
@@ -56,7 +57,7 @@ function App() {
   const isSmall = useIsSmall();
 
   const urls = ["/01", "/02", "/03", "/04", "/05",
-                 "/06", "/07", "/08", "/09", "/10",]
+                 "/06", "/07", "/08", "/09", "/10", "/14"]
   const [shuffledUrls, setShuffledUrls] = useState([]) // will only contain urls
   const [projectCounter, setProjectCounter] = useState(0)
   const [shuffledDivs, setShuffledDivs] = useState([]) // will contain also empty 0 divs
@@ -130,10 +131,10 @@ function App() {
   // set array for adding projects to empty divs for grid
   useEffect(() => {
     if(isSmall){
-      let empty = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]
+      let empty = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]
       setArray([...shuffledUrls, ...empty])
     } else{
-      let empty = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]
+      let empty = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]
       setArray([...shuffledUrls, ...empty])
     }
     // setArray(prev => [...prev, ...shuffledUrls])
@@ -152,12 +153,26 @@ function App() {
   }, [array])
 
   const nextWork = () => {
-    const currentWork = shuffledUrls.findIndex((url) => url == window.location.pathname.slice(5))
-    if(currentWork == shuffledUrls.length-1){
-      return "/room"+shuffledUrls[0]
-    } else{
-        return "/room"+shuffledUrls[currentWork+1]
-      } 
+    // const currentWork = shuffledUrls.findIndex((url) => url == window.location.pathname.slice(5))
+    // if(currentWork == shuffledUrls.length-1){
+    //   return "/room"+shuffledUrls[0]
+    //   } else{
+    //     return "/room"+shuffledUrls[currentWork+1]
+    //   }
+    const current = window.location.pathname.replace("/room", "")
+
+    const unvisited = shuffledUrls.filter((url) => !visited[url] && url !== current)
+    const hasvisited = shuffledUrls.filter((url) => visited[url] && url !== current)
+
+    console.log(unvisited, hasvisited)
+
+    if(unvisited.length > 0){
+      return "/room" + unvisited[0];
+    }
+    if(hasvisited.length > 0){
+      return "/room" + hasvisited[0]
+    }
+    return "/room" + shuffledUrls[0]
     }
 
   
@@ -189,6 +204,7 @@ function App() {
               <Route path="08" element={<Plasticgirl setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
               <Route path="09" element={<Sarahchefka setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
               <Route path="10" element={<Sotce setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="14" element={<Denzel setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
             
           </Route>
           </Route>

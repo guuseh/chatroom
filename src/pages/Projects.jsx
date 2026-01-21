@@ -44,6 +44,8 @@ const Projects = ({projects, urls, visited, showObjects, isSmall}) => {
             })}
         </motion.div>
 
+        <div id="projects-page-babytooth"><img src="/img/front/babytooth.png" /></div>
+
         {/* <motion.div id="projects-about-window" onClick={() => handleAbout()} ><motion.img animate={open ? {rotate: 180, transition: {duration: 0.3}} : {rotate: 0, transition: {duration: 0.3}}} src={`/img/front/about-closed.png`} style={{height: "100%", cursor: "var(--pointer)"}}/></motion.div> */}
 
 

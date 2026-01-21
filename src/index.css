@@ -390,6 +390,17 @@ a{
 #projects-about p{
   z-index: 20;
 }
+#projects-page-babytooth{
+  position: absolute;
+  width: 100px;
+  left: 10px;
+  bottom: 10px;
+  opacity: 0.2;
+  z-index: 0;
+}
+#projects-page-babytooth img{
+  width: 100%;
+}
 
 @media (max-width: 600px){
   #projects-page{
@@ -432,6 +443,11 @@ a{
   }
   #projects-about p{
     font-size: 0.8rem;
+  }
+  #projects-page-babytooth{
+    width: 70px;
+    bottom: 40px;
+    left: 20px;
   }
 }
 
@@ -558,6 +574,10 @@ a{
   bottom: 32%;
   left: 11%;
   right: 12%;
+}
+#exit-new-pc-screen img{
+  width: 100%;
+  height: 100%;
 }
 #exit-new-chatdiv{
   display: flex;
@@ -918,6 +938,7 @@ textarea{
   width: fit-content;
   z-index: 100;
   align-items: center;
+  justify-content: space-between;
   /* border: 1px solid red; */
 }
 #page-menu-gradient{
@@ -1039,6 +1060,12 @@ textarea{
 }
 #about-overlay div:not(#demon-underlay-close){
   z-index: 20;
+}
+
+@media (max-width: 600px){
+  #about-button{
+    height: 50px;
+  }
 }
 
 
@@ -1170,6 +1197,12 @@ sup{
   text-align: left;
   align-self: flex-start;
 }
+.text-page-image{
+  width: 70%;
+}
+.text-page-image img{
+  width: 100%;
+}
 
 @media (max-width: 600px){
   .text-container{
@@ -1188,7 +1221,7 @@ sup{
     line-height: 1.5rem;
     margin-bottom: 5svh;
   }
-  .text-page-center{
+  .text-page-center, .text-page-image{
     width: 90%;
   }
   .text-page-chat-left{

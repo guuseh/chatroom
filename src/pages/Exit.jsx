@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
-import {motion, stagger} from 'motion/react'
+import {motion, AnimatePresence} from 'motion/react'
 import GuestBook from "../components/GuestBook.jsx"
 
 const Exit = ({visited, isSmall}) => {
@@ -11,6 +11,7 @@ const Exit = ({visited, isSmall}) => {
     const [mouse, setMouse] = useState([])
     const [tipText, setTipText] = useState('')
     const [info, setInfo] = useState(false)
+    const [noise, setNoise] = useState(false)
 
     const handleRestart = () => {
     if (typeof resetVisited === "function") {
@@ -33,11 +34,11 @@ const Exit = ({visited, isSmall}) => {
         {isSmall && <div style={{gridArea: "button"}} id="exit-new-infobutton" className="exit-btn" onClick={() => setInfo((prev) => !prev)}>{info ? "Close" : "More info"}</div>}
 
         <div className="exit-shelves-container" style={{gridArea: "top"}}>
-            <div className="exit-shelf"><img src="./img/front/01.png" /></div>
-            <div className="exit-shelf"><img src="./img/front/02.png" /></div>
-            <div className="exit-shelf"><img src="./img/front/03.png" /></div>
-            <div className="exit-shelf"><img src="./img/front/04.png" /></div>
-            <div className="exit-shelf"><img src="./img/front/05.png" /></div>
+            <div className="exit-shelf"><img src="/img/front/01.png" onMouseEnter={() => setNoise(true)} onMouseLeave={() => setNoise(false)}/></div>
+            <div className="exit-shelf"><img src="/img/front/02.png" onMouseEnter={() => setNoise(true)} onMouseLeave={() => setNoise(false)}/></div>
+            <div className="exit-shelf"><img src="/img/front/07.png" onMouseEnter={() => setNoise(true)} onMouseLeave={() => setNoise(false)}/></div>
+            <div className="exit-shelf"><img src="/img/front/04.png" onMouseEnter={() => setNoise(true)} onMouseLeave={() => setNoise(false)}/></div>
+            <div className="exit-shelf"><img src="/img/front/05.png" onMouseEnter={() => setNoise(true)} onMouseLeave={() => setNoise(false)}/></div>
         </div>
 
         {!isSmall && <div style={{gridArea: "info"}} id="exit-new-info-div">
@@ -64,8 +65,10 @@ const Exit = ({visited, isSmall}) => {
 
         {!isSmall && <div style={{gridArea: "pc"}} id="exit-new-computer">
             <div className="exit-shelf" id="exit-new-computer-shelf">
-                <img src="./img/exit/CR_computer.png" style={{height: "100%"}}/>
-                <div id="exit-new-pc-screen"></div>
+                <img src="/img/exit/CR_computer.png" style={{height: "100%"}}/>
+                <div id="exit-new-pc-screen">
+                    <motion.img initial={{opacity: 0}} animate={noise ? {opacity: 0.5} : {opacity: 0}} src="/img/exit/static.gif" />
+                </div>
             </div>
         </div>}
 
@@ -80,15 +83,16 @@ const Exit = ({visited, isSmall}) => {
         </div>
 
         <div className="exit-shelves-container" style={{gridArea: "bottom"}}>
-            <div className="exit-shelf"><img src="./img/front/06.png" /></div>
-            <div className="exit-shelf"><img src="./img/front/07.png" /></div>
-            <div className="exit-shelf"><img src="./img/front/08.png" /></div>
-            <div className="exit-shelf"><img src="./img/front/09.png" /></div>
-            <div className="exit-shelf"><img src="./img/front/10.png" /></div>
+            <div className="exit-shelf"><img src="/img/front/06.png" onMouseEnter={() => setNoise(true)} onMouseLeave={() => setNoise(false)}/></div>
+            <div className="exit-shelf"><a href="https://www.instagram.com/bby.t00th/" target="_blank" rel="noreferrer" style={{height: "100%"}}><img src="/img/front/babytooth.png" style={{opacity: 0.5, cursor: "var(--pointer)"}}/></a></div>
+            <div className="exit-shelf"><img src="/img/front/08.png" onMouseEnter={() => setNoise(true)} onMouseLeave={() => setNoise(false)}/></div>
+            <div className="exit-shelf"><img src="/img/front/09.png" onMouseEnter={() => setNoise(true)} onMouseLeave={() => setNoise(false)}/></div>
+            <div className="exit-shelf"><img src="/img/front/10.png" onMouseEnter={() => setNoise(true)} onMouseLeave={() => setNoise(false)}/></div>
         </div>
 
+        <AnimatePresence>
         {isSmall && info && 
-            <div id="exit-new-overlay-mobile">
+            <motion.div id="exit-new-overlay-mobile" initial={{y: "-100%"}} animate={{y: 0, transition: {duration: 0.2}}} exit={{y: "-100%", transition: {duration: 0.2}}}>
 
                 <div id="exit-new-info-info">
                     <div>Thank you for exploring TC&TD: an interactive and hybrid exhibition project as part of the Wrong Biennale.</div>
@@ -109,8 +113,9 @@ const Exit = ({visited, isSmall}) => {
                     <div>+</div>
                     <div style={{backgroundColor: "var(--mediumpink)"}}>The Dollhouse</div>
                 </div>
-            </div>
+            </motion.div>
         }
+        </AnimatePresence>
     </div>
   )
 }
