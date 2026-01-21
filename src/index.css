@@ -538,6 +538,7 @@ a{
   height: 15vh;
   cursor: var(--pointer);
   z-index: 10;
+  position: relative;
 }
 
 #exit-new-title{
@@ -620,6 +621,21 @@ a{
   font-size: 0.9rem;
   /* bottom: -15px; */
   /* bottom: 50px; */
+}
+
+.exit-img-text{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--grey);
+  font-family: jacquard;
+  font-size: 1rem;
+  line-height: 1rem;
+  max-width: 130%;
+  width: max-content;
+  text-align: center;
+  pointer-events: none;
 }
 
 
@@ -788,19 +804,7 @@ textarea{
   object-position: bottom;
   /* border: 1px solid red; */
 }
-.exit-img-text{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--grey);
-  font-family: jacquard;
-  font-size: 1rem;
-  line-height: 1rem;
-  max-width: 130%;
-  width: max-content;
-  text-align: center;
-}
+
 #exit-signup{
   position: absolute;
   top: 5%;

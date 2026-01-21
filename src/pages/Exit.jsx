@@ -52,8 +52,11 @@ const Exit = ({visited, isSmall}) => {
                     <div className="exit-btn">newsletter</div>
                     <div className="exit-btn">email us</div>
                 </div>
-            <motion.div id="exit-dollhouse" onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('start over')}} onMouseLeave={() => setTooltip(false)} onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}>
+            <motion.div id="exit-dollhouse" 
+                // onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('start over')}} onMouseLeave={() => setTooltip(false)} onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}
+                onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")}>
                 <img className="exit-img" src="/img/front/dollhouse-open.png" style={{cursor: "var(--pointer)", width: "auto"}}/>
+                <div className="exit-img-text">start over</div>
             </motion.div>
         </div>}
 
@@ -104,8 +107,11 @@ const Exit = ({visited, isSmall}) => {
                     <div className="exit-btn"><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">newsletter</a></div>
                     <div className="exit-btn"><a href="mailto:thechatroomandthedollhouse@gmail.com">email us</a></div>
                 </div>
-                <motion.div id="exit-dollhouse" onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('start over')}} onMouseLeave={() => setTooltip(false)} onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}>
+                <motion.div id="exit-dollhouse"
+                //  onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('start over')}} onMouseLeave={() => setTooltip(false)} onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}
+                    onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")}>
                     <img className="exit-img" src="/img/front/dollhouse-open.png" style={{cursor: "var(--pointer)", width: "auto"}}/>
+                    <div className="exit-img-text">start over</div>
                 </motion.div>
 
                 <div style={{gridArea: "title"}} id="exit-new-title">
