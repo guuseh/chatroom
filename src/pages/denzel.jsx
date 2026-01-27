@@ -6,15 +6,15 @@ const Denzel = ({setProjectCounter, visitPage, isSmall}) => {
 
     useEffect(() => {
       setProjectCounter(prev => prev+1)
-      visitPage("/14")
+      visitPage("/12")
     }, [])
 
     const workdata = {
         "title": "Biblically Accurate Slop Harvester",
         "artist": [{
             "name": "Denzel Arthur",
-            // "ig": "girlboss__interrupted",
-            // "web": "https://sarahchekfa.me/"
+            "ig": "trouwsers",
+            "web": "https://wunistudios.github.io/blogdenzel/"
             }],
         "date": "2025"
         }

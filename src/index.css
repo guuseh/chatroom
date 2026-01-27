@@ -304,6 +304,9 @@ a{
   filter: drop-shadow(2px 3px 2px var(--buttonshadow));
   pointer-events: "all";
 }
+#exit-door:hover{
+  transform: translateY(-50%) scale(1.05)
+}
 
 #projects-page{
   display: flex;
@@ -366,6 +369,9 @@ a{
   height: 70px;
   filter: drop-shadow(2px 3px 2px var(--buttonshadow));
 }
+#projects-about-window:hover{
+  transform: translateX(-50%) scale(1.05)
+}
 
 #projects-about{
   position: absolute;
@@ -396,7 +402,7 @@ a{
   left: 10px;
   bottom: 10px;
   opacity: 0.2;
-  z-index: 0;
+  z-index: 20;
 }
 #projects-page-babytooth img{
   width: 100%;
@@ -540,6 +546,9 @@ a{
   z-index: 10;
   position: relative;
 }
+#exit-dollhouse:hover{
+  transform: scale(1.05)
+}
 
 #exit-new-title{
   font-family: jacquard;
@@ -621,6 +630,9 @@ a{
   font-size: 0.9rem;
   /* bottom: -15px; */
   /* bottom: 50px; */
+}
+.exit-btn:hover{
+  transform: scale(1.05)
 }
 
 .exit-img-text{
@@ -969,6 +981,9 @@ textarea{
   height: 40px;
   pointer-events: all;
 }
+#page-menu-next:hover{
+  transform: scale(1.05);
+}
 .nav-img{
   height: 40px;
   width: 40px;
@@ -987,6 +1002,9 @@ textarea{
   z-index: 5;
   filter: drop-shadow(2px 3px 2px var(--buttonshadow));
   /* border: 1px solid red; */
+}
+#back-to-works:hover{
+  transform: translateY(-50%) scale(1.05)
 }
 #back-to-works img{
   cursor: var(--pointer);
@@ -1040,6 +1058,9 @@ textarea{
   cursor: var(--pointer);
   height: 70px;
   filter: drop-shadow(2px 3px 2px var(--buttonshadow));
+}
+#about-button:hover{
+  transform: translateX(-50%) scale(1.05)
 }
 #about-button img{
   cursor: var(--pointer);

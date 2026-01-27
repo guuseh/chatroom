@@ -19,7 +19,8 @@ import Parkerito from "./pages/parkerito.jsx" // custom eyes html ROOM 07
 import Plasticgirl from "./pages/plasticgirl.jsx" // video ROOM 08
 import Sarahchefka from "./pages/sarahchefka.jsx" // text ROOM 09
 import Sotce from "./pages/sotce.jsx" // video ROOM 10
-import Denzel from "./pages/denzel.jsx" // text ROOM 14
+import Richard from "./pages/richard.jsx" // video ROOM 11
+import Denzel from "./pages/denzel.jsx" // text ROOM 12
 
 function App() {
   const useMediaQuery = (query) => {
@@ -57,7 +58,7 @@ function App() {
   const isSmall = useIsSmall();
 
   const urls = ["/01", "/02", "/03", "/04", "/05",
-                 "/06", "/07", "/08", "/09", "/10", "/14"]
+                 "/06", "/07", "/08", "/09", "/10", "/11", "/12"]
   const [shuffledUrls, setShuffledUrls] = useState([]) // will only contain urls
   const [projectCounter, setProjectCounter] = useState(0)
   const [shuffledDivs, setShuffledDivs] = useState([]) // will contain also empty 0 divs
@@ -131,10 +132,10 @@ function App() {
   // set array for adding projects to empty divs for grid
   useEffect(() => {
     if(isSmall){
-      let empty = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]
+      let empty = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/13", "/14"]
       setArray([...shuffledUrls, ...empty])
     } else{
-      let empty = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/11", "/12"]
+      let empty = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "/13", "/14"]
       setArray([...shuffledUrls, ...empty])
     }
     // setArray(prev => [...prev, ...shuffledUrls])
@@ -204,7 +205,8 @@ function App() {
               <Route path="08" element={<Plasticgirl setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
               <Route path="09" element={<Sarahchefka setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
               <Route path="10" element={<Sotce setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
-              <Route path="14" element={<Denzel setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="11" element={<Richard setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
+              <Route path="12" element={<Denzel setProjectCounter={setProjectCounter} visitPage={visitPage} isSmall={isSmall}/>} />
             
           </Route>
           </Route>

@@ -79,8 +79,8 @@ const Exit = ({visited, isSmall}) => {
 
         <div style={{gridArea: "chat"}} id="exit-new-chatdiv">
             <div id="exit-new-dates">
-                <div><span>03.03–14.03.2026</span> The &#123;Chatroom&#125; @ <span>SomoS Art House</span></div>
-                <div><span>29.01.2026, 18:00–21:00</span> The &#123;Dollhouse&#125; @ <span>SomoS Art House</span></div>
+                <div><span>03.03–14.03.2026</span> <a href="https://somos-arts.org/the-chatroom-the-dollhouse/" target="_blank" rel="noreferrer">The &#123;Chatroom&#125; @ <span>SomoS Art House</span></a></div>
+                <div><span>29.01.2026, 18:00–21:00</span> <a href="https://somos-arts.org/exit-the-dollhouse/" target="_blank" rel="noreferrer">The &#123;Dollhouse&#125; @ <span>SomoS Art House</span></a></div>
             </div>
             <GuestBook />
         </div>

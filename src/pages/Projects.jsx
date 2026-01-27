@@ -31,20 +31,21 @@ const Projects = ({projects, urls, visited, showObjects, isSmall}) => {
         <motion.div id="projects-img-container">
             {projects.map((p, i) => {
                 return <motion.div key={i*100} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-end" : "flex-start", justifySelf: i % 3 == 0 ? "flex-end" : i % 5 == 0 ? "flex-start" : "center"}}>
-                  { p != 0 && p != "/11" && p != "/12" ?
+                  { p != 0 && p != "/13" && p != "/14" ?
                   <motion.div className="projects-img-div" initial={{scale: 0}} animate={showObjects && {scale: 1, transition: {duration: 0.2, delay: i/15}}}>
                       <img key={i} onMouseEnter={(e) => {setHover(true); setMouse([e.clientX, e.clientY])}} onMouseLeave={(e) => setHover(false)} style={{alignSelf: i % 3 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 3 == 0 ? "0 auto 0 0" : i % 5 == 0 ? "0 0 0 auto" : "0 auto 0 auto", cursor: "var(--pointer)"}} onClick={() => {navigate("/room"+p)}} className="projects-img projects-img-active" src={`/img/front${p}.png`}/>
-                  </motion.div>   : p != 0 && 
+                  </motion.div>   : p != 0 &&
                     <motion.div initial={{scale: 0}} animate={showObjects && {scale: 1, transition: {duration: 0.2, delay: i/15}}} className="projects-img-div" style={{position: "relative"}}>
-                      <img key={i*50} style={{alignSelf: i % 4 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 4 == 0 ? "0 auto 0 0" : i % 3 == 0 ? "0 0 0 auto" : "0 auto 0 auto", opacity: 0.5}} className="projects-img" src={`/img/front${p}.png`}/>
-                      <span style={{position: "absolute", left: i % 4 == 0 ? "0%" : i % 3 == 0 ? "0%" : "0%", top: i % 5 == 0 ? "40%" : i % 4 == 0 ? "50%" : "60%", fontFamily: "jacquard", background: "var(--grey)", lineHeight: "1rem", cursor: "var(--pointer)"}}><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank">receive clue?</a></span>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank" style={{cursor: "var(--pointer)"}}>
+                      <img key={i*50} style={{alignSelf: i % 4 == 0 ? "center" : i % 5 == 0 ? "flex-start" : "flex-end", margin: i % 4 == 0 ? "0 auto 0 0" : i % 3 == 0 ? "0 0 0 auto" : "0 auto 0 auto", opacity: 0.5, cursor: "var(--pointer)"}} className="projects-img" src={`/img/front${p}.png`}/>
+                      <span style={{position: "absolute", left: i % 4 == 0 ? "0%" : i % 3 == 0 ? "0%" : "0%", top: i % 5 == 0 ? "40%" : i % 4 == 0 ? "50%" : "60%", fontFamily: "jacquard", background: "var(--grey)", lineHeight: "1rem", cursor: "var(--pointer)"}}>receive clue?</span></a>
                     </motion.div>    
                     }
                 </motion.div>
             })}
         </motion.div>
 
-        <div id="projects-page-babytooth"><img src="/img/front/babytooth.png" /></div>
+        <div id="projects-page-babytooth"><a href="https://www.instagram.com/bby.t00th/" target="_blank" rel="noreferrer"><img src="/img/front/babytooth.png" style={{cursor: "var(--pointer)"}}/></a></div>
 
         {/* <motion.div id="projects-about-window" onClick={() => handleAbout()} ><motion.img animate={open ? {rotate: 180, transition: {duration: 0.3}} : {rotate: 0, transition: {duration: 0.3}}} src={`/img/front/about-closed.png`} style={{height: "100%", cursor: "var(--pointer)"}}/></motion.div> */}
 
@@ -78,7 +79,7 @@ const Projects = ({projects, urls, visited, showObjects, isSmall}) => {
                 Curated by 
                 Sarah Khadra Hasni <span style={{fontSize: isSmall ? "0.6rem": "0.9rem", opacity: 0.8}}><a href={`https://www.instagram.com/succubi`} target="_blank">(Instagram)</a> <a href={`https://sarahkhadra.com`} target="_blank">(Website)</a></span> 
                 &nbsp;and Joshua Esser <span style={{fontSize: isSmall ? "0.6rem": "0.9rem", opacity: 0.8}}><a href={`https://www.instagram.com/joshuaesser/`} target="_blank">(Instagram)</a></span><br/>
-                Developed by Guus Hoeberechts <span style={{fontSize: isSmall ? "0.6rem": "0.9rem", opacity: 0.8}}><a href={`https://www.guushoeberechts.nl`} target="_blank">(Website)</a></span><br/><br/>
+                Developed by Guus Hoeberechts <span style={{fontSize: isSmall ? "0.6rem": "0.9rem", opacity: 0.8}}><a href={`https://guuseh.github.io`} target="_blank">(Website)</a></span><br/><br/>
                 <a href="mailto:thechatroomandthedollhouse@gmail.com" style={{opacity: 0.8}}>(Send us an email)</a><br/><br/>
                 As part of The Wrong Biennale 2025–26
               </p>
