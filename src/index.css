@@ -439,6 +439,9 @@ a{
     transform: translateY(0%);
     z-index: 40;
   }
+  #exit-door:hover{
+    transform: translateY(0%) scale(1.05)
+  }
   #projects-about-window{
     height: 60px;
     z-index: 55;
@@ -1018,6 +1021,9 @@ textarea{
     transform: translateY(0%);
     z-index: 40;
   }
+  #back-to-works:hover{
+  transform: translateY(0%) scale(1.05)
+}
   #img-navbar{
     gap: 0;
     width: 100%;
@@ -1042,6 +1048,9 @@ textarea{
     transform: translateX(-50%);
     z-index: 40;
   }
+  #page-menu-next:hover{
+  transform: translateX(-50%) scale(1.05);
+}
 }
 
 
