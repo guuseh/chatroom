@@ -14,7 +14,7 @@ import Demonlovers from "./pages/demonlovers.jsx"; // custom google maps ROOM 02
 import Eliska from "./pages/eliska.jsx"; // images ROOM 03
 import Ester from "./pages/ester.jsx" // custom auto writing text ROOM 04
 import James from "./pages/james.jsx" // images ROOM 05
-import Noura from "./pages/noura.jsx" // custom character sprites -> video ROOM 06
+import Noura from "./scripts/noura.jsx" // custom character sprites -> video ROOM 06
 import Parkerito from "./pages/parkerito.jsx" // custom eyes html ROOM 07
 import Plasticgirl from "./pages/plasticgirl.jsx" // video ROOM 08
 import Sarahchefka from "./pages/sarahchefka.jsx" // text ROOM 09

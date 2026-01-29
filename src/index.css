@@ -1617,8 +1617,13 @@ sup{
 #noura-iframe iframe{
     width: 600px;
     height: 450px;
-    /* aspect-ratio: 4 / 3; */
   }
+   /* #noura-iframe {
+  position: relative;
+  overflow: hidden;
+} */
+
+
 #noura-button{
   width: fit-content;
 }
@@ -1693,17 +1698,20 @@ sup{
 
 @media (max-width: 600px){
   #noura-iframe iframe{
-    width: 90svw;
-    height: auto;
+    width: 90vw;
+    /* height: auto; */
+    height: 67.5vw;
     aspect-ratio: 4 / 3;
   }
   #noura-iframe{
     left: 5%;
     top: 100px;
     transform: translate(0%, 0%);
-    width: fit-content;
+    /* width: fit-content; */
     position: static;
-    height: fit-content;
+    /* height: fit-content; */
+    width: 90vw;
+    height: 67.5vw;
   }
   #noura-info{
     /* top: 500px; */
