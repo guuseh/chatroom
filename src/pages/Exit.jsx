@@ -49,8 +49,8 @@ const Exit = ({visited, isSmall}) => {
                     <div>The &#123;Chatroom&#125; opens its doors soon... Visit the exhibition's &lt;IRL&gt; mirror at SomoS Art House, 03.03–14.03.2026.</div>
                 </div>
                 <div id="exit-new-info-btns">
-                    <div className="exit-btn">newsletter</div>
-                    <div className="exit-btn">email us</div>
+                    <div className="exit-btn"><a href="https://docs.google.com/forms/d/e/1FAIpQLSenMiPVBC29Pl1h9PBehbivuFpgXhqn_qUfXKItLPQYz8swDA/viewform" target="_blank" rel="noreferrer">newsletter</a></div>
+                    <div className="exit-btn"><a href="mailto:thechatroomandthedollhouse@gmail.com">email us</a></div>
                 </div>
             <motion.div id="exit-dollhouse" 
                 // onMouseMove={(e) => {setMouse([e.clientX, e.clientY]), setTooltip(true), setTipText('start over')}} onMouseLeave={() => setTooltip(false)} onClick={() => handleRestart()} onAnimationComplete={() => navigate("/")} animate={restart&& {scale: 6.4, transition: {duration: 1}}} style={{right: restart ? "48.5vw" : "var(--margin)", top: restart ? "39.5vh": "20px"}}
