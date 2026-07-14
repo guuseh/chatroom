@@ -95,6 +95,7 @@ const Home = ({isSmall}) => {
         <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[25, -5, 5]}>Sotce</motion.div>
         <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[25, -10, 6]}>Angel Kether</motion.div>
         <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[25, -20, 7]}>Sarah Khadra</motion.div>
+        <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[25, -20, 8]}>Denzel Arthur</motion.div>
       </motion.div>}
 
       <div style={{position: "relative"}}>
@@ -110,7 +111,8 @@ const Home = ({isSmall}) => {
         <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[25, 0, 4]}>Demon Lovers Inc.</motion.div>
         <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[25, -5, 5]}>Sotce</motion.div>
         <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[25, -10, 6]}>Angel Kether</motion.div>
-        <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[25, -20, 7]}>Sarah Khadra</motion.div>
+        <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[25, -20, 7]}>Denzel Arthur</motion.div>
+        <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[25, -30, 8]}>Sarah Khadra</motion.div>
         </>}
         <motion.div variants={nameVariants} animate={hover ? "show" : showNames ? "show" : "hidden"} initial="hidden" custom={[-25, 20, 8]}>Noura Tafeche</motion.div>
         <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[-25, 10, 9]}>Tobia Paolo Bettoni</motion.div>
@@ -118,7 +120,8 @@ const Home = ({isSmall}) => {
         <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[-25, 0, 11]}>Everyoneisagirl</motion.div>
         <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[-25, -5, 12]}>Parker Ito</motion.div>
         <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[-25, -10, 13]}>Bogna Konior</motion.div>
-        <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[-25, -20, 14]}>Joshua Esser</motion.div>
+        <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[-25, -20, 14]}>Larry Sportello</motion.div>
+        <motion.div variants={nameVariants} animate={hover || showNames? "show" : "hidden"} initial="hidden" custom={[-25, -30, 15]}>Joshua Esser</motion.div>
       </div>
       
     </motion.div>
